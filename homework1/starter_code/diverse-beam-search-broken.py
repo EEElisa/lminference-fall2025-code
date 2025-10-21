@@ -30,16 +30,19 @@ def diverse_beam_search(model, tokenizer, prompt, beam_width=6, num_groups=3, ma
                 penalized_probs = probs.clone()
                 for token in prev_tokens_counts:
                     penalized_probs[0, token] /= (diversity_penalty * prev_tokens_counts[token])
-                topk_probs, topk_ids = torch.topk(probs, group_size)
-                for i in range(group_size):
+                # use penalized probs for selection 
+                topk_probs, topk_ids = torch.topk(penalized_probs, group_size)
+                for i in range(topk_ids.size(1)):
+                # for i in range(group_size):
                     next_id = topk_ids[0, i].unsqueeze(0)
                     next_score = score * topk_probs[0, i].item()
                     new_seq = torch.cat([seq, next_id.unsqueeze(0)], dim=1)
-                    if next_id == tokenizer.eos_token_id:
+                    if next_id.item() == tokenizer.eos_token_id:
                         completed[g].append((new_seq, next_score))
                     else:
                         new_beams.append((new_seq, next_score))
-            beams[g] = sorted(new_beams, key=lambda x: x[1] / len(x[0][0]), reverse=True)
+            # Keep only the top group_size beams for the current group
+            beams[g] = sorted(new_beams, key=lambda x: x[1] / len(x[0][0]), reverse=True)[:group_size]
         # Stop if all beams are empty
         if all(len(group) == 0 for group in beams):
             break

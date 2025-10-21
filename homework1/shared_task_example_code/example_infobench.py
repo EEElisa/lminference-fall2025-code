@@ -17,12 +17,10 @@ def main():
     print("1. loading dataset...")
     dataset = load_custom_dataset("InfoBench")
     
-    
     print(f"Dataset loaded: {len(dataset)} examples")
     
     # Find the correct solution
     print("\n2. Show one example of the dataset...")
-
     example = dataset[0]
     print(f"Instruction: {example['instruction']}\nQuestion: {example['input']}\nGeneration:")
 

@@ -1,0 +1,23 @@
+{
+    "Default generation settings": {
+        "average_score": 0.5461411088911088
+    },
+    "Greedy decoding": {
+        "average_score": 0.5402965922965922
+    },
+    "Temperature sampling (tau=0.25)": {
+        "average_score": 0.5246140526140524
+    },
+    "Temperature sampling (tau=1.5)": {
+        "average_score": 0.44494030969030957
+    },
+    "Beam search (beam width=3)": {
+        "average_score": 0.5269708347208346
+    },
+    "Beam search (beam width=25)": {
+        "average_score": 0.5376180208680208
+    },
+    "Locally typical sampling (typical_p=0.95)": {
+        "average_score": 0.5401029526029525
+    }
+}
