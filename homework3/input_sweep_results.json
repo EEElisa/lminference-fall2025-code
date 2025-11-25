@@ -1,0 +1,100 @@
+{
+  "model_name": "Qwen/Qwen3-8B",
+  "batch_size": 8,
+  "output_len": 64,
+  "num_iterations": 10,
+  "gpu_name": "NVIDIA RTX A6000",
+  "measurements": [
+    {
+      "input_len": 1,
+      "success": true,
+      "avg_time": 3.2148885250091555,
+      "throughput": 159.25902127463095
+    },
+    {
+      "input_len": 2,
+      "success": true,
+      "avg_time": 3.283504009246826,
+      "throughput": 155.9309806103886
+    },
+    {
+      "input_len": 4,
+      "success": true,
+      "avg_time": 3.190199303627014,
+      "throughput": 160.4915402676864
+    },
+    {
+      "input_len": 8,
+      "success": true,
+      "avg_time": 3.1997323751449587,
+      "throughput": 160.01338236195602
+    },
+    {
+      "input_len": 16,
+      "success": true,
+      "avg_time": 3.2150477886199953,
+      "throughput": 159.2511320709691
+    },
+    {
+      "input_len": 32,
+      "success": true,
+      "avg_time": 2.598546934127808,
+      "throughput": 197.03319315717914
+    },
+    {
+      "input_len": 64,
+      "success": true,
+      "avg_time": 3.016666579246521,
+      "throughput": 169.7237618245114
+    },
+    {
+      "input_len": 128,
+      "success": true,
+      "avg_time": 3.7047983169555665,
+      "throughput": 138.19915585060463
+    },
+    {
+      "input_len": 256,
+      "success": true,
+      "avg_time": 4.211075115203857,
+      "throughput": 121.58415273844247
+    },
+    {
+      "input_len": 512,
+      "success": true,
+      "avg_time": 5.2411696195602415,
+      "throughput": 97.68811871479923
+    },
+    {
+      "input_len": 1024,
+      "success": true,
+      "avg_time": 7.131039977073669,
+      "throughput": 71.79878413893103
+    },
+    {
+      "input_len": 2048,
+      "success": true,
+      "avg_time": 11.591397333145142,
+      "throughput": 44.17068842390177
+    },
+    {
+      "input_len": 4096,
+      "success": true,
+      "avg_time": 18.978091764450074,
+      "throughput": 26.978476358675998
+    },
+    {
+      "input_len": 8192,
+      "success": true,
+      "avg_time": 36.63404870033264,
+      "throughput": 13.976069207861018
+    },
+    {
+      "input_len": 16384,
+      "success": false,
+      "avg_time": null,
+      "throughput": null,
+      "error": "OOM"
+    }
+  ]
+}

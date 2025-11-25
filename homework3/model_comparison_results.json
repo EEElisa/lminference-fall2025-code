@@ -1,0 +1,27 @@
+{
+  "batch_size": 8,
+  "input_len": 64,
+  "output_len": 64,
+  "num_iterations": 10,
+  "gpu_name": "NVIDIA RTX A6000",
+  "models": [
+    {
+      "model_name": "Qwen/Qwen3-1.7B",
+      "success": true,
+      "avg_time": 1.8585707426071167,
+      "throughput": 275.4805013672981
+    },
+    {
+      "model_name": "Qwen/Qwen3-8B",
+      "success": true,
+      "avg_time": 3.4260488033294676,
+      "throughput": 149.44328857850286
+    },
+    {
+      "model_name": "allenai/OLMo-7B-0724-hf",
+      "success": true,
+      "avg_time": 2.6109029054641724,
+      "throughput": 196.10074312931044
+    }
+  ]
+}

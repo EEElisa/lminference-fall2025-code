@@ -1,0 +1,39 @@
+{
+  "model_name": "Qwen/Qwen3-8B",
+  "batch_size": 8,
+  "input_len": 64,
+  "num_iterations": 10,
+  "gpu_name": "NVIDIA RTX A6000",
+  "measurements": [
+    {
+      "output_len": 1,
+      "success": true,
+      "avg_time": 0.16319451332092286,
+      "throughput": 49.02125590624458
+    },
+    {
+      "output_len": 4,
+      "success": true,
+      "avg_time": 0.28721017837524415,
+      "throughput": 111.41666420398079
+    },
+    {
+      "output_len": 16,
+      "success": true,
+      "avg_time": 0.7324704647064209,
+      "throughput": 174.7510734802164
+    },
+    {
+      "output_len": 64,
+      "success": true,
+      "avg_time": 3.1773712635040283,
+      "throughput": 161.13949473923378
+    },
+    {
+      "output_len": 256,
+      "success": true,
+      "avg_time": 14.20439658164978,
+      "throughput": 144.1807111078374
+    }
+  ]
+}
