@@ -54,7 +54,7 @@ def load_custom_dataset(dataset_name: str):
     elif dataset_name == "InfoBench":
         raw_dataset = load_dataset("vashistht/11763_datasets", "infobench")
         return [example for example in raw_dataset["dev_test"]]
-    elif dataset_name == "N-best":
+    elif dataset_name == "Graph":
         raw_dataset = load_dataset("vashistht/11763_datasets", "graph_dev")
         return [example for example in raw_dataset["dev_test"]]
     else:
@@ -91,7 +91,7 @@ def generate_problem_prompt(task_name: str, example: Dict[str, Any]) -> str:
         return format_mmlu_example(example, include_answer=False)
     elif task_name == "InfoBench":
         return f"Instruction: {example['instruction']}\nQuestion: {example['input']}\nGeneration:"
-    elif task_name == "N-best":
+    elif task_name == "Graph":
         # edges is a list of [src, dst, weight] or (src, dst, weight)
         edges = [(edge[0], edge[1], edge[2]) for edge in example['edges']]
         N = example['graph_params']['N']
@@ -105,7 +105,7 @@ Edges (source -> target, weight):
         prompt += f"""
 Find the top {P} shortest path{'s' if P > 1 else ''} from node 0 to node {N-1}.
 
-Return a JSON object with the following structure:
+Return ONLY a valid JSON object (without markdown code blocks) with the following structure:
 {{
   "paths": [
     [0, ..., {N-1}],
@@ -180,6 +180,9 @@ def convert_llm_response_to_solution(llm_response: str, task_name: str) -> Any:
         return extract_answer(llm_response.replace('**', ''))
     elif task_name == "InfoBench":
         return llm_response
+    elif task_name == "Graph":
+        parsed_json = parse_graph_json_response(llm_response)
+        return GraphPathSolution(paths=[PathInfo(path=p, weight=w) for p, w in zip(parsed_json.get("paths", []), parsed_json.get("weights", []))])
     else:
         return llm_response
 
@@ -268,22 +271,25 @@ def query_llm(
     return responses
 
 
-def query_llm_with_function_call(
-    hf_model: HuggingFaceModel,
-    prompt: str,
-) -> Dict[str, Any]:
-    llm_response = query_llm(hf_model, [prompt], DecodingStrategy(name="Function Call", num_beams=4))
-    llm_response = llm_response[0]
-    
-    json_match = re.search(r"```json\s*(\{.*\})\s*```", llm_response, re.DOTALL)
+def parse_graph_json_response(llm_response: str) -> Dict[str, Any]:
+    """Parse JSON from LLM response, handling both markdown-wrapped and plain JSON."""
+    # Try to find JSON in markdown code blocks first
+    json_match = re.search(r"```json\s*(\{.*?\})\s*```", llm_response, re.DOTALL)
     if json_match:
         try:
             return json.loads(json_match.group(1))
         except json.JSONDecodeError:
-            print("Failed to parse JSON from LLM response.")
-            return {"paths": [], "weights": []}
-    
-    print("No JSON object found in LLM response.")
+            pass
+
+    # Try to find plain JSON object
+    json_match = re.search(r"\{.*?\}", llm_response, re.DOTALL)
+    if json_match:
+        try:
+            return json.loads(json_match.group(0))
+        except json.JSONDecodeError:
+            pass
+
+    # If no valid JSON found, return empty
     return {"paths": [], "weights": []}
 
 
@@ -345,7 +351,7 @@ def evaluate_solution(example: Dict[str, Any], predicted_solution: Any, task_nam
         return 1.0 if predicted_solution == correct_solution else 0.0
     elif task_name == "InfoBench":
         return info_bench_eval(example, predicted_solution, openai_client)
-    elif task_name == "N-best":
+    elif task_name == "Graph":
         # edges is a list of [src, dst, weight] or (src, dst, weight)
         edges = [(edge[0], edge[1], edge[2]) for edge in example['edges']]
         P = example['graph_params']['P']
@@ -375,28 +381,17 @@ def run_evaluation(
         batch = examples[i:i + batch_size]
         prompts = [generate_problem_prompt(task, example) for example in batch]
 
-        if task == "N-best":
-            # N-best is a function-call like task, so we still process one by one
-            # as it doesn't fit into the batched decoding paradigm easily.
-            for example in batch:
-                prompt = generate_problem_prompt(task, example)
-                llm_response = query_llm_with_function_call(hf_model, prompt)
-                predicted_solution = GraphPathSolution(paths=[PathInfo(path=p, weight=w) for p, w in zip(llm_response.get("paths", []), llm_response.get("weights", []))])
-                score = evaluate_solution(example, predicted_solution, task, openai_client)
-                total_score += score
-                results.append({"example_id": i, "score": score})
-        else:
-            llm_responses = query_llm(
-                hf_model,
-                prompts,
-                decoding_strategy,
-            )
+        llm_responses = query_llm(
+            hf_model,
+            prompts,
+            decoding_strategy,
+        )
 
-            for j, example in enumerate(batch):
-                predicted_solution = convert_llm_response_to_solution(llm_responses[j], task)
-                score = evaluate_solution(example, predicted_solution, task, openai_client)
-                total_score += score
-                results.append({"example_id": i+j, "score": score})
+        for j, example in enumerate(batch):
+            predicted_solution = convert_llm_response_to_solution(llm_responses[j], task)
+            score = evaluate_solution(example, predicted_solution, task, openai_client)
+            total_score += score
+            results.append({"example_id": i+j, "score": score})
     
     average_score = total_score / len(examples) if examples else 0.0
     
@@ -436,33 +431,19 @@ def run_benchmarking(
                 continue
             
         benchmark_results = {}
-        
-        # N-best task does not use different decoding strategies, so we run it only once
-        if task == "N-best":
-            strategy = DecodingStrategy(name="Function Call", num_beams=4)
+
+        for strategy in strategies:
+            print(f"\n--- Running benchmark for strategy: {strategy.name} ---")
             results = run_evaluation(
                 examples=examples,
                 hf_model=hf_model,
                 openai_client=openai_client,
                 task=task,
                 decoding_strategy=strategy,
-                batch_size=1 # N-best is processed one by one
+                batch_size=batch_size
             )
             benchmark_results[strategy.name] = results
             print(f"Average score for {strategy.name}: {results['average_score']:.2f}")
-        else:
-            for strategy in strategies:
-                print(f"\n--- Running benchmark for strategy: {strategy.name} ---")
-                results = run_evaluation(
-                    examples=examples,
-                    hf_model=hf_model,
-                    openai_client=openai_client,
-                    task=task,
-                    decoding_strategy=strategy,
-                    batch_size=batch_size
-                )
-                benchmark_results[strategy.name] = results
-                print(f"Average score for {strategy.name}: {results['average_score']:.2f}")
 
         print("\n\n--- Benchmark Summary for all strategies on model: {model_name} ---")
         for name, result in benchmark_results.items():
@@ -496,7 +477,7 @@ if __name__ == "__main__":
     batch_size = int(os.getenv("BATCH_SIZE", 8))
 
     models_to_test = [
-        "Qwen/Qwen3-1.7B",
+        # "Qwen/Qwen3-1.7B",
         "Qwen/Qwen3-4B-Instruct-2507",
         "Qwen/Qwen3-4B"
     ]
