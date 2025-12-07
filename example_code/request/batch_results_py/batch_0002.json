@@ -2,9 +2,9 @@
   "batch_id": 2,
   "batch_size": 1,
   "scheduled_arrival_time": 34.29366434305632,
-  "actual_send_time": 34.31545662879944,
-  "request_duration": 0.1710052490234375,
-  "completion_time": 34.486504554748535,
+  "actual_send_time": 34.303067684173584,
+  "request_duration": 0.13973212242126465,
+  "completion_time": 34.44283699989319,
   "status_code": 200,
   "prompt_idxs": [
     36
@@ -20,8 +20,8 @@
     "model": "mingqia2-3",
     "usage": {
       "prompt_tokens": 0,
-      "completion_tokens": 58,
-      "total_tokens": 58
+      "completion_tokens": 15,
+      "total_tokens": 15
     }
   },
   "error": null

@@ -2,9 +2,9 @@
   "batch_id": 0,
   "batch_size": 3,
   "scheduled_arrival_time": 8.230951251669854,
-  "actual_send_time": 8.236440896987915,
-  "request_duration": 86.33942937850952,
-  "completion_time": 94.57590627670288,
+  "actual_send_time": 8.23948621749878,
+  "request_duration": 141.01686692237854,
+  "completion_time": 149.25639247894287,
   "status_code": 200,
   "prompt_idxs": [
     2,
@@ -12,8 +12,29 @@
     3
   ],
   "response": {
-    "error": "Already borrowed",
-    "traceback": "Traceback (most recent call last):\n  File \"/root/system_with_router.py\", line 683, in completions\n    task_type, task_indices, generated_texts, prompt_lengths, outputs = future.result()\n                                                                        ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/usr/local/lib/python3.11/concurrent/futures/thread.py\", line 58, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/system_with_router.py\", line 661, in _run_group\n    batch_results = [\n                    ^\n  File \"/root/system_with_router.py\", line 662, in <listcomp>\n    self._enqueue_for_batch(task_type, p, max_tokens, temperature)\n  File \"/root/system_with_router.py\", line 256, in _enqueue_for_batch\n    raise entry[\"result\"]\n  File \"/root/system_with_router.py\", line 221, in _batch_worker\n    generated_texts, prompt_lengths, outputs = self._process_by_task(\n                                               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/system_with_router.py\", line 567, in _process_by_task\n    gen_ids, acc_rate, prompt_len, prompt_ids = specdec.generate_one(\n                                                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 120, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/specdec.py\", line 232, in generate_one\n    tokenized = self.tokenizer(\n                ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_base.py\", line 3073, in __call__\n    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_base.py\", line 3183, in _call_one\n    return self.encode_plus(\n           ^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_base.py\", line 3258, in encode_plus\n    return self._encode_plus(\n           ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 627, in _encode_plus\n    batched_output = self._batch_encode_plus(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 541, in _batch_encode_plus\n    self.set_truncation_and_padding(\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 498, in set_truncation_and_padding\n    self._tokenizer.no_padding()\nRuntimeError: Already borrowed\n"
+    "choices": [
+      {
+        "text": "from math import sqrt\n\ndef get_primes(n):\n    \"\"\"\n    Generates all prime numbers up to n using the Sieve of Eratosthenes algorithm.\n    \n    The Sieve of Eratosthenes is an ancient algorithm for finding all prime numbers up to any given limit.\n    It works by iteratively marking the multiples of each prime number starting from 2.\n    \n    Parameters:\n    n (int): The upper limit for prime numbers (inclusive).\n    \n    Returns:\n    list: A list of prime numbers up to n.\n    \n    Example:\n    >>> get_primes(10)\n    [2, 3, 5, 7]\n    \"\"\"\n    if n < 2:\n        return []\n    \n    sieve = [True] * (n + 1)\n    sieve[0] = sieve[1] = False\n    for i in range(2, int(sqrt(n)) + 1):\n        if sieve[i]:\n            for j in range(i*i, n+1, i):\n                sieve[j] = False\n    return [i for i, is_prime in enumerate(sieve) if is_prime]\n\n# Example usage:\n# primes = get_primes(30)\n# print(primes)  # Output: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]\n\n# Test cases:\n# assert get_primes(10) == [2, 3, 5, 7]\n# assert get_primes(2) == [2]\n# assert get_primes(1) == []\n# assert get_primes(0) == []\n# assert get_primes(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]\n# assert get_primes(100) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, ",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 2, 4], [0, 3, 1, 4], [0, 3, 1, 2, 4]], weights=[213, 509, 797])",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": " Let's see. I need to generate a 7-day weather forecast for a city. The user wants specific details each day: high and low temps, precipitation chance and conditions, sunrise and sunset times, and air quality. Let me pick a city. Maybe a real one, but maybe a fictional one. Let's go with a fictional city to have more flexibility. Let's say \"Veridell\", a coastal city. Now, I'll need to make sure each day has different weather patterns. Maybe start with a sunny day, then some rain, then a mix, etc. I should vary the temperatures, too. Highs around 70s and lows in the 50s or 60s. For precipitation, some days might have a chance of rain, others maybe thunderstorms. Sunrise and sunset times can be adjusted based on the season. Let's assume it's spring, so sunrise around 6:30 AM and sunset around 7:30 PM. Air quality can be good, moderate, or poor depending on the day. Maybe include a day with high pollution. Need to make sure each day is distinct. Check the details again: high and low, precipitation, sunrise/sunset, air quality. Also, the comment on air quality should be brief. Let me outline the days. Day 1: Sunny, high 72, low 56. Sunrise 6:30, sunset 7:30. Air quality good. Day 2: Partly cloudy, high 68, low 52. Maybe 20% chance of rain. Sunrise same. Air quality moderate. Day 3: Rain, high 65, low 50. 70% chance. Sunrise 6:25, sunset 7:35. Air quality poor. Day 4: Thunderstorms, high 70, low 54. 60% chance. Sunrise 6:20, sunset 7:40. Air quality moderate. Day 5: Sunny, high 75, low 58. Sunrise 6:15, sunset 7:45. Air quality good. Day 6: Cloudy, high 67, low 53. 30% chance of rain. Sunrise 6:10, sunset 7:50. Air quality moderate. Day 7: Partly cloudy, high 71, low 57",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 120,
+      "completion_tokens": 529,
+      "total_tokens": 649
+    }
   },
   "error": null
 }

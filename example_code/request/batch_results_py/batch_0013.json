@@ -2,9 +2,9 @@
   "batch_id": 13,
   "batch_size": 3,
   "scheduled_arrival_time": 148.24527859516942,
-  "actual_send_time": 148.2559826374054,
-  "request_duration": 0.5406584739685059,
-  "completion_time": 148.7966809272766,
+  "actual_send_time": 148.2666962146759,
+  "request_duration": 0.12460637092590332,
+  "completion_time": 148.39134287834167,
   "status_code": 200,
   "prompt_idxs": [
     38,
