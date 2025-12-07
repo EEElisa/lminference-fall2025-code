@@ -78,20 +78,6 @@ class Model:
         # Tokenizer is not thread-safe; protect calls with a lock when using concurrency
         self._tok_lock = threading.Lock()
 
-        # Micro-batching config for server-side batching (per task)
-        self._microbatch_settings = {
-            "mmlu": {"flush_window": 0.5, "max_batch_size": 5},
-            "infobench": {"flush_window": 0.5, "max_batch_size": 5},
-        }
-        self._batch_queues = {
-            task: {"queue": [], "cond": threading.Condition(), "running": True}
-            for task in self._microbatch_settings
-        }
-        # Start background batchers
-        for task in self._microbatch_settings:
-            t = threading.Thread(target=self._batch_worker, args=(task,), daemon=True)
-            t.start()
-
         # Initialize task router
         from task_router import TaskRouter
         self.router = TaskRouter(
@@ -105,11 +91,7 @@ class Model:
         self._init_model_pairs(target_model_name, draft_model_name)
         print(f"Initialized {len(self.model_pairs)} model pairs (one per GPU) with round-robin routing")
 
-        # NOTE: Graph tasks use direct computation (no LLM needed!)
-        # NOTE: InfoBench uses batched speculative decoding directly (specdec.generate_batch)
-        # No separate batcher needed - specdec handles batching internally
-
-        # Task-specific settings
+        # Task-specific settings (MUST be set BEFORE starting batch workers)
         self.task_specdec_enabled = {
             "infobench": True,   # ✅ Speculative decoding
             "graph": False,      # ❌ No specdec (uses direct computation instead)
@@ -133,6 +115,24 @@ class Model:
                 "refine_temperature": 0.7,
             },
         }
+
+        # Micro-batching config for server-side batching (per task)
+        self._microbatch_settings = {
+            "mmlu": {"flush_window": 0.5, "max_batch_size": 5},
+            "infobench": {"flush_window": 0.5, "max_batch_size": 5},
+        }
+        self._batch_queues = {
+            task: {"queue": [], "cond": threading.Condition(), "running": True}
+            for task in self._microbatch_settings
+        }
+        # Start background batchers (task_settings now guaranteed to exist)
+        for task in self._microbatch_settings:
+            t = threading.Thread(target=self._batch_worker, args=(task,), daemon=True)
+            t.start()
+
+        # NOTE: Graph tasks use direct computation (no LLM needed!)
+        # NOTE: InfoBench uses batched speculative decoding directly (specdec.generate_batch)
+        # No separate batcher needed - specdec handles batching internally
 
         # Initialize GPU monitor
         self._init_gpu_monitor()

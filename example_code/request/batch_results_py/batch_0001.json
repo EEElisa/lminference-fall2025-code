@@ -1,0 +1,21 @@
+{
+  "batch_id": 1,
+  "batch_size": 5,
+  "scheduled_arrival_time": 13.562899893086879,
+  "actual_send_time": 13.572946548461914,
+  "request_duration": 0.5881743431091309,
+  "completion_time": 14.161161184310913,
+  "status_code": 200,
+  "prompt_idxs": [
+    150,
+    126,
+    131,
+    45,
+    114
+  ],
+  "response": {
+    "error": "'Model' object has no attribute 'task_settings'",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/system_with_router.py\", line 727, in completions\n    task_type, task_indices, generated_texts, prompt_lengths, outputs = future.result()\n                                                                        ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/usr/local/lib/python3.11/concurrent/futures/thread.py\", line 58, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/system_with_router.py\", line 715, in _run_group\n    generated_texts, prompt_lengths, outputs = self._process_by_task(\n                                               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/system_with_router.py\", line 461, in _process_by_task\n    settings = self.task_settings.get(task_type, {})\n               ^^^^^^^^^^^^^^^^^^\nAttributeError: 'Model' object has no attribute 'task_settings'\n"
+  },
+  "error": null
+}
