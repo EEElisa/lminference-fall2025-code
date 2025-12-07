@@ -1123,17 +1123,20 @@ class GraphPathEvaluationTool:
         
         # YOUR_TASK_2.1.1: Find correct paths that were found; 2 lines of code
         correct_found = [
-            # Your code here
+            {"path": list(path), "weight": weight}
+            for path, weight in matches_set
         ]
-        
+
         # YOUR_TASK_2.1.2: Find incorrect predictions; 2 lines of code
         incorrect = [
-            # Your code here
+            {"path": list(path), "weight": weight}
+            for path, weight in predicted_set - self._correct_set
         ]
-        
+
         # YOUR_TASK_2.1.3: Find missing correct paths; 2 lines of code
         missing = [
-            # Your code here
+            {"path": list(path), "weight": weight}
+            for path, weight in self._correct_set - predicted_set
         ]
         
         return {

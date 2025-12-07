@@ -1,0 +1,905 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "9fd6caf7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/usr2/mingqia2/miniconda3/envs/hw2-dr/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n",
+      "  from .autonotebook import tqdm as notebook_tqdm\n",
+      "None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2\n",
+    "\n",
+    "import sys \n",
+    "import os\n",
+    "sys.path.append(\"../\")\n",
+    "\n",
+    "import pandas as pd\n",
+    "import litellm\n",
+    "import random\n",
+    "import base64\n",
+    "import hashlib\n",
+    "import json\n",
+    "from typing import List, Dict, Optional\n",
+    "from pathlib import Path\n",
+    "\n",
+    "from tqdm.notebook import tqdm\n",
+    "\n",
+    "from mcp_agents.tool_interface.base import *\n",
+    "from mcp_agents.tool_interface.mcp_tools import *\n",
+    "from mcp_agents.client import *\n",
+    "from mcp_agents.agent_interface import *\n",
+    "from mcp_agents.evaluation_utils.utils import *\n",
+    "\n",
+    "# !playwright install #to run the crawl4ai tool\n",
+    "\n",
+    "os.environ[\"OPENAI_API_KEY\"] = \"YOUR_OPENAI_API_KEY_HERE"\n",
+    "os.environ[\"SERPER_API_KEY\"] = \"YOUR_SERPER_API_KEY_HERE\"\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e4c7fca3",
+   "metadata": {},
+   "source": [
+    "### Build a search tool"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "87e3bce7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# imported from mcp_agents.tool_interface.mcp_tools\n",
+    "\n",
+    "search_tool = SerperSearchTool(\n",
+    "    tool_start_tag=\"<query>\",\n",
+    "    tool_end_tag=\"</query>\",\n",
+    "    result_start_tag=\"<snippet>\",\n",
+    "    result_end_tag=\"</snippet>\",\n",
+    "    number_documents_to_search=2,\n",
+    "    timeout=60,\n",
+    ")\n",
+    "\n",
+    "client = LLMToolClient(\n",
+    "    model_name=\"openai/gpt-4o\",  # Dummy model name\n",
+    "    tokenizer_name=\"openai/gpt-4o\",  # Dummy model name\n",
+    "    base_url=\"https://api.openai.com/v1\",\n",
+    "    api_key=os.getenv(\"OPENAI_API_KEY\"),\n",
+    "    tools=[search_tool],\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b6dee221",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "\n",
+      "Title: CMU LLM Inference (1): Introduction to Language Models and ...\n",
+      "URL: https://www.youtube.com/watch?v=F-mduXzNcRQ\n",
+      "Snippet: This lecture (by Graham Neubig) for CMU CS 11-763, Advanced NLP (Fall 2025) covers: What is a language model? What is an inference algorithm ...\n"
+     ]
+    }
+   ],
+   "source": [
+    "output = await search_tool(\"<query>Advisors offering Inference Algorithms for Language Modeling classes</query>\")\n",
+    "print(search_tool.format_result(output))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bc67b235",
+   "metadata": {},
+   "source": [
+    "### A basic ReAct agent"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "e490013f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "🤔 Starting ReAct workflow for: Who are the staff members for CMU 11-763 Inference Algorithms for Language Modeling classes?\n",
+      "📊 Will perform 3 think-search cycles\n",
+      "================================================================================\n",
+      "\n",
+      "🔄 CYCLE 1/3\n",
+      "--------------------------------------------------\n",
+      "💭 THINKING...\n",
+      "💡 Reasoning: <think>To answer the question about the staff members for CMU 11-763 Inference Algorithms for Language Modeling classes, I need to identify the instructors, teaching assistants, and any other relevant...\n",
+      "🔍 GENERATING SEARCH...\n",
+      "\n",
+      "🔄 CYCLE 2/3\n",
+      "--------------------------------------------------\n",
+      "💭 THINKING...\n",
+      "💡 Reasoning: [From the previous searches, I have gathered some information suggesting that Graham Neubig is involved with the CMU 11-763 course, as he is associated with the course in various snippets. However, I ...\n",
+      "🔍 GENERATING SEARCH...\n",
+      "\n",
+      "🔄 CYCLE 3/3\n",
+      "--------------------------------------------------\n",
+      "💭 THINKING...\n",
+      "💡 Reasoning: \n",
+      "🔍 GENERATING SEARCH...\n",
+      "\n",
+      "✅ GENERATING FINAL ANSWER...\n",
+      "--------------------------------------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "from react_agent import *\n",
+    "\n",
+    "default_config_path = \"./react_agent.yaml\"\n",
+    "\n",
+    "workflow = ReActWorkflow(configuration=default_config_path)\n",
+    "\n",
+    "# print the config\n",
+    "\n",
+    "output = await workflow(\n",
+    "    # question=\"Who are the target audience for CMU 11-763 Inference Algorithms for Language Modeling classes?\",\n",
+    "    question=\"Who are the staff members for CMU 11-763 Inference Algorithms for Language Modeling classes?\",\n",
+    "    max_tokens=2048,\n",
+    "    temperature=0.7,\n",
+    "    verbose=True,\n",
+    ")\n",
+    "\n",
+    "final_answer, results, conversation_history, searched_queries = output\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "21426178",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Model answer:\n",
+      "The staff members for the Carnegie Mellon University course 11-763, \"Inference Algorithms for Language Modeling,\" for the Fall 2023 semester include:\n",
+      "\n",
+      "1. **Graham Neubig** - He is an associate professor at the Language Technologies Institute at Carnegie Mellon University and is involved in teaching this course. His research focuses on natural language processing and machine learning.\n",
+      "\n",
+      "2. **Amanda Bertsch** - She is a PhD student at the Language Technologies Institute, advised by Matt Gormley and Graham\n",
+      "----------------------\n",
+      "Tool calls:\n",
+      "<query>CMU 11-763 Inference Algorithms for Language Modeling course staff 2023</query><snippet id=5eb3b255>\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "\n",
+      "Title: CMU LLM Inference (1): Introduction to Language Models and ...\n",
+      "URL: https://www.youtube.com/watch?v=F-mduXzNcRQ\n",
+      "Snippet: This lecture (by Graham Neubig) for CMU CS 11-763, Advanced NLP (Fall 2025) covers: What is a language model? What is an inference algorithm ...\n",
+      "</snippet><query>CMU 11-763 Fall 2023 course instructors and TAs</query><snippet id=fcc8b2bd>\n",
+      "Title: Course Information - Language Technologies Institute - School of ...\n",
+      "URL: https://www.lti.cs.cmu.edu/misc-pages/intranet-course-info.html\n",
+      "Snippet: This course requires good programming skills and an understanding of computer architectures and operating systems (e.g., memory vs. disk trade-offs). A basic ...\n",
+      "\n",
+      "Title: Other Departments and Institutes Courses < Carnegie Mellon ...\n",
+      "URL: http://coursecatalog.web.cmu.edu/schools-colleges/schoolofcomputerscience/addlmajorsminors/courses/\n",
+      "Snippet: 11-763 Inference Algorithms for Language Modeling: Fall: 12 units. As the use of massive and costly-to-train large language models has become increasingly ...\n",
+      "</snippet><query>CMU 11-763 Inference Algorithms for Language Modeling Fall 2023 staff list</query><snippet id=56b10937>\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "\n",
+      "Title: Graham Neubig - Language Technologies Institute\n",
+      "URL: https://www.lti.cs.cmu.edu/people/faculty/neubig-graham.html\n",
+      "Snippet: Graham Neubig is an associate professor at the Language Technologies Institute of Carnegie Mellon University. His research focuses on natural language ...\n",
+      "</snippet><query>Graham Neubig CMU 11-763 Fall 2023 course staff and teaching assistants</query><snippet id=f6e41af0>\n",
+      "Title: Staff | 11-664/763 LM Inference - Graham Neubig\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/staff/\n",
+      "Snippet: Staff. Instructors and Teaching Assistant for Fall 2025. Instructors. Graham Neubig · gneubig@cs.cmu.edu · Amanda Bertsch · abertsch@cs.cmu.edu ...\n",
+      "\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "</snippet><query>11-763 Inference Algorithms for Language Modeling CMU Fall 2023 instructors and TAs</query><snippet id=7b892b0f>\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "\n",
+      "Title: CMU LLM Inference (1): Introduction to Language Models and ...\n",
+      "URL: https://www.youtube.com/watch?v=F-mduXzNcRQ\n",
+      "Snippet: This lecture (by Graham Neubig) for CMU CS 11-763, Advanced NLP (Fall 2025) covers: What is a language model? What is an inference algorithm ...\n",
+      "</snippet><query>CMU 11-763 Fall 2023 course staff Graham Neubig Amanda Bertsch</query><snippet id=2fd468f9>\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: Fall 2025 @ Carnegie Mellon University. Graham Neubig · gneubig@cs.cmu.edu · Amanda Bertsch · abertsch@cs.cmu.edu. Course Description. As the use of massive and ...\n",
+      "\n",
+      "Title: Amanda Bertsch - CMU School of Computer Science\n",
+      "URL: https://www.cs.cmu.edu/~abertsch/\n",
+      "Snippet: I am a PhD student in the Language Technologies Institute at Carnegie Mellon University, advised by Matt Gormley and Graham Neubig.\n",
+      "</snippet><query>CMU 11-763 Fall 2023 course faculty and teaching assistants</query><snippet id=29b9a603>\n",
+      "Title: Course Information - Language Technologies Institute - School of ...\n",
+      "URL: https://www.lti.cs.cmu.edu/misc-pages/intranet-course-info.html\n",
+      "Snippet: This course requires good programming skills and an understanding of computer architectures and operating systems (e.g., memory vs. disk trade-offs). A basic ...\n",
+      "\n",
+      "Title: Teaching Assistant Info By Department - Carnegie Mellon University\n",
+      "URL: https://www.cmu.edu/dietrich/students/undergraduate/student-success/ta-opportunities/ta-by-dept.html\n",
+      "Snippet: Teaching Assistantships (TAs) provide students a unique opportunity to support and educate fellow students, while working collaboratively with a CMU faculty ...\n",
+      "</snippet><query>Carnegie Mellon University 11-763 Fall 2023 course staff details</query><snippet id=db9a90cb>\n",
+      "Title: Course Information - Language Technologies Institute - School of ...\n",
+      "URL: https://www.lti.cs.cmu.edu/misc-pages/intranet-course-info.html\n",
+      "Snippet: This course requires good programming skills and an understanding of computer architectures and operating systems (e.g., memory vs. disk trade-offs). A basic ...\n",
+      "\n",
+      "Title: 11-664/763: Inference Algorithms for Language Modeling\n",
+      "URL: https://www.phontron.com/class/lminference-fall2025/\n",
+      "Snippet: In this class, we survey the wide space of inference-time techniques with a particular focus on the implementation and practical use cases of such methods.\n",
+      "</snippet><query>CMU 11-763 Fall 2023 course instructors TAs contact information</query><snippet id=79315c66>\n",
+      "Title: Course Information - Language Technologies Institute - School of ...\n",
+      "URL: https://www.lti.cs.cmu.edu/misc-pages/intranet-course-info.html\n",
+      "Snippet: Welcome to the listing and information directory for all courses that have ever been offered by the LTI. Courses are grouped in numerical order followed by ...\n",
+      "\n",
+      "Title: School of Computer Science Courses < Carnegie Mellon University\n",
+      "URL: http://coursecatalog.web.cmu.edu/schools-colleges/schoolofcomputerscience/courses/\n",
+      "Snippet: It is targeted to first-time undergraduate and graduate SCS TAs, with the goal of providing instruction, hands-on practice, and feedback to TAs to improve their ...\n",
+      "</snippet><query>CMU Language Technologies Institute 11-763 Fall 2023 course staff list</query>\n"
+     ]
+    }
+   ],
+   "source": [
+    "final_answer, results, conversation_history, searched_queries = output\n",
+    "print(\"Model answer:\")\n",
+    "print(final_answer)\n",
+    "print(\"----------------------\")\n",
+    "print(\"Tool calls:\")\n",
+    "print(dict(results)[\"tool_calls\"][1][\"generated_text\"])\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2e7713ce",
+   "metadata": {},
+   "source": [
+    "### Your Task: the pipeline for Short-form Tasks\n",
+    "\n",
+    "You will work on applying the agent you just built to the graph and MMLU problems you explored in HW1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "e7e5b54d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "=== Correct Prediction ===\n",
+      "\n",
+      "dict_keys(['score', 'matches', 'expected', 'predicted_count', 'correct_paths_found', 'incorrect_paths', 'missing_paths', 'message'])\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Build a simple agent for the graph problem\n",
+    "from graph.graph_path_finder import *\n",
+    "# YOUR_TASK_2.1, fix the GraphPathEvaluationTool (3 tasks, 6 lines of code)\n",
+    "from mcp_agents.tool_interface.mcp_tools import GraphPathEvaluationTool\n",
+    "\n",
+    "correct_paths = [\n",
+    "    {\"path\": [0, 1, 3, 7], \"weight\": 25},\n",
+    "    {\"path\": [0, 2, 5, 7], \"weight\": 30}\n",
+    "]\n",
+    "\n",
+    "eval_tool = GraphPathEvaluationTool(\n",
+    "    correct_paths=correct_paths,\n",
+    "    expected_count=2,\n",
+    "    tool_start_tag=\"<predicted_paths>\",\n",
+    "    tool_end_tag=\"</predicted_paths>\",\n",
+    "    result_start_tag=\"<evaluation>\",\n",
+    "    result_end_tag=\"</evaluation>\",\n",
+    "    timeout=30\n",
+    ")\n",
+    "\n",
+    "print(\"=== Correct Prediction ===\\n\")\n",
+    "\n",
+    "input1 = \"\"\"<predicted_paths>\n",
+    "{\n",
+    "    \"paths\": [[0, 1, 3, 7], [0, 2, 5, 7]],\n",
+    "    \"weights\": [25, 30]\n",
+    "}\n",
+    "</predicted_paths>\"\"\"\n",
+    "\n",
+    "output1 = await eval_tool(input1)\n",
+    "print(output1.keys())\n",
+    "# print(json.dumps(output1, indent=2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "885bd052",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "=== Graph Path Finding Example ===\n",
+      "\n",
+      "1. Creating a random graph...\n",
+      "Graph parameters: N=5, M=2, W=50, P=1\n",
+      "Edges:\n",
+      "  0 -> 1 (weight: 26)\n",
+      "  0 -> 2 (weight: 33)\n",
+      "  1 -> 2 (weight: 35)\n",
+      "  1 -> 3 (weight: 14)\n",
+      "  2 -> 3 (weight: 28)\n",
+      "  2 -> 4 (weight: 50)\n",
+      "  3 -> 4 (weight: 37)\n",
+      "  3 -> 0 (weight: 3)\n",
+      "  4 -> 0 (weight: 46)\n",
+      "  4 -> 1 (weight: 47)\n",
+      "\n",
+      "2. Finding shortest path with dynamic programming...\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"=== Graph Path Finding Example ===\\n\")\n",
+    "\n",
+    "# Create a simple example graph\n",
+    "print(\"1. Creating a random graph...\")\n",
+    "edges, params = create_random_graph(N=5, M=2, W=50, P=1)\n",
+    "\n",
+    "print(f\"Graph parameters: N={params['N']}, M={params['M']}, W={params['W']}, P={params['P']}\")\n",
+    "print(\"Edges:\")\n",
+    "for src, dst, weight in edges:\n",
+    "    print(f\"  {src} -> {dst} (weight: {weight})\")\n",
+    "\n",
+    "# Find the correct solution\n",
+    "print(\"\\n2. Finding shortest path with dynamic programming...\")\n",
+    "solution = find_top_p_paths(edges, params[\"N\"], params[\"P\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "0465c4a7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "prompt = generate_problem_prompt(edges, params[\"N\"], params[\"P\"])\n",
+    "\n",
+    "llm_response = query_llm_with_function_call(prompt, \"gpt-4o\", os.getenv(\"OPENAI_API_KEY\"))\n",
+    "\n",
+    "predicted_solution = convert_llm_response_to_solution(llm_response)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "315e890f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "=== Model Prediction ===\n",
+      "\n",
+      "dict_keys(['score', 'matches', 'expected', 'predicted_count', 'correct_paths_found', 'incorrect_paths', 'missing_paths', 'message'])\n",
+      "{\n",
+      "  \"score\": 0.0,\n",
+      "  \"matches\": 0,\n",
+      "  \"expected\": 1,\n",
+      "  \"predicted_count\": 1,\n",
+      "  \"correct_paths_found\": [],\n",
+      "  \"incorrect_paths\": [\n",
+      "    {\n",
+      "      \"path\": [\n",
+      "        0,\n",
+      "        2,\n",
+      "        3,\n",
+      "        4\n",
+      "      ],\n",
+      "      \"weight\": 98\n",
+      "    }\n",
+      "  ],\n",
+      "  \"missing_paths\": [\n",
+      "    {\n",
+      "      \"path\": [\n",
+      "        0,\n",
+      "        1,\n",
+      "        3,\n",
+      "        4\n",
+      "      ],\n",
+      "      \"weight\": 77\n",
+      "    }\n",
+      "  ],\n",
+      "  \"message\": \"Found 0/1 correct paths (0.0%)\"\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "def solution_to_dict_list(solution: GraphPathSolution) -> List[Dict[str, Any]]:\n",
+    "    \"\"\"\n",
+    "    Convert GraphPathSolution to list of dict format.\n",
+    "    \n",
+    "    Args:\n",
+    "        solution: GraphPathSolution object\n",
+    "    \n",
+    "    Returns:\n",
+    "        List of dicts with 'path' and 'weight' keys\n",
+    "    \"\"\"\n",
+    "    return [\n",
+    "        {\"path\": path_info.path, \"weight\": path_info.weight}\n",
+    "        for path_info in solution.paths\n",
+    "    ]\n",
+    "\n",
+    "\n",
+    "eval_tool = GraphPathEvaluationTool(\n",
+    "    correct_paths=solution_to_dict_list(solution),\n",
+    "    expected_count=len(solution_to_dict_list(solution)),\n",
+    "    tool_start_tag=\"<predicted_paths>\",\n",
+    "    tool_end_tag=\"</predicted_paths>\",\n",
+    "    result_start_tag=\"<evaluation>\",\n",
+    "    result_end_tag=\"</evaluation>\",\n",
+    "    timeout=30\n",
+    ")\n",
+    "\n",
+    "print(\"=== Model Prediction ===\\n\")\n",
+    "\n",
+    "input2 = f\"\"\"<predicted_paths>\n",
+    "{json.dumps(solution_to_dict_list(predicted_solution), indent=2)}\n",
+    "</predicted_paths>\"\"\"\n",
+    "\n",
+    "output2 = await eval_tool(input2)\n",
+    "print(output2.keys())\n",
+    "print(json.dumps(output2, indent=2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f62e0b6f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dataset loaded: 173 examples\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Build the inference pipeline for MMLU\n",
+    "from inference.inference import load_custom_dataset, convert_llm_response_to_solution, format_example, format_subject\n",
+    "\n",
+    "examples = load_custom_dataset(\"MMLU-preview\")\n",
+    "\n",
+    "print(f\"Dataset loaded: {len(examples)} examples\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "5912f972",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Generating responses for 30 MMLU examples\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Evaluating examples:   0%|          | 0/30 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Evaluating examples:  23%|██▎       | 7/30 [07:04<25:10, 65.67s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1st answer extract failed\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Evaluating examples:  37%|███▋      | 11/30 [11:14<20:09, 63.64s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1st answer extract failed\n",
+      "To address the original question regarding perchloric acid (HClO4) and the characteristics of strong acids, we need to evaluate the provided options based on our understanding of strong acids.\n",
+      "\n",
+      "1. Ka is less than 1: This statement is incorrect for strong acids. Strong acids have a dissociation constant (Ka) that is significantly greater than 1, indicating that they dissociate almost completely in water.\n",
+      "\n",
+      "2. They have an open electron spot on their outer valence rings: This statement is misleading and does not accurately characterize strong acids. The strength of an acid is not determined by the presence of an open electron spot.\n",
+      "\n",
+      "3. They have stable conjugate bases: This statement is somewhat misleading. While strong acids do indeed form conjugate bases when they dissociate, these conjugate bases are not necessarily considered \"stable\". In fact, strong acids have weak conjugate bases, which means they do not hold onto the hydrogen ion (H+) tightly.\n",
+      "\n",
+      "4. They remain bound in the presence of water: This statement is false. Strong acids completely dissociate in water, meaning they do not remain bound; they break apart into their constituent ions (H+ and the corresponding anion).\n",
+      "\n",
+      "Based on this analysis, none of the options presented accurately describe the characteristics of strong acids. However, the closest to a correct understanding of strong acids relates to their dissociation behavior, which is not explicitly listed in the options.\n",
+      "\n",
+      "Therefore, the answer to the question is that none of the provided statements accurately correspond with strong acids. However, if forced to choose based on the context of strong acid behavior, the answer is:\n",
+      "\n",
+      "The answer is (none of the options are correct).\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Evaluating examples: 100%|██████████| 30/30 [29:23<00:00, 58.78s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Average score: 0.90\n",
+      "Generated 30 responses\n",
+      "Sample response:\n",
+      "The scenario presented highlights the officer's unconscious bias in his behavior, particularly in relation to his ticketing patterns that correlate with his childhood experiences and unresolved issues regarding his father. The psychological framework that most directly addresses this unconscious bias is the psychoanalytic perspective. This perspective emphasizes the influence of past experiences, particularly childhood experiences, on current behavior and attitudes. It suggests that the officer's bias may be a projection of his unresolved feelings towards his father, which he is not consciously aware of.\n",
+      "\n",
+      "While behaviorist, cognitive behavioral, and humanistic approaches provide valuable insights into behavior, they do not specifically focus on the unconscious motivations and unresolved conflicts stemming from childhood that are central to this situation.\n",
+      "\n",
+      "Therefore, the answer is B. Psychoanalytic.\n",
+      "--------------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Separate generation and evaluation functions\n",
+    "async def udated_mmlu_pipeline(examples, default_config_path):\n",
+    "    \"\"\"Generate responses for all examples without evaluation\"\"\"\n",
+    "    from inference.inference import convert_llm_response_to_solution \n",
+    "    \n",
+    "    print(\"Generating responses for\", len(examples), \"MMLU examples\")\n",
+    "\n",
+    "    workflow = ReActWorkflow(configuration=default_config_path)\n",
+    "    base_agent_prompt = workflow.answer_agent.prompt\n",
+    "\n",
+    "    choices = [\"A\", \"B\", \"C\", \"D\"]\n",
+    "\n",
+    "\n",
+    "    results = []\n",
+    "    total_score = 0.0\n",
+    "\n",
+    "    for i, example in tqdm(enumerate(examples, 1), total=len(examples), desc=\"Evaluating examples\"):\n",
+    "        question = example[\"question\"] # format_example(example, include_answer=False)\n",
+    "        correct_answer = choices[example[\"answer\"]]\n",
+    "\n",
+    "        # YOUR_TASK_2.2: what is the additional instructions here?\n",
+    "        # Hint: check the MMLU inference pipeline to understand what to specify; 1 line of code\n",
+    "        additional_instructions = f\"The following is a multiple choice question (with answers) about {format_subject(example['subject'])}.  Output the answer in the format of \\\"The answer is (X)\\\" at the end.\\n\\n\"\n",
+    "        workflow.answer_agent.prompt = base_agent_prompt + \"\\n\" + additional_instructions + format_example(example, include_answer=False)\n",
+    "\n",
+    "        output = await workflow(\n",
+    "            question=question,\n",
+    "            max_tokens=4096,\n",
+    "            temperature=0.7,\n",
+    "            verbose=False,\n",
+    "        )\n",
+    "\n",
+    "        final_answer, answer_result, conversation_history, searched_queries = output\n",
+    "\n",
+    "        predicted_solution = convert_llm_response_to_solution(final_answer, \"MMLU\")\n",
+    "\n",
+    "        score = (choices[example[\"answer\"]] == predicted_solution)\n",
+    "        total_score += score\n",
+    "\n",
+    "        results.append({\n",
+    "            \"example_id\": i,    \n",
+    "            \"question\": question,\n",
+    "            \"correct_answer\": correct_answer,\n",
+    "            \"predicted_solution\": predicted_solution,\n",
+    "            \"final_answer\": final_answer,\n",
+    "            \"generation\": answer_result.model_dump(),\n",
+    "            \"conversation_history\": conversation_history,\n",
+    "            \"searched_queries\": searched_queries,\n",
+    "        })\n",
+    "\n",
+    "    average_score = total_score / len(examples) if examples else 0.0\n",
+    "\n",
+    "    print(f\"Average score: {average_score:.2f}\")\n",
+    "    \n",
+    "    output_config = {k:v for k,v in dict(workflow.configuration).items() if \"api_key\" not in k}\n",
+    "\n",
+    "    return {\n",
+    "        \"config\": output_config,\n",
+    "        \"average_score\": average_score,\n",
+    "        \"total_examples\": len(examples),\n",
+    "        \"results\": results\n",
+    "    }\n",
+    "\n",
+    "\n",
+    "default_config_path = \"./react_agent_mmlu.yaml\"\n",
+    "\n",
+    "# YOUR_TASK_2.2: Run the inference for 30 examples after fixing the function:\n",
+    "# save the answers using the code at the next block\n",
+    "# report the acc. at the home write-up\n",
+    "output = await udated_mmlu_pipeline(examples[:30], default_config_path)\n",
+    "\n",
+    "# Inspect or save generated responses here if needed\n",
+    "print(f\"Generated {len(output['results'])} responses\")\n",
+    "print(\"Sample response:\")\n",
+    "print(output[\"results\"][0][\"final_answer\"])\n",
+    "print(\"-\" * 50)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "86191ccb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "gpt-4o-mini\n",
+      "0.9\n",
+      "## Question: A police officer carries out hundreds of traffic stops every year. When his supervisor is reviewing the officer’s records for the past year, he notices that the officer is equally likely to stop people of various genders, ages, and races. However, he is significantly more likely to write tickets for middle-aged white males with dark hair and eyes. When confronted with this fact, the officer truthfully states that he has no idea why that is, and that it must simply be a coincidence. Unbeknownst to the officer, this behavior is tied to the fact that these men look like his father, with whom he had an abusive relationship as a child. What psychological framework would directly address the unconscious bias in his behavior? \n",
+      "## Correct Answer: B\n",
+      "## Final Answer:\n",
+      "The scenario presented highlights the officer's unconscious bias in his behavior, particularly in relation to his ticketing patterns that correlate with his childhood experiences and unresolved issues regarding his father. The psychological framework that most directly addresses this unconscious bias is the psychoanalytic perspective. This perspective emphasizes the influence of past experiences, particularly childhood experiences, on current behavior and attitudes. It suggests that the officer's bias may be a projection of his unresolved feelings towards his father, which he is not consciously aware of.\n",
+      "\n",
+      "While behaviorist, cognitive behavioral, and humanistic approaches provide valuable insights into behavior, they do not specifically focus on the unconscious motivations and unresolved conflicts stemming from childhood that are central to this situation.\n",
+      "\n",
+      "Therefore, the answer is B. Psychoanalytic.\n",
+      "## Searched Queries: ['unconscious bias in law enforcement implicit bias theory childhood experiences influence on adult behavior', 'relationship between childhood trauma and implicit bias in law enforcement scholarly research articles']\n",
+      "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n",
+      "## Question: Who set the world record for the mile race in 1886?\n",
+      "## Correct Answer: D\n",
+      "## Final Answer:\n",
+      "The world record for the mile race in 1886 was set by Walter George on August 23 at Lillie Bridge, London. He completed the mile in an impressive time of 4:12.8, a record that stood for nearly 30 years. This remarkable feat was witnessed by a crowd of approximately 20,000 spectators, making it a significant event in athletics history. Walter George's performance not only showcased his exceptional talent but also marked a pivotal moment in the evolution of middle-distance running.\n",
+      "\n",
+      "The answer is D. WG George.\n",
+      "## Searched Queries: ['mile race world record holder 1886', 'Walter George mile race world record time August 23 1886 significance details']\n",
+      "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "model = output[\"config\"][\"react_agent_model_name\"]\n",
+    "model_display = model.split(\"/\")[-1]\n",
+    "len_examples = output[\"total_examples\"]\n",
+    "display_config = default_config_path.split(\"/\")[-1].replace(\".yaml\", \"\")\n",
+    "print(model_display)\n",
+    "\n",
+    "# with open(f\"results_{model_display}_{len_examples}_{display_config}.json\", \"w\") as f:\n",
+    "#     json.dump(results, f, indent=2)\n",
+    "\n",
+    "print(output[\"average_score\"])\n",
+    "\n",
+    "for response in output[\"results\"][:2]:\n",
+    "    print(\"## Question: \" + response[\"question\"])\n",
+    "    print(\"## Correct Answer: \" + response[\"correct_answer\"])\n",
+    "    print(\"## Final Answer:\\n\" + response[\"final_answer\"])\n",
+    "    print(\"## Searched Queries: \" + str(response[\"searched_queries\"]))\n",
+    "    print(\"----\" * 50)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "029ed456",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# with open(f\"results_{model_display}_{len_examples}_{display_config}.json\", \"w\") as f:\n",
+    "#     json.dump(output, f, indent=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "9b770ad5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(\"results_gpt-4o-mini_30_react_agent_mmlu.json\", \"r\") as f:\n",
+    "    output = json.load(f)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "54c4ccd7",
+   "metadata": {},
+   "source": [
+    "### Simple analysis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "3b3adc33",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'question': 80.2,\n",
+       " 'thinking': 669.27,\n",
+       " 'query': 34.47,\n",
+       " 'snippets_titles': 251.77,\n",
+       " 'snippets_snippets': 559.83,\n",
+       " 'final_answer': 300.93}"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def extract_thoughts(text: str) -> str:\n",
+    "    match = re.search(r\"<think>(.*?)</think>\", text, re.DOTALL)\n",
+    "    if match:\n",
+    "        return match.group(1).strip()\n",
+    "    return text\n",
+    "\n",
+    "def extract_search_query(text: str) -> str:\n",
+    "    match = re.search(r\"<query>(.*?)</query>\", text, re.DOTALL)\n",
+    "    if match:\n",
+    "        return match.group(1).strip()\n",
+    "    return text\n",
+    "\n",
+    "def parse_xml_snippets(text):\n",
+    "\n",
+    "    pattern = re.compile(\n",
+    "        r\"<snippet id=([^>]+)>\"  # Capture Group 1: The ID\n",
+    "        # YOUR_TASK_3.1: three lines of code here to process the retrieved snippets\n",
+    "        r\"\\s*Title:\\s*(.*?)\\n\"         # Capture Group 2: The Title\n",
+    "        r\"(?:\\s*URL:\\s*(.*?)\\n)?\"      # Optional Group with Capture Group 3: The URL\n",
+    "        r\"\\s*Snippet:\\s*(.*?)\"       # Capture Group 4: The Snippet\n",
+    "        r\"\\s*</snippet>\",          # The closing tag\n",
+    "        re.DOTALL\n",
+    "    )\n",
+    "\n",
+    "    matches = pattern.findall(text)\n",
+    "\n",
+    "    results = []\n",
+    "    for match in matches:\n",
+    "        # match is a tuple: (id, title, url, snippet)\n",
+    "        # If the optional URL group did not match, match[2] will be None.\n",
+    "        snippet_id = match[0].strip()\n",
+    "        title = match[1].strip()\n",
+    "        url = match[2].strip() if match[2] else \"\"  # Handle None case for missing URL\n",
+    "        snippet = match[3].strip()\n",
+    "\n",
+    "        results.append({\n",
+    "            \"Title\": title,\n",
+    "            \"URL\": url,\n",
+    "            \"Snippet\": snippet\n",
+    "        })\n",
+    "\n",
+    "    return results\n",
+    "\n",
+    "\n",
+    "def count_tokens(text, model=\"openai/gpt-4o\"):\n",
+    "    \"\"\"\n",
+    "    Counts the number of tokens in a prompt using LiteLLM's token counting utility.\n",
+    "    Args:\n",
+    "        prompt (str): The input prompt string.\n",
+    "        model (str): The model name for which to count tokens (default: \"gpt-3.5-turbo\").\n",
+    "    Returns:\n",
+    "        int: The number of tokens in the prompt.\n",
+    "    \"\"\"\n",
+    "    return litellm.token_counter(model=model, messages=[{\"role\": \"user\", \"content\": text}])\n",
+    "\n",
+    "\n",
+    "def count_tokens_in_results(results):\n",
+    "    # report the numbers of tokens used for question,thinking, query, snippets, and final answer\n",
+    "    report_results = []\n",
+    "    for result in results:\n",
+    "\n",
+    "        thoughts = [one_round[\"content\"] for one_round in result[\"conversation_history\"] if one_round[\"type\"] == \"think\"]\n",
+    "        cleaned_thoughts = [extract_thoughts(thought) for thought in thoughts]\n",
+    "        \n",
+    "        query_snippets = [one_round[\"content\"] for one_round in result[\"conversation_history\"] if one_round[\"type\"] == \"query\"]\n",
+    "        cleaned_queries = [extract_search_query(query) for query in query_snippets]\n",
+    "        # print(parse_xml_snippets(query_snippets[0]))\n",
+    "        parsed_snippets = []\n",
+    "        for query in query_snippets:\n",
+    "            parsed_snippets.extend(parse_xml_snippets(query))\n",
+    "        cleaned_snippets_titles = [snippet[\"Title\"] for snippet in parsed_snippets]\n",
+    "        cleaned_snippets_snippets = [snippet[\"Snippet\"] for snippet in parsed_snippets]\n",
+    "\n",
+    "        report_results.append({\n",
+    "            \"question\": count_tokens(result[\"question\"]),\n",
+    "            \"thinking\": count_tokens(\" \".join(cleaned_thoughts)),\n",
+    "            \"query\": count_tokens(\" \".join(cleaned_queries)),   \n",
+    "            \"snippets_titles\": count_tokens(\" \".join(cleaned_snippets_titles)),\n",
+    "            \"snippets_snippets\": count_tokens(\" \".join(cleaned_snippets_snippets)),\n",
+    "            \"final_answer\": count_tokens(result[\"final_answer\"]),\n",
+    "        })\n",
+    "\n",
+    "    # for each key, report the average, round to 2 decimal places\n",
+    "    return {key: round(sum(result[key] for result in report_results) / len(report_results), 2) for key in report_results[0].keys()}\n",
+    "\n",
+    "# YOUR_TASK_3.2: calculate the token counts for each category for each variant and report in the homework write-up\n",
+    "count_tokens_in_results(output[\"results\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f0e3a121",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "hw2-dr",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.19"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

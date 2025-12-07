@@ -79,8 +79,10 @@ Guidelines for the search query:
         YOUR_TASK_1.1: check if there is a search query and return if there is a match.
         Hint: remember to use re.DOTALL; three lines of code
         """
+        match = re.search(r'<query>(.*?)</query>', generated_text, re.DOTALL)
+        if match:
+            return match.group(1).strip()
         return generated_text
-
 
 
 @dataclass
@@ -200,7 +202,7 @@ class ReActWorkflow(BaseWorkflow):
         max_tokens: int = 4000,
         temperature: float = 0.7,
         verbose: bool = True,
-    ) -> Dict[str, Any]:
+    ) -> tuple[str, Dict[str, Any], List[Dict[str, str]], List[str]]:
         cfg = self.configuration
         assert cfg is not None
 
@@ -235,7 +237,7 @@ class ReActWorkflow(BaseWorkflow):
                 max_tokens=max_tokens,
                 temperature=temperature,
                 generation_prefix="<think>",
-                stop=[], # #"YOUR_TASK_1.2: What tag leads to a stop here?"
+                stop="</think>", # #"YOUR_TASK_1.2: What tag leads to a stop here?"
             )
             tool_call_history.append(think_result.model_dump())
 
@@ -292,5 +294,5 @@ class ReActWorkflow(BaseWorkflow):
 
         answer_result.tool_calls = tool_call_history
 
-        return final_answer,answer_result, conversation_history, searched_queries
+        return final_answer, answer_result, conversation_history, searched_queries
 

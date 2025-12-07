@@ -55,3 +55,11 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Config files with secrets/API keys
+homework2/basic_deepresearch/react_agent.yaml
+homework2/basic_deepresearch/react_agent_mmlu.yaml
+homework2/basic_deepresearch/simple_react.ipynb
+
+# Cache directories
+homework2/basic_deepresearch/.cache/

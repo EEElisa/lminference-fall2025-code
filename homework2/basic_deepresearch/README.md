@@ -6,9 +6,9 @@ This task requires you to implement a simple [FastMCP-based](https://github.com/
 
 Your task will be elicited in `simple_react.ipynb`
 
-1. Write some code in `react_agent.py` to make the agent work `(YOUR_TASK_1.1, YOUR_TASK_1.2)`
-2. Check the graph shared task pipeline in `simple_react.ipynb` `(YOUR_TASK_2.1)`. Write some code of `GraphPathEvaluationTool` in `mcp_agents.tool_interface.mcp_tools` to make the pipeline work  `(YOUR_TASK_2.1.1, YOUR_TASK_2.1.2, YOUR_TASK_2.1.3)`
-3. Write some code in `simple_react.ipynb` to make the MMLU pipline work `(YOUR_TASK_2.2)`
+1. Write some code in `react_agent.py` to make the agent work `(YOUR_TASK_1.1, YOUR_TASK_1.2)` [done]
+2. Check the graph shared task pipeline in `simple_react.ipynb` `(YOUR_TASK_2.1)`. Write some code of `GraphPathEvaluationTool` in `mcp_agents.tool_interface.mcp_tools` to make the pipeline work  `(YOUR_TASK_2.1.1, YOUR_TASK_2.1.2, YOUR_TASK_2.1.3)` [done]
+3. Write some code in `simple_react.ipynb` to make the MMLU pipline work `(YOUR_TASK_2.2)` [done]
 4. Write some simple analysis code for `count_tokens_in_results(...)` to report the statistics on a small subset of the dataset `(YOUR_TASK_3.1, YOUR_TASK_3.2)`
 
 ## Evaluation of the system
