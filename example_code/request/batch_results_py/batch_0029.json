@@ -1,0 +1,28 @@
+{
+  "batch_id": 29,
+  "batch_size": 1,
+  "scheduled_arrival_time": 351.36151630770325,
+  "actual_send_time": 351.37072825431824,
+  "request_duration": 0.21821236610412598,
+  "completion_time": 351.5889768600464,
+  "status_code": 200,
+  "prompt_idxs": [
+    18
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 5, 7, 8, 14], [0, 2, 7, 8, 14], [0, 2, 8, 14]], weights=[496, 512, 571])",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 67,
+      "total_tokens": 67
+    }
+  },
+  "error": null
+}

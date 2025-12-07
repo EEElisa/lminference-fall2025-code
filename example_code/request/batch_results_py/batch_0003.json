@@ -1,0 +1,19 @@
+{
+  "batch_id": 3,
+  "batch_size": 3,
+  "scheduled_arrival_time": 45.99684879534823,
+  "actual_send_time": 46.004554748535156,
+  "request_duration": 272.10283970832825,
+  "completion_time": 318.1074306964874,
+  "status_code": 200,
+  "prompt_idxs": [
+    203,
+    92,
+    108
+  ],
+  "response": {
+    "error": "Already borrowed",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/system_with_router.py\", line 713, in completions\n    completion_tokens = len(self.tokenizer.encode(generated_text))\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_base.py\", line 2867, in encode\n    encoded_inputs = self.encode_plus(\n                     ^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_base.py\", line 3258, in encode_plus\n    return self._encode_plus(\n           ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 627, in _encode_plus\n    batched_output = self._batch_encode_plus(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 541, in _batch_encode_plus\n    self.set_truncation_and_padding(\n  File \"/usr/local/lib/python3.11/site-packages/transformers/tokenization_utils_fast.py\", line 475, in set_truncation_and_padding\n    self._tokenizer.no_truncation()\nRuntimeError: Already borrowed\n"
+  },
+  "error": null
+}

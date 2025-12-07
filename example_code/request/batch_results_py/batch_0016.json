@@ -1,0 +1,28 @@
+{
+  "batch_id": 16,
+  "batch_size": 1,
+  "scheduled_arrival_time": 160.31301067672356,
+  "actual_send_time": 160.3144953250885,
+  "request_duration": 31.238803148269653,
+  "completion_time": 191.5533254146576,
+  "status_code": 200,
+  "prompt_idxs": [
+    268
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "C",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 1,
+      "total_tokens": 1
+    }
+  },
+  "error": null
+}
