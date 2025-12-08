@@ -1,0 +1,36 @@
+{
+  "batch_id": 0,
+  "batch_size": 2,
+  "scheduled_arrival_time": 3.0879104844383973,
+  "actual_send_time": 3.09189772605896,
+  "request_duration": 66.76515507698059,
+  "completion_time": 69.85708498954773,
+  "status_code": 200,
+  "prompt_idxs": [
+    236,
+    251
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is designed to evaluate the feasibility of acupuncture in children with chronic headaches. Sixty children with chronic headaches are recruited for the study. In addition to their usual therapy, all children are treated with acupuncture three times a week for 2 months. Which of the following best describes this study design?\n Options:\nA. Case-control\nB. Case series\nC. Crossover\nD. Cross-sectional\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 32-year-old man is brought to the emergency department 30 minutes after being struck by a car while driving his motorcycle. He reports severe pelvic pain. On examination, there is bruising of the perineum and pain is elicited with motion of his pelvis. Blood is noted at the urethral meatus. There is no other penile trauma. A plain x-ray shows a fracture of the superior pubic ramus and retrograde urethrography is done to evaluate for a urethral disruption. Which of the following portions of the urethra would be at greatest risk for injury in this patient?\n Options:\nA. Intramural (pre-prostatic)\nB. Membranous\nC. Prostatic\nD. Spongy\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

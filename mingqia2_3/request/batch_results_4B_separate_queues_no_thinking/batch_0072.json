@@ -1,0 +1,29 @@
+{
+  "batch_id": 72,
+  "batch_size": 1,
+  "scheduled_arrival_time": 867.8727266805284,
+  "actual_send_time": 867.8737308979034,
+  "request_duration": 62.12997531890869,
+  "completion_time": 930.0037333965302,
+  "status_code": 200,
+  "prompt_idxs": [
+    217
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 5-year-old boy returns to the office with his 19-year-old mother to discuss results of studies done to evaluate his behavior of eating dirt. The patient sits quietly while his mother answers questions about his health. She says her son seems healthy, although he does not seem to be as active as other children his age. He has said his head hurts three or four times during the past 2 weeks. He has not had fever, sweats, or chills. She says he has a good appetite but has had a habit of eating sand and dirt since age 3 years. She says, \"I don't know where he gets that habit. I used to eat dirt, but I stopped years ago. I try to stop him from eating dirt, but I'm not around much since I work two jobs.\" The patient takes no medications. Vaccinations are upto-date. Height, weight, and BMI are at the 50th percentile. Vital signs are normal. Physical examination discloses no abnormalities except for symmetrical nontender cervical adenopathy. Results of laboratory studies, including serum zinc, lead, and iron concentrations, are within the reference ranges. Serologic testing confirms toxoplasmosis. In addition to prescribing pyrimethamine and sulfadiazine therapy, which of the following is the most appropriate next step in management?\n Options:\nA. Prescribe fluoxetine\nB. Prescribe methylphenidate\nC. Prescribe risperidone\nD. Refer the patient to a child psychiatrist\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 351,
+      "completion_tokens": 50,
+      "total_tokens": 401
+    }
+  },
+  "error": null
+}

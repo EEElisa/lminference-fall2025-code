@@ -111,7 +111,7 @@ class Model:
             "infobench": {
                 "max_tokens": 512,  
                 "add_concise_prompt": True,
-                "concise_token_limit": 150,
+                "concise_token_limit": 150, # thinking token limit 
                 "use_self_refine": False,  # optional toggle for later use
                 "refine_temperature": 0.7,
             },
@@ -119,22 +119,31 @@ class Model:
 
         # Micro-batching config for server-side batching (per task)
         self._microbatch_settings = {
-            "mmlu": {"flush_window": 0.5, "max_batch_size": 5},
-            "infobench": {"flush_window": 5, "max_batch_size": 10},  # smaller/shorter batches to avoid queue buildup
+            "mmlu": {"flush_window": 5, "max_batch_size": 10},
+            "infobench_gpu0": {"flush_window": 10, "max_batch_size": 8},
+            "infobench_gpu1": {"flush_window": 10, "max_batch_size": 8},
         }
-        # One MMLU queue, shared InfoBench queue with two workers (one per GPU)
+        # Separate queues: MMLU (shared), InfoBench (one per GPU for parallel processing)
         self._batch_queues = {
             "mmlu": {"queue": [], "cond": threading.Condition(), "running": True},
-            "infobench": {"queue": [], "cond": threading.Condition(), "running": True},
+            "infobench_gpu0": {"queue": [], "cond": threading.Condition(), "running": True},
+            "infobench_gpu1": {"queue": [], "cond": threading.Condition(), "running": True},
         }
-        # Start background batchers (task_settings now guaranteed to exist)
+        # Start background batchers
         threading.Thread(
             target=self._batch_worker, args=("mmlu", self._batch_queues["mmlu"], None), daemon=True
         ).start()
-        for pair in self.model_pairs:
-            threading.Thread(
-                target=self._batch_worker, args=("infobench", self._batch_queues["infobench"], pair), daemon=True
-            ).start()
+        # One InfoBench worker per GPU, each with dedicated queue
+        threading.Thread(
+            target=self._batch_worker, args=("infobench_gpu0", self._batch_queues["infobench_gpu0"], self.model_pairs[0]), daemon=True
+        ).start()
+        threading.Thread(
+            target=self._batch_worker, args=("infobench_gpu1", self._batch_queues["infobench_gpu1"], self.model_pairs[1]), daemon=True
+        ).start()
+
+        # Round-robin counter for InfoBench queue assignment
+        self._infobench_queue_counter = 0
+        self._infobench_queue_lock = threading.Lock()
 
         # NOTE: Graph tasks use direct computation (no LLM needed!)
         # NOTE: InfoBench uses batched speculative decoding directly (specdec.generate_batch)
@@ -182,7 +191,7 @@ class Model:
                 target_model=target_model,
                 draft_model=draft_model,
                 config=SpecDecConfig(
-                    lookahead_k=3,
+                    lookahead_k=5,
                     temperature=0.7,
                     max_new_tokens=512,
                     device=str(target_model.device),
@@ -216,17 +225,21 @@ class Model:
                 if not qinfo["running"] and not queue:
                     break
                 # Wait for flush window or size
+                queue_size_before_wait = len(queue)
+                print(f"[{task_type}] Queue size: {queue_size_before_wait}, waiting for flush window or max batch size...")
                 while len(queue) < settings["max_batch_size"]:
                     if not queue:
                         break
                     remaining = settings["flush_window"] - (time.time() - queue[0]["arrival"])
                     if remaining <= 0:
                         break
+                    print(f"[{task_type}] Waiting {remaining:.1f}s more (queue: {len(queue)}/{settings['max_batch_size']})")
                     cond.wait(timeout=remaining)
                 if not queue:
                     continue
                 batch = queue[:settings["max_batch_size"]]
                 del queue[:settings["max_batch_size"]]
+                print(f"[{task_type}] Processing batch of {len(batch)} prompts (queue remaining: {len(queue)})")
 
             # Process batch outside lock
             if not batch:
@@ -235,14 +248,19 @@ class Model:
             max_tokens = batch[0]["max_tokens"]
             temperature = batch[0]["temperature"]
             pair = pair or self._next_pair()
+            start_time = time.time()
             try:
                 generated_texts, prompt_lengths, outputs = self._process_by_task(
                     pair, prompts, max_tokens, temperature, task_type
                 )
+                elapsed = time.time() - start_time
+                print(f"[{task_type}] Batch of {len(batch)} completed in {elapsed:.1f}s")
                 for item, gen, plen, out in zip(batch, generated_texts, prompt_lengths, outputs):
                     item["result"] = (gen, plen, out)
                     item["event"].set()
             except Exception as e:
+                elapsed = time.time() - start_time
+                print(f"[{task_type}] Batch of {len(batch)} FAILED after {elapsed:.1f}s: {e}")
                 for item in batch:
                     item["result"] = e
                     item["event"].set()
@@ -269,6 +287,8 @@ class Model:
 
         with qinfo["cond"]:
             qinfo["queue"].append(entry)
+            queue_size = len(qinfo["queue"])
+            print(f"[{task_type}] Enqueued prompt (queue now: {queue_size})")
             qinfo["cond"].notify()
         entry["event"].wait()
         if isinstance(entry["result"], Exception):
@@ -338,6 +358,7 @@ class Model:
                 max_new_tokens=max_tokens,
                 temperature=temperature if temperature > 0 else None,
                 do_sample=temperature > 0,
+                enable_thinking=False,  # Disable Qwen thinking mode
             )
 
         generated_tokens = output[0, prompt_len:]
@@ -371,6 +392,7 @@ class Model:
                 max_new_tokens=max_tokens,
                 temperature=temperature if temperature > 0 else None,
                 do_sample=temperature > 0,
+                enable_thinking=False,  # Disable Qwen thinking mode
             )
 
         # Decode only the generated text (without input prompt) for each example
@@ -387,7 +409,7 @@ class Model:
         """Add a brevity hint to keep generations short for InfoBench tasks."""
         return (
             f"{prompt}\n"
-            f"Think for {token_limit} tokens."
+            f"Provide a direct, concise answer. Do not show your reasoning or thought process."
         )
 
     def _build_infobench_refine_prompts(self, prompts, drafts):
@@ -431,7 +453,11 @@ class Model:
         model = pair["target"]
         specdec = pair["specdec"]
 
-        settings = self.task_settings.get(task_type, {})
+        # Normalize task_type: infobench_gpu0/gpu1 → infobench
+        normalized_task_type = task_type.replace("_gpu0", "").replace("_gpu1", "")
+        # print(f"[DEBUG] task_type='{task_type}' → normalized_task_type='{normalized_task_type}'")
+
+        settings = self.task_settings.get(normalized_task_type, {})
         max_tokens = min(max_tokens, settings.get("max_tokens", max_tokens))
         temperature = settings.get("temperature", temperature)
         use_self_refine = settings.get("use_self_refine", False)
@@ -439,12 +465,13 @@ class Model:
         add_concise_prompt = settings.get("add_concise_prompt", False)
         concise_limit = settings.get("concise_token_limit", 0)
         best_of_n = settings.get("best_of_n", 1)
-        use_specdec = self.task_specdec_enabled.get(task_type, False)
+        use_specdec = self.task_specdec_enabled.get(normalized_task_type, False)
+        # print(f"[DEBUG] normalized_task_type='{normalized_task_type}', use_specdec={use_specdec}, best_of_n={best_of_n}")
 
         # Task-specific prompt modifications
-        if task_type == "graph":
+        if normalized_task_type == "graph":
             temperature = 0.0
-        elif task_type == "infobench" and add_concise_prompt and concise_limit > 0:
+        elif normalized_task_type == "infobench" and add_concise_prompt and concise_limit > 0:
             prompts = [
                 self._apply_infobench_concise_prompt(p, concise_limit)
                 for p in prompts
@@ -452,7 +479,7 @@ class Model:
 
         # GRAPH DIRECT COMPUTATION PATH (NEW!)
         # Instead of using LLM, directly compute shortest paths
-        if task_type == "graph":
+        if normalized_task_type == "graph":
             print(f"[graph] Using direct computation for {len(prompts)} prompts")
             from graph_solver import solve_graph_problem
 
@@ -473,7 +500,7 @@ class Model:
             return generated_texts, prompt_lengths, outputs
 
         # MMLU BATCHING: Batch best-of-N sampling
-        if task_type == "mmlu" and len(prompts) > 1:
+        if normalized_task_type == "mmlu" and len(prompts) > 1:
             print(f"[mmlu] Using BATCHED best-of-{best_of_n} with majority vote for {len(prompts)} prompts")
 
             # Step 1: Create N copies of each prompt for best-of-N sampling
@@ -524,7 +551,7 @@ class Model:
 
         # INFOBENCH BATCHING: Uses BATCHED SPECULATIVE DECODING ✅
         # Maximizes specdec usage for ALL InfoBench requests (single + multiple)
-        if task_type == "infobench" and len(prompts) > 1:
+        if normalized_task_type == "infobench" and len(prompts) > 1:
             print(f"[infobench] Using BATCHED speculative decoding for {len(prompts)} prompts")
 
             # Step 1: Batch speculative decoding (draft: 0.6B, target: 4B)
@@ -609,10 +636,10 @@ class Model:
             else:
                 # Standard generation
                 print(f"[{task_type}] Using standard generation")
-                initial_text, prompt_len, full_seq = self._generate_standard(model, prompt, max_tokens, temperature)
+                initial_text, prompt_len, full_seq = self._generate_standard(model, pair.get("tokenizer", self.tokenizer), prompt, max_tokens, temperature)
 
             # Optional self-refinement for InfoBench
-            if task_type == "infobench" and use_self_refine:
+            if normalized_task_type == "infobench" and use_self_refine:
                 refined_texts, refine_acc_rates = self._self_refine_infobench_batch(
                     specdec, [prompt], [initial_text], max_tokens, refine_temperature
                 )
@@ -623,7 +650,7 @@ class Model:
                 final_text = initial_text
 
             # Step 3: Post-processing
-            if task_type == "mmlu":
+            if normalized_task_type == "mmlu":
                 # Skip re-formatting if already formatted; otherwise format extracted letter
                 if not final_text.startswith("The answer is "):
                     final_text = self._format_mmlu_answer(self._extract_letter(final_text))
@@ -681,8 +708,26 @@ class Model:
             def _run_group(task_type, data):
                 task_prompts = data['prompts']
                 task_indices = data['indices']
-                # Micro-batching for select tasks
-                if task_type in self._microbatch_settings:
+
+                # Special handling for InfoBench: route to GPU-specific queue using round-robin
+                if task_type == "infobench":
+                    with self._infobench_queue_lock:
+                        gpu_id = self._infobench_queue_counter % 2
+                        self._infobench_queue_counter += 1
+                    queue_name = f"infobench_gpu{gpu_id}"
+                    print(f"Enqueuing {len(task_prompts)} {task_type} prompts at indices {task_indices} to {queue_name}")
+                    # Fire all enqueues concurrently so prompts from the same request can batch together
+                    with concurrent.futures.ThreadPoolExecutor(max_workers=len(task_prompts)) as pool:
+                        futures = [
+                            pool.submit(self._enqueue_for_batch, queue_name, p, max_tokens, temperature)
+                            for p in task_prompts
+                        ]
+                        batch_results = [f.result() for f in futures]
+                    generated_texts = [r[0] for r in batch_results]
+                    prompt_lengths = [r[1] for r in batch_results]
+                    outputs = [r[2] for r in batch_results]
+                # Micro-batching for other tasks (MMLU)
+                elif task_type in self._microbatch_settings:
                     print(f"Enqueuing {len(task_prompts)} {task_type} prompts at indices {task_indices} for micro-batch")
                     # Fire all enqueues concurrently so prompts from the same request can batch together
                     with concurrent.futures.ThreadPoolExecutor(max_workers=len(task_prompts)) as pool:
@@ -694,6 +739,7 @@ class Model:
                     generated_texts = [r[0] for r in batch_results]
                     prompt_lengths = [r[1] for r in batch_results]
                     outputs = [r[2] for r in batch_results]
+                # Direct processing for other tasks (Graph)
                 else:
                     pair = self._next_pair()
                     print(f"Processing {len(task_prompts)} {task_type} prompts at indices {task_indices} on {pair['device']}")

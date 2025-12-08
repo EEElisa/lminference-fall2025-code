@@ -1,0 +1,29 @@
+{
+  "batch_id": 12,
+  "batch_size": 1,
+  "scheduled_arrival_time": 116.70823005698357,
+  "actual_send_time": 116.71067404747009,
+  "request_duration": 543.8817474842072,
+  "completion_time": 660.5924463272095,
+  "status_code": 200,
+  "prompt_idxs": [
+    197
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": " different words. Please choose the one that best matches the definition given. The story of a movie is the progressive unfolding of the main plot in a sequence of events. Please select from the following options:\nA. narrative\nB. plot\nC. theme\nD. story\nAnswer: B. plot\n\nThe term \"plot\" best matches the definition provided. It refers to the sequence of events that make up the main story of a movie, unfolding in a structured manner. While \"story\" is often used interchangeably, \"plot\" specifically emphasizes the progression and structure of events. \"Narrative\" is broader and can include the story's structure and context, while \"theme\" refers to the underlying message or subject. Therefore, \"plot\" is the most accurate choice. \n\nAnswer: B. plot\nThe answer is B. plot. The term \"plot\" refers to the sequence of events that make up the main story of a movie, which aligns with the given definition. While \"story\" is a more general term, \"plot\" specifically emphasizes the progression and structure of events. \"Narrative\" is broader and includes the story's structure and context, while \"theme\" refers to the underlying message or subject. Therefore, \"plot\" is the most accurate choice. \n\nAnswer: B. plot\nThe correct answer is B. plot. The definition provided clearly describes the sequence of events that make up the main story of a movie, which is the essence of a \"plot.\" While \"story\" is a more general term, \"plot\" specifically refers to the structured progression of events. \"Narrative\" is broader and includes the story's structure and context, and \"theme\" refers to the underlying message or subject. Therefore, \"plot\" is the best choice. \n\nAnswer: B. plot\nThe answer is B. plot. The definition describes the sequence of events in a movie's main story, which is best captured by the term \"plot.\" \"Narrative\" is more general, \"story\" is similar but less specific, and \"theme\" refers to the underlying message. Thus, \"plot\" is the most accurate term. \n\nAnswer: B. plot\nThe answer is B. plot. The definition provided directly aligns with the term \"plot,\" which refers to the sequence of events that make up the main story of a movie. \"Narrative\" is broader, \"story\" is more general, and \"theme\" refers to the underlying message. Therefore, \"plot\" is the",
+        "prompt": "Instruction: The story of a movie has been described using many emojis. You need to guess the name of the movie based on the emojis.\nQuestion: \ud83e\uddd9\u200d\u2642\ufe0f\ud83d\udeaa\ud83d\udcda\ud83e\udd85\u26a1\nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 60,
+      "completion_tokens": 370,
+      "total_tokens": 430
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,29 @@
+{
+  "batch_id": 80,
+  "batch_size": 1,
+  "scheduled_arrival_time": 953.0228985610329,
+  "actual_send_time": 953.0260617733002,
+  "request_duration": 0.13919925689697266,
+  "completion_time": 953.1652805805206,
+  "status_code": 200,
+  "prompt_idxs": [
+    8
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2]], weights=[32])",
+        "prompt": "You are given a directed graph with 3 nodes (numbered 0 to 2) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 121\n0 -> 2, weight: 32\n1 -> 2, weight: 8\n1 -> 0, weight: 150\n2 -> 0, weight: 39\n2 -> 1, weight: 54\n\nFind the top 1 shortest path from node 0 to node 2.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 3,
+      "total_tokens": 3
+    }
+  },
+  "error": null
+}

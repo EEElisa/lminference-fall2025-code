@@ -1,0 +1,43 @@
+{
+  "batch_id": 93,
+  "batch_size": 3,
+  "scheduled_arrival_time": 1118.7854535344957,
+  "actual_send_time": 1118.7872076034546,
+  "request_duration": 540.5178964138031,
+  "completion_time": 1659.3051311969757,
+  "status_code": 200,
+  "prompt_idxs": [
+    22,
+    78,
+    113
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 4, 5], [0, 1, 2, 4, 5], [0, 1, 2, 3, 4, 5]], weights=[122, 132, 201])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 46\n0 -> 2, weight: 77\n1 -> 2, weight: 41\n1 -> 3, weight: 60\n2 -> 3, weight: 85\n2 -> 4, weight: 28\n3 -> 4, weight: 12\n3 -> 5, weight: 44\n4 -> 5, weight: 17\n4 -> 0, weight: 10\n5 -> 0, weight: 44\n5 -> 1, weight: 18\n\nFind the top 3 shortest paths from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 1, 3, 5]], weights=[655])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 454\n0 -> 2, weight: 228\n1 -> 2, weight: 82\n1 -> 3, weight: 10\n2 -> 3, weight: 309\n2 -> 4, weight: 264\n3 -> 4, weight: 415\n3 -> 5, weight: 191\n4 -> 5, weight: 287\n4 -> 0, weight: 266\n5 -> 0, weight: 80\n5 -> 1, weight: 172\n\nFind the top 1 shortest path from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "UGaF is a well-known house in the Grand Duchy of Lindheim, and is responsible for the Entwined Halls. They are a very secretive organisation, and their role is not well known to the general public. However, they are known for their work in the fields of medical research and experimental treatments. They are also known for their involvement in the development of the Entwined Halls, a vast network of interconnected buildings that serve as a research and development hub for the Grand Duchy of Lindheim.  The organisation operates under a strict hierarchy and is led by the Grand Magister, a high-ranking official who is responsible for overseeing all operations. The organisation is also known for its use of advanced technology and its commitment to ethical research. However, some members of the UGaF are concerned about the potential consequences of their work, and there are whispers of a hidden agenda that is not publicly known.  The organisation is also involved in the development of the most advanced medical technology in the world, including the experimental treatment known as the Entwined Halls.  The UGaF is a secret organisation, and their activities are not publicly known. They are known for their secrecy and their commitment to protecting sensitive information. However, there is some speculation about the true nature of their work and whether they are truly working in the best interests of the people of Lindheim.  The organisation has been accused of unethical practices, and there are reports of individuals who have been subjected to experiments without their consent. However, the UGaF has denied these allegations and maintains that their work is for the greater good of the people of Lindheim.  The organisation is also known for its use of advanced technology, including the use of artificial intelligence and other cutting-edge innovations, to further their research and development goals.  The UGaF is a secretive organisation that has been involved in many events in the history of Lindheim, and their role is not well understood by the general public.  The organisation is also known for its involvement in the development of the Entwined Halls, which is a vast network of interconnected buildings that serve as a research and development hub for the Grand Duchy of Lindheim.  The UGaF is a secretive organisation with a long history of involvement in the development of the Entwined Halls.  The organisation is known for its secrecy, its commitment to ethical research, and its advanced technology.  The UGaF is a secretive organisation that is responsible for the",
+        "prompt": "Instruction: Discuss the origins and history of the word that has been given to you.\nQuestion: oblique\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 40,
+      "completion_tokens": 441,
+      "total_tokens": 481
+    }
+  },
+  "error": null
+}
