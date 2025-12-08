@@ -1,0 +1,29 @@
+{
+  "batch_id": 67,
+  "batch_size": 1,
+  "scheduled_arrival_time": 835.6563556806509,
+  "actual_send_time": 835.6640589237213,
+  "request_duration": 37.39878821372986,
+  "completion_time": 873.0628750324249,
+  "status_code": 200,
+  "prompt_idxs": [
+    299
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following statements identifies a chemically based sensory system?\nI. Gustatory system\nII. Auditory system\nIII. Olfactory system\n Options:\nA. I only\nB. II only\nC. III only\nD. I and III only\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 4,
+      "total_tokens": 4
+    }
+  },
+  "error": null
+}

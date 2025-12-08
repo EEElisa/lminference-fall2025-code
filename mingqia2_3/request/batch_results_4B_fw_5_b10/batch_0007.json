@@ -1,0 +1,50 @@
+{
+  "batch_id": 7,
+  "batch_size": 4,
+  "scheduled_arrival_time": 80.03862737666499,
+  "actual_send_time": 80.04773497581482,
+  "request_duration": 18.981480360031128,
+  "completion_time": 99.02925300598145,
+  "status_code": 200,
+  "prompt_idxs": [
+    26,
+    292,
+    62,
+    96
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[15]], weights=[0])",
+        "prompt": "You are given a directed graph with 16 nodes (numbered 0 to 15) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 830\n0 -> 2, weight: 528\n0 -> 3, weight: 898\n1 -> 2, weight: 636\n1 -> 3, weight: 679\n1 -> 4, weight: 241\n2 -> 3, weight: 566\n2 -> 4, weight: 703\n2 -> 5, weight: 511\n3 -> 4, weight: 627\n3 -> 5, weight: 852\n3 -> 6, weight: 144\n4 -> 5, weight: 213\n4 -> 6, weight: 77\n4 -> 7, weight: 849\n5 -> 6, weight: 942\n5 -> 7, weight: 257\n5 -> 8, weight: 322\n6 -> 7, weight: 556\n6 -> 8, weight: 65\n6 -> 9, weight: 225\n7 -> 8, weight: 159\n7 -> 9, weight: 733\n7 -> 10, weight: 564\n8 -> 9, weight: 774\n8 -> 10, weight: 230\n8 -> 11, weight: 205\n9 -> 10, weight: 720\n9 -> 11, weight: 149\n9 -> 12, weight: 907\n10 -> 11, weight: 509\n10 -> 12, weight: 639\n10 -> 13, weight: 662\n11 -> 12, weight: 417\n11 -> 13, weight: 307\n11 -> 14, weight: 661\n12 -> 13, weight: 886\n12 -> 14, weight: 803\n12 -> 15, weight: 872\n13 -> 14, weight: 767\n13 -> 15, weight: 253\n13 -> 0, weight: 443\n14 -> 15, weight: 480\n14 -> 0, weight: 299\n14 -> 1, weight: 926\n15 -> 0, weight: 134\n15 -> 1, weight: 866\n15 -> 2, weight: 152\n\nFind the top 2 shortest paths from node 0 to node 15.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Two scientists at a conference on evolution take to the stage on day 3 to argue their theories against one other. Each is a devout student of their own philosophy. The first scientist contends that organisms evolved via the increase of organs that were used the most during their time. They would then pass these on to subsequent generations. The second scientist, however, believed that advantages each organism possessed were absent for a long time, randomly occurred, and when they were beneficial, that organism would rapidly populate the population over a short period of time, evolutionarily speaking. Which of the following statements would strengthen the second scientist\u2019s argument?\n Options:\nA. A study that shows that bodybuilders who train more have larger children.\nB. A taxonomy study that shows long periods of stagnant growth followed by short burst of massive evolution.\nC. A study that showed a species who were more successful due to the things they learned over their lifetime that they passed on to their children.\nD. A study that showed a consistent amount of time between the emergence of each new species.\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[3]], weights=[0])",
+        "prompt": "You are given a directed graph with 4 nodes (numbered 0 to 3) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 51\n0 -> 2, weight: 115\n0 -> 3, weight: 19\n1 -> 2, weight: 29\n1 -> 3, weight: 21\n1 -> 0, weight: 21\n2 -> 3, weight: 19\n2 -> 0, weight: 65\n2 -> 1, weight: 78\n3 -> 0, weight: 102\n3 -> 1, weight: 110\n3 -> 2, weight: 36\n\nFind the top 1 shortest path from node 0 to node 3.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[2]], weights=[0])",
+        "prompt": "You are given a directed graph with 3 nodes (numbered 0 to 2) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 428\n0 -> 2, weight: 235\n1 -> 2, weight: 824\n1 -> 0, weight: 583\n2 -> 0, weight: 321\n2 -> 1, weight: 570\n\nFind the top 1 shortest path from node 0 to node 2.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 3,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 10,
+      "total_tokens": 10
+    }
+  },
+  "error": null
+}

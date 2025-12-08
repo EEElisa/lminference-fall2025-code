@@ -1,0 +1,43 @@
+{
+  "batch_id": 93,
+  "batch_size": 3,
+  "scheduled_arrival_time": 1118.7854535344957,
+  "actual_send_time": 1118.7903628349304,
+  "request_duration": 572.2373449802399,
+  "completion_time": 1691.0277454853058,
+  "status_code": 200,
+  "prompt_idxs": [
+    22,
+    78,
+    113
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 4, 5], [0, 1, 2, 4, 5], [0, 1, 2, 3, 4, 5]], weights=[122, 132, 201])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 46\n0 -> 2, weight: 77\n1 -> 2, weight: 41\n1 -> 3, weight: 60\n2 -> 3, weight: 85\n2 -> 4, weight: 28\n3 -> 4, weight: 12\n3 -> 5, weight: 44\n4 -> 5, weight: 17\n4 -> 0, weight: 10\n5 -> 0, weight: 44\n5 -> 1, weight: 18\n\nFind the top 3 shortest paths from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 1, 3, 5]], weights=[655])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 454\n0 -> 2, weight: 228\n1 -> 2, weight: 82\n1 -> 3, weight: 10\n2 -> 3, weight: 309\n2 -> 4, weight: 264\n3 -> 4, weight: 415\n3 -> 5, weight: 191\n4 -> 5, weight: 287\n4 -> 0, weight: 266\n5 -> 0, weight: 80\n5 -> 1, weight: 172\n\nFind the top 1 shortest path from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "A DFT-based approach for the analysis of material damage and fatigue life using a nonlocal strain gradient model - ScienceDirect\nInternational Journal of Mechanical Sciences\nVolume 162, 1 January 2020, 105432\nA DFT-based approach for the analysis of material damage and fatigue life using a nonlocal strain gradient model\nAuthor links open overlay panel\nYanpingZhangab ZhiyuanZhangc ChuanmingChenb\nhttps://doi.org/10.1016/j.ijmecsci.2019.105432 Get rights and content\nHighlights\n\u2022\nA DFT-based approach is proposed for damage analysis.\n\u2022\nNonlocal strain gradient theory is introduced for the analysis of micro scale.\n\u2022\nThe fatigue life model is established based on the DFT method.\n\u2022\nThe model is validated through comparison with experimental data.\nAbstract\nIn this work, a damage mechanics model is proposed based on the density functional theory (DFT) and the nonlocal strain gradient theory. The model takes into account the microstructural effects by introducing the nonlocal strain gradient theory, which considers the size effect of materials at different scales. The DFT method is used to calculate the energy of crystal lattice, and the energy change is used to reflect the damage evolution. The fatigue life prediction model is established based on the DFT method. The model is validated through comparison with experimental data. The results show that the model can effectively reflect the damage evolution and fatigue life of materials under low cycle fatigue (LCF) loading. The model with the nonlocal strain gradient theory presents better results than the conventional DFT-based model without considering the size effect. Moreover, the model can capture the effects of microstructural parameters, and the predicted fatigue life decreases with the increase of the nonlocal parameter and the gradient parameter. The model is expected to be used for the prediction of the fatigue life of materials at the micro scale.\nPrevious article\nin issue\nNext article\nin issue\nKeywords\nDamage mechanics\nFatigue life\nDensity functional theory\nNonlocal strain gradient model\nMicrostructure\n1. Introduction\nFatigue is one of the main causes of structural failure in engineering. The study of fatigue life prediction is of great significance for the design and safety assessment of engineering structures. However, traditional fatigue life prediction models are based on macroscopic constitutive models, which neglect the microstructural effects. As a result, they are not suitable",
+        "prompt": "Instruction: Discuss the origins and history of the word that has been given to you.\nQuestion: oblique\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 32,
+      "completion_tokens": 391,
+      "total_tokens": 423
+    }
+  },
+  "error": null
+}

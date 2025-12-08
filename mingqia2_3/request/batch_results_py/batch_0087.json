@@ -1,0 +1,29 @@
+{
+  "batch_id": 87,
+  "batch_size": 1,
+  "scheduled_arrival_time": 1040.3419653836763,
+  "actual_send_time": 1040.343507528305,
+  "request_duration": 554.4100444316864,
+  "completion_time": 1594.7535893917084,
+  "status_code": 200,
+  "prompt_idxs": [
+    122
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "De Materialen\n\nThe De Materialen is a Dutch-language magazine for material culture studies. It is published by the Dutch Society for the Study of Material Culture (Nederlandse Vereniging voor Materialenkunde, NVMK). The magazine includes articles, book reviews, and essays on topics related to material culture. It is an important source for researchers and students interested in the study of material culture in the Netherlands and beyond.\n\nDe Materialen is a journal that focuses on the study of material culture, which is the study of how people interact with objects, spaces, and materials in their daily lives. The journal publishes articles, book reviews, and other scholarly work on topics related to material culture, such as the history of technology, design, and the material aspects of social life.\n\nThe journal is aimed at a broad audience, including researchers, students, and professionals in the fields of history, anthropology, sociology, and design. It also serves as a platform for interdisciplinary research and discussion on material culture.\n\nDe Materialen is published in Dutch, but it also has an English edition, which is published in the same issue as the Dutch edition. The English edition is aimed at an international audience and is also available online.\n\nThe journal is an important resource for those interested in the study of material culture, providing a platform for the exchange of ideas and research in this field.\n\nIn addition to articles and book reviews, De Materialen also features other content, such as interviews with researchers and practitioners, and discussions on current issues in the field of material culture studies.\n\nThe journal is published twice a year, with issues typically released in the spring and autumn. Each issue contains a variety of content, including original research articles, reviews, and essays on a wide range of topics related to material culture.\n\nOverall, De Materialen is an important publication for anyone interested in the study of material culture, providing a forum for scholarly discussion and research in this field.\n\nThe journal's editorial board consists of a number of experts in the field of material culture, who oversee the content and quality of the journal. The editorial board is responsible for selecting articles for publication, ensuring the quality of the content, and maintaining the journal's academic standards.\n\nThe journal is also supported by a number of institutions and organizations, including the Dutch Society for the Study of Material Culture, which is the publisher of the journal.\n\nIn conclusion, De Materialen is an important journal for the study of material culture, providing a platform for scholarly discussion and research in this field. It is a valuable resource for researchers, students",
+        "prompt": "Instruction: Design a family-focused weekly activity plan consisting of five activities that promote togetherness, and communication. Each activity should be suitable for various age groups and require minimal resources. Include brief descriptions (30-50 words) explaining the purpose of each activity and how it strengthens family bonds.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 436,
+      "total_tokens": 510
+    }
+  },
+  "error": null
+}

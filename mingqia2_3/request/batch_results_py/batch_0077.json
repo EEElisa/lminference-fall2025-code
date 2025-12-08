@@ -1,0 +1,57 @@
+{
+  "batch_id": 77,
+  "batch_size": 5,
+  "scheduled_arrival_time": 911.2092286143198,
+  "actual_send_time": 911.2102138996124,
+  "request_duration": 45.77038598060608,
+  "completion_time": 956.9806203842163,
+  "status_code": 200,
+  "prompt_idxs": [
+    70,
+    257,
+    99,
+    80,
+    234
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 1, 3, 5], [0, 1, 3, 4, 5]], weights=[359, 467])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 79\n0 -> 2, weight: 54\n1 -> 2, weight: 96\n1 -> 3, weight: 48\n2 -> 3, weight: 287\n2 -> 4, weight: 328\n3 -> 4, weight: 311\n3 -> 5, weight: 232\n4 -> 5, weight: 29\n4 -> 0, weight: 144\n5 -> 0, weight: 275\n5 -> 1, weight: 198\n\nFind the top 2 shortest paths from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 46-year-old woman, gravida 1, para 1, comes to the office because of a 2-week history of black discharge from her right nipple. The patient had mammography and ultrasonography of the breasts 2 months ago for evaluation of increased glandularity, palpated in the upper outer quadrant of the right breast, noted at her most recent annual examination. The studies showed likely benign findings with recommended follow-up in 6 months. Medical history is otherwise unremarkable and she takes no medications. BMI is 30 kg/m2 . Vital signs are normal. Palpation of the right breast discloses glandularity in the upper outer quadrant but no other masses. There is scant, black discharge from the right nipple. Which of the following is the most appropriate next step in diagnosis?\n Options:\nA. Ductography\nB. Excisional biopsy of glandular tissue\nC. Repeat mammography\nD. Repeat ultrasonography of the right breast\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 5, 8, 10]], weights=[108])",
+        "prompt": "You are given a directed graph with 11 nodes (numbered 0 to 10) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 131\n0 -> 2, weight: 43\n0 -> 3, weight: 139\n0 -> 4, weight: 131\n0 -> 5, weight: 76\n0 -> 6, weight: 86\n1 -> 2, weight: 141\n1 -> 3, weight: 115\n1 -> 4, weight: 39\n1 -> 5, weight: 111\n1 -> 6, weight: 19\n1 -> 7, weight: 40\n2 -> 3, weight: 113\n2 -> 4, weight: 75\n2 -> 5, weight: 76\n2 -> 6, weight: 114\n2 -> 7, weight: 70\n2 -> 8, weight: 81\n3 -> 4, weight: 9\n3 -> 5, weight: 45\n3 -> 6, weight: 133\n3 -> 7, weight: 112\n3 -> 8, weight: 131\n3 -> 9, weight: 117\n4 -> 5, weight: 32\n4 -> 6, weight: 87\n4 -> 7, weight: 18\n4 -> 8, weight: 80\n4 -> 9, weight: 110\n4 -> 10, weight: 74\n5 -> 6, weight: 81\n5 -> 7, weight: 72\n5 -> 8, weight: 21\n5 -> 9, weight: 59\n5 -> 10, weight: 121\n5 -> 0, weight: 78\n6 -> 7, weight: 110\n6 -> 8, weight: 127\n6 -> 9, weight: 83\n6 -> 10, weight: 84\n6 -> 0, weight: 28\n6 -> 1, weight: 99\n7 -> 8, weight: 42\n7 -> 9, weight: 103\n7 -> 10, weight: 138\n7 -> 0, weight: 138\n7 -> 1, weight: 53\n7 -> 2, weight: 68\n8 -> 9, weight: 113\n8 -> 10, weight: 11\n8 -> 0, weight: 8\n8 -> 1, weight: 64\n8 -> 2, weight: 69\n8 -> 3, weight: 31\n9 -> 10, weight: 5\n9 -> 0, weight: 109\n9 -> 1, weight: 68\n9 -> 2, weight: 84\n9 -> 3, weight: 106\n9 -> 4, weight: 3\n10 -> 0, weight: 151\n10 -> 1, weight: 26\n10 -> 2, weight: 49\n10 -> 3, weight: 129\n10 -> 4, weight: 152\n10 -> 5, weight: 123\n\nFind the top 1 shortest path from node 0 to node 10.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 6, 12, 17]], weights=[7])",
+        "prompt": "You are given a directed graph with 18 nodes (numbered 0 to 17) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 21\n0 -> 2, weight: 19\n0 -> 3, weight: 9\n0 -> 4, weight: 2\n0 -> 5, weight: 19\n0 -> 6, weight: 4\n1 -> 2, weight: 6\n1 -> 3, weight: 9\n1 -> 4, weight: 21\n1 -> 5, weight: 8\n1 -> 6, weight: 23\n1 -> 7, weight: 20\n2 -> 3, weight: 5\n2 -> 4, weight: 22\n2 -> 5, weight: 16\n2 -> 6, weight: 23\n2 -> 7, weight: 11\n2 -> 8, weight: 16\n3 -> 4, weight: 17\n3 -> 5, weight: 14\n3 -> 6, weight: 15\n3 -> 7, weight: 8\n3 -> 8, weight: 7\n3 -> 9, weight: 4\n4 -> 5, weight: 10\n4 -> 6, weight: 4\n4 -> 7, weight: 6\n4 -> 8, weight: 3\n4 -> 9, weight: 18\n4 -> 10, weight: 21\n5 -> 6, weight: 7\n5 -> 7, weight: 4\n5 -> 8, weight: 16\n5 -> 9, weight: 14\n5 -> 10, weight: 10\n5 -> 11, weight: 12\n6 -> 7, weight: 17\n6 -> 8, weight: 21\n6 -> 9, weight: 8\n6 -> 10, weight: 19\n6 -> 11, weight: 9\n6 -> 12, weight: 2\n7 -> 8, weight: 22\n7 -> 9, weight: 15\n7 -> 10, weight: 19\n7 -> 11, weight: 20\n7 -> 12, weight: 17\n7 -> 13, weight: 4\n8 -> 9, weight: 15\n8 -> 10, weight: 22\n8 -> 11, weight: 8\n8 -> 12, weight: 4\n8 -> 13, weight: 9\n8 -> 14, weight: 2\n9 -> 10, weight: 7\n9 -> 11, weight: 23\n9 -> 12, weight: 19\n9 -> 13, weight: 8\n9 -> 14, weight: 18\n9 -> 15, weight: 19\n10 -> 11, weight: 5\n10 -> 12, weight: 12\n10 -> 13, weight: 13\n10 -> 14, weight: 5\n10 -> 15, weight: 3\n10 -> 16, weight: 1\n11 -> 12, weight: 17\n11 -> 13, weight: 7\n11 -> 14, weight: 23\n11 -> 15, weight: 9\n11 -> 16, weight: 2\n11 -> 17, weight: 4\n12 -> 13, weight: 2\n12 -> 14, weight: 12\n12 -> 15, weight: 15\n12 -> 16, weight: 16\n12 -> 17, weight: 1\n12 -> 0, weight: 22\n13 -> 14, weight: 2\n13 -> 15, weight: 22\n13 -> 16, weight: 18\n13 -> 17, weight: 12\n13 -> 0, weight: 4\n13 -> 1, weight: 12\n14 -> 15, weight: 20\n14 -> 16, weight: 4\n14 -> 17, weight: 13\n14 -> 0, weight: 4\n14 -> 1, weight: 15\n14 -> 2, weight: 11\n15 -> 16, weight: 7\n15 -> 17, weight: 9\n15 -> 0, weight: 19\n15 -> 1, weight: 13\n15 -> 2, weight: 4\n15 -> 3, weight: 4\n16 -> 17, weight: 15\n16 -> 0, weight: 8\n16 -> 1, weight: 13\n16 -> 2, weight: 23\n16 -> 3, weight: 3\n16 -> 4, weight: 14\n17 -> 0, weight: 5\n17 -> 1, weight: 14\n17 -> 2, weight: 2\n17 -> 3, weight: 22\n17 -> 4, weight: 11\n17 -> 5, weight: 21\n\nFind the top 1 shortest path from node 0 to node 17.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 3,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A source emits a sound from one medium with a certain velocity, intensity, frequency and wavelength. When the sound exits the first medium and enters a denser medium, all of the following changes EXCEPT:\n Options:\nA. velocity\nB. intensity\nC. frequency\nD. wavelength\nAnswer:",
+        "index": 4,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 29,
+      "total_tokens": 29
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,50 @@
+{
+  "batch_id": 83,
+  "batch_size": 4,
+  "scheduled_arrival_time": 995.0129116816942,
+  "actual_send_time": 995.0148067474365,
+  "request_duration": 599.6113650798798,
+  "completion_time": 1594.6261882781982,
+  "status_code": 200,
+  "prompt_idxs": [
+    12,
+    154,
+    201,
+    158
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 8, 13]], weights=[146])",
+        "prompt": "You are given a directed graph with 14 nodes (numbered 0 to 13) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 228\n0 -> 2, weight: 11\n0 -> 3, weight: 2\n0 -> 4, weight: 45\n0 -> 5, weight: 74\n0 -> 6, weight: 41\n1 -> 2, weight: 36\n1 -> 3, weight: 188\n1 -> 4, weight: 58\n1 -> 5, weight: 205\n1 -> 6, weight: 64\n1 -> 7, weight: 92\n2 -> 3, weight: 78\n2 -> 4, weight: 99\n2 -> 5, weight: 105\n2 -> 6, weight: 164\n2 -> 7, weight: 123\n2 -> 8, weight: 124\n3 -> 4, weight: 136\n3 -> 5, weight: 299\n3 -> 6, weight: 284\n3 -> 7, weight: 216\n3 -> 8, weight: 279\n3 -> 9, weight: 161\n4 -> 5, weight: 203\n4 -> 6, weight: 73\n4 -> 7, weight: 156\n4 -> 8, weight: 107\n4 -> 9, weight: 195\n4 -> 10, weight: 249\n5 -> 6, weight: 202\n5 -> 7, weight: 272\n5 -> 8, weight: 209\n5 -> 9, weight: 29\n5 -> 10, weight: 36\n5 -> 11, weight: 251\n6 -> 7, weight: 288\n6 -> 8, weight: 233\n6 -> 9, weight: 155\n6 -> 10, weight: 215\n6 -> 11, weight: 161\n6 -> 12, weight: 225\n7 -> 8, weight: 186\n7 -> 9, weight: 100\n7 -> 10, weight: 174\n7 -> 11, weight: 82\n7 -> 12, weight: 211\n7 -> 13, weight: 226\n8 -> 9, weight: 241\n8 -> 10, weight: 269\n8 -> 11, weight: 98\n8 -> 12, weight: 16\n8 -> 13, weight: 11\n8 -> 0, weight: 253\n9 -> 10, weight: 209\n9 -> 11, weight: 148\n9 -> 12, weight: 35\n9 -> 13, weight: 189\n9 -> 0, weight: 192\n9 -> 1, weight: 227\n10 -> 11, weight: 160\n10 -> 12, weight: 116\n10 -> 13, weight: 184\n10 -> 0, weight: 272\n10 -> 1, weight: 143\n10 -> 2, weight: 61\n11 -> 12, weight: 181\n11 -> 13, weight: 21\n11 -> 0, weight: 240\n11 -> 1, weight: 274\n11 -> 2, weight: 195\n11 -> 3, weight: 75\n12 -> 13, weight: 10\n12 -> 0, weight: 73\n12 -> 1, weight: 99\n12 -> 2, weight: 285\n12 -> 3, weight: 104\n12 -> 4, weight: 88\n13 -> 0, weight: 62\n13 -> 1, weight: 137\n13 -> 2, weight: 83\n13 -> 3, weight: 266\n13 -> 4, weight: 290\n13 -> 5, weight: 130\n\nFind the top 1 shortest path from node 0 to node 13.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "S = list(input())\nres = []\nfor s in S:\n    if s == '0':\n        res.append('0')\n    elif s == '1':\n        res.append('1')\n    else:\n        res.append(chr(ord('a') + int(s) - 2))\nprint(''.join(res))\n\n# https://codeforces.com/problemset/problem/1332/A\n# 1332A - Independent Set\n# 2023.08.08\n# 1332A\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.08.08\n# 2023.",
+        "prompt": "Instruction: Please generate 10 one-sentence hotel reviews from ten different customers, ensuring that 5 of the reviews are positive and 5 are negative. Begin each review with \"CUSTOMER\" and the customer's number. After completing the 10 reviews, provide a two-sentence summarization that captures the overall sentiment and key points from the reviews.\nQuestion: \nGeneration:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 75-year-old female presents to the office for a health maintenance examination. She says that she is more fatigued than she was at 65, but she still gardens and drives to the grocery store. Routine laboratory studies reveal a leukocyte count of 25.0\u00a0\u00d7\u00a0103/mcL (reference range 4.5-11.0\u00a0\u00d7\u00a0103/mcL) and 97%\u00a0mature-appearing lymphocytes on a peripheral blood smear. Immunohistochemical stains demonstrate the lymphocytes to be of\u00a0B-cell\u00a0origin. The most likely diagnosis is\n Options:\nA. acute lymphocytic leukemia\nB. acute myelogenous leukemia\nC. chronic lymphocytic leukemia\nD. chronic myelogenous leukemia\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "\u4ecehs300\u4e2d\u9009\u4e94\u4e2a\u80a1\uff0c\u7136\u540e\u7528python\u8ba1\u7b97\u51fa\u5b83\u4eec\u7684\u6536\u76ca\u7387\uff0c\u4f7f\u7528\u5355\u6307\u6570\u6a21\u578b\uff0c\u8ba1\u7b97\u5b83\u4eec\u7684beta\u7cfb\u6570\uff0c\u7136\u540e\u7528Fama-French\u4e09\u56e0\u5b50\u6a21\u578b\u4f30\u7b97\u5b83\u4eec\u7684alpha\u3002\u8981\u6c42\u7528\u6700\u5c0f\u4e8c\u4e58\u6cd5\u3002\u6ce8\u610f\uff0c\u6570\u636e\u7684\u5904\u7406\u8981\u4f7f\u7528pandas\u3002 \u4e3a\u4e86\u5b8c\u6210\u8fd9\u4e2a\u4efb\u52a1\uff0c\u6211\u5c06\u5f15\u5bfc\u4f60\u901a\u8fc7\u4ee5\u4e0b\u6b65\u9aa4\uff1a\n\n1. \u83b7\u53d6\u6caa\u6df1300\u6307\u6570\u7684\u5386\u53f2\u6570\u636e\u4f5c\u4e3a\u5e02\u573a\u57fa\u51c6\n2. \u83b7\u53d6\u6240\u90095\u53ea\u80a1\u7968\u7684\u5386\u53f2\u6570\u636e\n3. \u8ba1\u7b97\u6536\u76ca\u7387\n4. \u4f7f\u7528\u5355\u6307\u6570\u6a21\u578b\u8ba1\u7b97Beta\u7cfb\u6570\n5. \u4f7f\u7528Fama-French\u4e09\u56e0\u5b50\u6a21\u578b\u4f30\u7b97Alpha\n6. \u4f7f\u7528\u6700\u5c0f\u4e8c\u4e58\u6cd5\u8fdb\u884c\u56de\u5f52\u5206\u6790\n\n\u73b0\u5728\uff0c\u6211\u5c06\u7528Python\u4ee3\u7801\u5b9e\u73b0\u8fd9\u4e9b\u6b65\u9aa4\u3002\u9996\u5148\u9700\u8981\u5b89\u88c5\u5fc5\u8981\u7684\u5e93\uff08\u5982\u679c\u5c1a\u672a\u5b89\u88c5\uff09\uff1a\n\n```bash\npip install pandas numpy matplotlib statsmodels\n```\n\n\u63a5\u4e0b\u6765\u662f\u5b8c\u6574\u7684Python\u4ee3\u7801\uff1a\n\n```python\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport yfinance as yf\nfrom statsmodels.stats.outliers_influence import variance_inflation_factor\nfrom statsmodels.regression.linear_model import OLS\nfrom sklearn.linear_model import LinearRegression\n\n# 1. \u83b7\u53d6\u6caa\u6df1300\u6307\u6570\u6570\u636e\n# \u6ce8\u610f\uff1ayfinance\u53ef\u80fd\u65e0\u6cd5\u76f4\u63a5\u83b7\u53d6\u6caa\u6df1300\u6307\u6570\uff0c\u6240\u4ee5\u4f7f\u7528\u6210\u5206\u80a1\u7684\u5e73\u5747\u503c\u4f5c\u4e3a\u8fd1\u4f3c\n# \u8fd9\u91cc\u4f7f\u7528\u4e2d\u56fd\u5e73\u5b89\uff08601318.SS\uff09\u4f5c\u4e3a\u8fd1\u4f3c\u66ff\u4ee3\uff0c\u5b9e\u9645\u5e94\u4f7f\u7528\u6caa\u6df1300\u6307\u6570\u6210\u5206\u80a1\u7684\u5e73\u5747\u503c\nhs300 = yf.Ticker(\"601318.SS\")\nhs300_hist = hs300.history(period=\"max\")\n\n# 2. \u83b7\u53d65\u53ea\u80a1\u7968\u6570\u636e\uff08\u793a\u4f8b\u4f7f\u7528\u4e2d\u56fd\u5e73\u5b89\u3001\u8d35\u5dde\u8305\u53f0\u3001\u4e94\u7cae\u6db2\u3001\u62db\u5546\u94f6\u884c\u3001\u7f8e\u7684\u96c6\u56e2\uff09\n# \u6ce8\u610f\uff1a\u80a1\u7968\u4ee3\u7801\u9700\u8981\u6839\u636e\u5b9e\u9645\u5e02\u573a\u8fdb\u884c\u8c03\u6574\nstock_tickers = [\"601318.SS\", \"600519.SS\", \"000858.SZ\", \"600036.SS\", \"000333.SZ\"]\nstocks = {}\nfor ticker in stock_tickers:\n    stock = yf.Ticker(ticker)\n    stock_hist = stock.history(period=\"max\")\n    stocks[ticker] = stock_hist\n\n# 3. \u5904\u7406\u6570\u636e\uff0c\u786e\u4fdd\u65f6\u95f4\u5bf9\u9f50\n# \u53d6\u6700\u8fd15\u5e74\u6570\u636e\nstart_date = (pd.to_datetime",
+        "prompt": "Instruction: Give the news title a category. Pick a category from the list of News & Buzz, Travel, Style, Arts & Culture, Politics, Tech, and Science & Health.\nQuestion: The #Banksy Exhibit in Cambridge, MA is absolutely terrific.\nGeneration:",
+        "index": 3,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 257,
+      "total_tokens": 632
+    }
+  },
+  "error": null
+}

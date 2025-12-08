@@ -1,0 +1,50 @@
+{
+  "batch_id": 57,
+  "batch_size": 4,
+  "scheduled_arrival_time": 750.1820199932646,
+  "actual_send_time": 750.184100151062,
+  "request_duration": 512.9876267910004,
+  "completion_time": 1263.1717717647552,
+  "status_code": 200,
+  "prompt_idxs": [
+    211,
+    144,
+    282,
+    291
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A fundamental cause of fatigue in high intensity exercise is:\n Options:\nA. a fall in the cell concentration of ADP.\nB. inhibition of ATP production.\nC. failure of the ATP supply to match the demand.\nD. lack of skill.\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "df\u95ee\u9898\u4e2d\u7684\u201c\u95ee\u9898\u201d\u662f\u6307\u4ec0\u4e48\uff1f\u4e5f\u5c31\u662f\u8bf4\uff0c\u4f20\u7edf\u95ee\u9898\u548c\u201cdf\u95ee\u9898\u201d\u6709\u4ec0\u4e48\u4e0d\u540c\uff1f \u5728\u673a\u5668\u5b66\u4e60\u6216\u6570\u636e\u79d1\u5b66\u4e2d\uff0c\u201cDF\u95ee\u9898\u201d\u901a\u5e38\u6307\u7684\u662f\u201cData Frame \u95ee\u9898\u201d\uff0c\u5176\u4e2d\u201cData Frame\u201d\u662fR\u8bed\u8a00\u4e2d\u7684\u4e00\u79cd\u6570\u636e\u7ed3\u6784\uff0c\u7528\u4e8e\u5b58\u50a8\u8868\u683c\u6570\u636e\uff0c\u7c7b\u4f3c\u4e8ePython\u4e2d\u7684Pandas DataFrame\u3002\u7136\u800c\uff0c\u60a8\u63d0\u5230\u7684\u201cDF\u95ee\u9898\u201d\u53ef\u80fd\u5e76\u4e0d\u662f\u6307\u8fd9\u4e2a\u3002\u5728\u4e2d\u6587\u8bed\u5883\u4e2d\uff0c\u201cDF\u201d\u6709\u65f6\u4e5f\u53ef\u80fd\u4ee3\u8868\u201cDocument Flow\u201d\u6216\u8005\u201cData Flow\u201d\uff0c\u4f46\u7ed3\u5408\u60a8\u7684\u95ee\u9898\u80cc\u666f\uff0c\u4f3c\u4e4e\u66f4\u53ef\u80fd\u662f\u6307\u201cData Frame \u95ee\u9898\u201d\u3002\n\n\u5728\u673a\u5668\u5b66\u4e60\u6216\u6570\u636e\u79d1\u5b66\u4e2d\uff0c\u5f53\u6211\u4eec\u8c08\u8bba\u201cDF\u95ee\u9898\u201d\u65f6\uff0c\u901a\u5e38\u662f\u6307\u4e0e\u6570\u636e\u6846\uff08Data Frame\uff09\u76f8\u5173\u7684\u6570\u636e\u5904\u7406\u548c\u5206\u6790\u95ee\u9898\u3002\u8fd9\u53ef\u80fd\u5305\u62ec\u6570\u636e\u6e05\u6d17\u3001\u7279\u5f81\u5de5\u7a0b\u3001\u6570\u636e\u8f6c\u6362\u3001\u6570\u636e\u53ef\u89c6\u5316\u7b49\u65b9\u9762\u7684\u95ee\u9898\u3002\u8fd9\u4e9b\u95ee\u9898\u901a\u5e38\u6d89\u53ca\u5982\u4f55\u6709\u6548\u5730\u5904\u7406\u548c\u5229\u7528\u6570\u636e\u6846\u4e2d\u7684\u6570\u636e\uff0c\u4ee5\u652f\u6301\u673a\u5668\u5b66\u4e60\u6a21\u578b\u7684\u6784\u5efa\u548c\u8bad\u7ec3\u3002\n\n\u76f8\u6bd4\u4e4b\u4e0b\uff0c\u4f20\u7edf\u7684\u201c\u95ee\u9898\u201d\u53ef\u80fd\u6307\u7684\u662f\u66f4\u5e7f\u6cdb\u610f\u4e49\u4e0a\u7684\u95ee\u9898\uff0c\u6bd4\u5982\u6570\u5b66\u95ee\u9898\u3001\u903b\u8f91\u95ee\u9898\u3001\u7f16\u7a0b\u95ee\u9898\u7b49\u3002\u5728\u673a\u5668\u5b66\u4e60\u4e2d\uff0c\u4f20\u7edf\u95ee\u9898\u53ef\u80fd\u6307\u7684\u662f\u4e00\u4e9b\u5e38\u8bc6\u6027\u7684\u95ee\u9898\uff0c\u6bd4\u5982\u5982\u4f55\u8ba1\u7b97\u5e73\u5747\u503c\u3001\u5982\u4f55\u89e3\u51b3\u65b9\u7a0b\u7b49\uff0c\u800c\u201cDF\u95ee\u9898\u201d\u5219\u66f4\u5177\u4f53\u5730\u6307\u5411\u4e0e\u6570\u636e\u6846\u76f8\u5173\u7684\u6570\u636e\u5904\u7406\u548c\u5206\u6790\u95ee\u9898\u3002\n\n\u603b\u7ed3\u6765\u8bf4\uff0c\u201cDF\u95ee\u9898\u201d\u5728\u673a\u5668\u5b66\u4e60\u6216\u6570\u636e\u79d1\u5b66\u4e2d\u901a\u5e38\u6307\u7684\u662f\u4e0e\u6570\u636e\u6846\u76f8\u5173\u7684\u6570\u636e\u5904\u7406\u548c\u5206\u6790\u95ee\u9898\uff0c\u800c\u4f20\u7edf\u95ee\u9898\u5219\u53ef\u80fd\u6307\u66f4\u5e7f\u6cdb\u610f\u4e49\u4e0a\u7684\u95ee\u9898\uff0c\u53ef\u80fd\u4e0d\u6d89\u53ca\u6570\u636e\u6846\u6216\u6570\u636e\u5904\u7406\u3002\u5f53\u7136\uff0c\u5177\u4f53\u7684\u5b9a\u4e49\u53ef\u80fd\u56e0\u4e0a\u4e0b\u6587\u800c\u5f02\uff0c\u56e0\u6b64\u9700\u8981\u7ed3\u5408\u5177\u4f53\u7684\u8bed\u5883\u6765\u7406\u89e3\u3002\n### \u95ee\u9898\u5206\u6790\n\n\u5728\u673a\u5668\u5b66\u4e60\u548c\u6570\u636e\u79d1\u5b66\u4e2d\uff0c\"DF\u95ee\u9898\"\u901a\u5e38\u6307\u7684\u662f\u4e0e\u201cData Frame\u201d\u76f8\u5173\u7684\u6570\u636e\u5904\u7406\u548c\u5206\u6790\u95ee\u9898\u3002Data Frame\u662f\u4e00\u79cd\u7528\u4e8e\u5b58\u50a8\u8868\u683c\u6570\u636e\u7684\u7ed3\u6784\uff0c\u5728R\u8bed\u8a00\u4e2d\u5e7f\u6cdb\u4f7f\u7528\uff0c\u7c7b\u4f3c\u4e8ePython\u4e2dPandas\u7684DataFrame\u3002\u56e0\u6b64\uff0c\"DF\u95ee\u9898\"\u901a\u5e38\u6d89\u53ca\u5982\u4f55\u5904\u7406\u3001\u8f6c\u6362\u3001\u6e05\u6d17\u548c\u5206\u6790\u6570\u636e\u6846\u4e2d\u7684\u6570\u636e\uff0c\u4ee5\u652f\u6301\u6570\u636e\u79d1\u5b66\u4efb\u52a1\u3002\n\n\u800c\u201c\u4f20\u7edf\u95ee\u9898\u201d\u5219\u53ef\u80fd\u6307\u7684\u662f\u66f4\u5e7f\u6cdb\u610f\u4e49\u4e0a\u7684\u95ee\u9898\uff0c\u4f8b\u5982\u6570\u5b66\u95ee\u9898\u3001\u903b\u8f91\u95ee\u9898\u3001\u7f16\u7a0b\u95ee\u9898\u7b49\uff0c\u8fd9\u4e9b\u95ee\u9898\u53ef\u80fd\u4e0d\u6d89\u53ca\u7279\u5b9a\u7684\u6570\u636e\u7ed3\u6784\uff08\u5982Data Frame\uff09\uff0c\u4e5f\u4e0d\u4e00\u5b9a\u4e0e\u6570\u636e\u5904\u7406\u548c\u5206\u6790\u76f4\u63a5\u76f8\u5173\u3002\n\n### \u5177\u4f53\u533a\u5206\n\n- **DF\u95ee\u9898**\uff1a\u4e0e\u6570\u636e\u6846\uff08Data Frame\uff09\u76f8\u5173\u7684\u6570\u636e\u5904\u7406\u95ee\u9898\uff0c\u5305\u62ec\u6570\u636e\u6e05\u6d17\u3001\u8f6c\u6362\u3001\u7279\u5f81\u5de5\u7a0b\u3001\u6570\u636e\u53ef\u89c6\u5316\u7b49\u3002\n- **\u4f20\u7edf\u95ee\u9898**\uff1a\u66f4\u5e7f\u6cdb\u7684\u3001\u4e0d\u7279\u5b9a\u4e8e\u6570\u636e\u7ed3\u6784\u7684\u95ee\u9898\uff0c\u53ef\u80fd\u6d89\u53ca\u6570\u5b66\u8ba1\u7b97\u3001\u903b\u8f91\u63a8\u7406",
+        "prompt": "Instruction: Design an outline for a blog post based on the given information and list the sections accordingly.\nQuestion: This blog post is going to about making a list of last-minute gift ideas. Also, the tone of the post is going to be relaxed and casual.\nGeneration:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 35-year-old man comes to the office for follow-up of sarcoidosis. His only new complaint is pain in his legs that increases with weight-bearing. He has been taking glucocorticoid therapy for the past 6 months. Vital signs now are temperature 37.0\u00b0C (98.6\u00b0F), pulse 78/min, respirations 14/min, and blood pressure 110/70 mm Hg. The patient is thin and is in no acute distress. Auscultation of the chest discloses scattered bilateral basilar crackles. There is mild left hip pain present with both active and passive range of motion. Dorsalis pedis pulse is intact. Neurologic examination is normal. Which of the following is the most likely cause of this patient's symptoms?\n Options:\nA. Avascular necrosis of the femoral head\nB. Herniated nucleus pulposus\nC. Narrowing of the hip joint\nD. Osteoporosis\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 44-year-old female presents to the office for evaluation of a lump on her neck that she noted 1\u00a0week ago. She denies any tenderness, fever, weight loss, or fatigue. Physical examination reveals a\u00a02-cm\u00a0freely movable mass in the lower left lobe of the thyroid. In addition to thyroid-stimulating hormone and free thyroxine levels, the most appropriate initial method to investigate this lesion is\n Options:\nA. a nuclear thyroid scan\nB. an iodine131\u00a0scan\nC. fine-needle aspiration\nD. ultrasonography of the thyroid gland\nAnswer:",
+        "index": 3,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 63,
+      "completion_tokens": 40,
+      "total_tokens": 103
+    }
+  },
+  "error": null
+}

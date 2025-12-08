@@ -1,0 +1,43 @@
+{
+  "batch_id": 9,
+  "batch_size": 3,
+  "scheduled_arrival_time": 107.14415874312968,
+  "actual_send_time": 107.14516472816467,
+  "request_duration": 585.1996121406555,
+  "completion_time": 692.3447930812836,
+  "status_code": 200,
+  "prompt_idxs": [
+    209,
+    277,
+    162
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 78-year-old male presents to the office\u00a0with the complaint of severe neck pain. He rates the pain as a 7\u00a0on a scale of 0 to 10 scale. He denies any trauma but reports that he had been doing a lot of painting over the past week. He denies any radicular pain or numbness. Cervical range of motion is moderately limited in all fields. He is treated with articulatory springing technique. Four hours later the physician receives a call from the local emergency department, where the patient presented confused, nauseated, and vertiginous. The physician may be found liable if\n Options:\nA. the motion barrier was articulated more than 3 times\nB. the motion barrier was met with a vectored force from the direction of ease\nC. the neck was treated in simultaneous hyperrotation and extension\nD. the patient was previously treated for osteoarthritis of the cervical spine\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 2-year-old boy is brought to the office by his mother for follow-up of a chromosome analysis done 1 month ago. The child has minor dysmorphic features, and growth and developmental delay. Chromosome analysis showed a small unbalanced chromosome translocation, with extra chromosomal material at the tip of chromosome 3. The cytogenetics laboratory requested blood samples from both parents for follow-up studies. The parents are divorced, and the mother has custody of the child. The relationship between the parents is hostile. The mother has been tested and has normal chromosomes without evidence of translocation. At today's visit, she reacts angrily when the issue of contacting the child's father for testing is raised. She states that he abandoned them and that he has no interest in his child. She refuses to cooperate in contacting the father, who could be a translocation carrier. You do not know the father, but an office worker told you that he lives in a nearby town. The mother says that he is living with a new girlfriend. Which of the following is the most appropriate next step?\n Options:\nA. Attempt to identify the father's physician and work with that physician to obtain chromosome studies on the father\nB. Contact the father by telephone and arrange for him to give a blood sample at a local hospital\nC. Document your attempts to work with the mother but proceed no further, since you have no physician-patient relationship with the father\nD. Help the mother deal with her anger and educate her regarding the potential benefit to her son and others if the father's chromosome studies are done\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "\u4eceT1\u3001T2\u3001T3\u3001T4\u3001T5\u3001T6\u3001T7\u3001T8\u3001T9\u3001T10\u3001T11\u3001T12\u3001T13\u3001T14\u3001T15\u3001T16\u3001T17\u3001T18\u3001T19\u3001T20\u3001T21\u3001T22\u3001T23\u3001T24\u3001T25\u3001T26\u3001T27\u3001T28\u3001T29\u3001T30\u3001T31\u3001T32\u3001T33\u3001T34\u3001T35\u3001T36\u3001T37\u3001T38\u3001T39\u3001T40\u3001T41\u3001T42\u3001T43\u3001T44\u3001T45\u3001T46\u3001T47\u3001T48\u3001T49\u3001T50\u3001T51\u3001T52\u3001T53\u3001T54\u3001T55\u3001T56\u3001T57\u3001T58\u3001T59\u3001T60\u3001T61\u3001T62\u3001T63\u3001T64\u3001T65\u3001T66\u3001T67\u3001T68\u3001T69\u3001T70\u3001T71\u3001T72\u3001T73\u3001T74\u3001T75\u3001T76\u3001T77\u3001T78\u3001T79\u3001T80\u3001T81\u3001T82\u3001T83\u3001T84\u3001T85\u3001T86\u3001T87\u3001T88\u3001T89\u3001T90\u3001T91\u3001T92\u3001T93\u3001T94\u3001T95\u3001T96\u3001T97\u3001T98\u3001T99\u3001T100]\u4e2d\u9009\u51fa10\u4e2a\uff0c\u4f7f\u5f97\u5b83\u4eec\u7684\u548c\u4e3a200\uff0c\u6bcf\u4e2a\u6570\u53ea\u80fd\u7528\u4e00\u6b21\uff0c\u4e14\u6bcf\u4e2a\u6570\u53ea\u80fd\u7528\u4e00\u6b21\u3002\n\u597d\u7684\uff0c\u6211\u73b0\u5728\u9700\u8981\u4ece\u7ed9\u5b9a\u7684\u5217\u8868\u4e2d\u9009\u51fa10\u4e2a\u4e0d\u540c\u7684\u6570\uff0c\u5b83\u4eec\u7684\u548c\u4e3a200\u3002\u9996\u5148\uff0c\u6211\u9700\u8981\u4ed4\u7ec6\u770b\u4e00\u4e0b\u8fd9\u4e9b\u6570\u7684\u8303\u56f4\u3002\u7ed9\u51fa\u7684\u5217\u8868\u662f\u4eceT1\u5230T100\uff0c\u4f46\u5177\u4f53\u6bcf\u4e2aT\u7684\u6570\u503c\u662f\u591a\u5c11\u5462\uff1f\u9898\u76ee\u91cc\u597d\u50cf\u6ca1\u6709\u7ed9\u51fa\u6bcf\u4e2aT\u7684\u5177\u4f53\u6570\u503c\uff0c\u53ea\u5217\u51fa\u4e86\u8fd9\u4e9b\u6807\u7b7e\u3002\u8fd9\u53ef\u80fd\u662f\u4e00\u4e2a\u95ee\u9898\uff0c\u56e0\u4e3a\u6ca1\u6709\u5177\u4f53\u7684\u6570\u503c\uff0c\u600e\u4e48\u8ba1\u7b97\u548c\u5462\uff1f\n\n\u53ef\u80fd\u9898\u76ee\u6709",
+        "prompt": "Instruction: Please draft a letter of recommendation for a high school student applying to college. The letter should be around 250 words and emphasize the student's academic accomplishments, extracurricular involvement, and personal attributes. Include a specific example to illustrate the student's outstanding qualities.\nQuestion: \nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 11,
+      "total_tokens": 81
+    }
+  },
+  "error": null
+}

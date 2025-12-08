@@ -1,0 +1,29 @@
+{
+  "batch_id": 70,
+  "batch_size": 1,
+  "scheduled_arrival_time": 849.1797077423414,
+  "actual_send_time": 849.1820847988129,
+  "request_duration": 10.339552879333496,
+  "completion_time": 859.521665096283,
+  "status_code": 200,
+  "prompt_idxs": [
+    270
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is conducted to assess the effectiveness of a new drug for the treatment of type 2 diabetes mellitus. A total of 1000 patients with type 2 diabetes mellitus are enrolled. Patients are randomly assigned to receive the new drug or standard treatment. The alpha and beta values for calculating probability are 0.05 and 0.20, respectively. Results show that the new drug is significantly better than standard treatment. If this study had been performed in a population of only 500 patients, which of the following would have been most likely to increase?\n Options:\nA. Chance of a type I error\nB. Chance of a type II error\nC. Power of the study\nD. Sensitivity of the study\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 4,
+      "total_tokens": 4
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "batch_id": 81,
+  "batch_size": 3,
+  "scheduled_arrival_time": 982.5136250525017,
+  "actual_send_time": 982.5187215805054,
+  "request_duration": 55.907910108566284,
+  "completion_time": 1038.4266560077667,
+  "status_code": 200,
+  "prompt_idxs": [
+    59,
+    97,
+    265
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[5]], weights=[0])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 13\n0 -> 2, weight: 346\n0 -> 3, weight: 163\n1 -> 2, weight: 501\n1 -> 3, weight: 202\n1 -> 4, weight: 670\n2 -> 3, weight: 605\n2 -> 4, weight: 599\n2 -> 5, weight: 383\n3 -> 4, weight: 418\n3 -> 5, weight: 651\n3 -> 0, weight: 559\n4 -> 5, weight: 554\n4 -> 0, weight: 31\n4 -> 1, weight: 483\n5 -> 0, weight: 402\n5 -> 1, weight: 336\n5 -> 2, weight: 524\n\nFind the top 1 shortest path from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[10]], weights=[0])",
+        "prompt": "You are given a directed graph with 11 nodes (numbered 0 to 10) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 111\n0 -> 2, weight: 36\n0 -> 3, weight: 112\n0 -> 4, weight: 2\n0 -> 5, weight: 123\n0 -> 6, weight: 27\n0 -> 7, weight: 96\n0 -> 8, weight: 4\n0 -> 9, weight: 129\n1 -> 2, weight: 80\n1 -> 3, weight: 9\n1 -> 4, weight: 77\n1 -> 5, weight: 98\n1 -> 6, weight: 99\n1 -> 7, weight: 114\n1 -> 8, weight: 6\n1 -> 9, weight: 49\n1 -> 10, weight: 104\n2 -> 3, weight: 18\n2 -> 4, weight: 70\n2 -> 5, weight: 17\n2 -> 6, weight: 36\n2 -> 7, weight: 101\n2 -> 8, weight: 14\n2 -> 9, weight: 27\n2 -> 10, weight: 105\n2 -> 0, weight: 36\n3 -> 4, weight: 120\n3 -> 5, weight: 137\n3 -> 6, weight: 122\n3 -> 7, weight: 17\n3 -> 8, weight: 68\n3 -> 9, weight: 27\n3 -> 10, weight: 9\n3 -> 0, weight: 93\n3 -> 1, weight: 9\n4 -> 5, weight: 109\n4 -> 6, weight: 51\n4 -> 7, weight: 139\n4 -> 8, weight: 52\n4 -> 9, weight: 118\n4 -> 10, weight: 57\n4 -> 0, weight: 27\n4 -> 1, weight: 130\n4 -> 2, weight: 111\n5 -> 6, weight: 94\n5 -> 7, weight: 111\n5 -> 8, weight: 139\n5 -> 9, weight: 90\n5 -> 10, weight: 134\n5 -> 0, weight: 55\n5 -> 1, weight: 97\n5 -> 2, weight: 120\n5 -> 3, weight: 77\n6 -> 7, weight: 21\n6 -> 8, weight: 98\n6 -> 9, weight: 96\n6 -> 10, weight: 114\n6 -> 0, weight: 27\n6 -> 1, weight: 74\n6 -> 2, weight: 110\n6 -> 3, weight: 25\n6 -> 4, weight: 111\n7 -> 8, weight: 27\n7 -> 9, weight: 116\n7 -> 10, weight: 97\n7 -> 0, weight: 63\n7 -> 1, weight: 122\n7 -> 2, weight: 75\n7 -> 3, weight: 22\n7 -> 4, weight: 83\n7 -> 5, weight: 12\n8 -> 9, weight: 127\n8 -> 10, weight: 24\n8 -> 0, weight: 22\n8 -> 1, weight: 48\n8 -> 2, weight: 38\n8 -> 3, weight: 138\n8 -> 4, weight: 132\n8 -> 5, weight: 31\n8 -> 6, weight: 95\n9 -> 10, weight: 32\n9 -> 0, weight: 90\n9 -> 1, weight: 86\n9 -> 2, weight: 27\n9 -> 3, weight: 17\n9 -> 4, weight: 4\n9 -> 5, weight: 88\n9 -> 6, weight: 40\n9 -> 7, weight: 65\n10 -> 0, weight: 101\n10 -> 1, weight: 16\n10 -> 2, weight: 139\n10 -> 3, weight: 95\n10 -> 4, weight: 22\n10 -> 5, weight: 65\n10 -> 6, weight: 110\n10 -> 7, weight: 43\n10 -> 8, weight: 69\n\nFind the top 1 shortest path from node 0 to node 10.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 77-year-old female presents to the office for evaluation of a syncopal event that occurred while she was walking. Cardiac examination reveals a grade 3/6\u00a0systolic murmur, heard best at the right upper sternal border. There is radiation of the murmur into the neck. The valvular abnormality that most likely caused this episode is\n Options:\nA. aortic insufficiency\nB. aortic stenosis\nC. mitral regurgitation\nD. mitral stenosis\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

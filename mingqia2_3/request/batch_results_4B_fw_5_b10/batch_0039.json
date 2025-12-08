@@ -1,0 +1,57 @@
+{
+  "batch_id": 39,
+  "batch_size": 5,
+  "scheduled_arrival_time": 467.3007703093114,
+  "actual_send_time": 467.3039548397064,
+  "request_duration": 425.45032358169556,
+  "completion_time": 892.7543160915375,
+  "status_code": 200,
+  "prompt_idxs": [
+    227,
+    83,
+    75,
+    194,
+    13
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Three weeks ago a 45-year-old man was admitted to the hospital because of frostbite of both feet. He was treated by rapid rewarming and protective care of the feet. All the toes on the right foot have turned black. He has become slightly febrile and progressively more confused during the past few days. Examination discloses cellulitis in the midfoot. Which of the following is the most appropriate treatment?\n Options:\nA. Amputation\nB. Application of topical collagenase\nC. Debridement of necrotic skin over the toes\nD. Hyperbaric oxygen\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[6]], weights=[0])",
+        "prompt": "You are given a directed graph with 7 nodes (numbered 0 to 6) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 186\n0 -> 2, weight: 489\n0 -> 3, weight: 308\n1 -> 2, weight: 38\n1 -> 3, weight: 100\n1 -> 4, weight: 346\n2 -> 3, weight: 141\n2 -> 4, weight: 341\n2 -> 5, weight: 121\n3 -> 4, weight: 98\n3 -> 5, weight: 88\n3 -> 6, weight: 575\n4 -> 5, weight: 396\n4 -> 6, weight: 426\n4 -> 0, weight: 228\n5 -> 6, weight: 51\n5 -> 0, weight: 375\n5 -> 1, weight: 642\n6 -> 0, weight: 151\n6 -> 1, weight: 536\n6 -> 2, weight: 290\n\nFind the top 2 shortest paths from node 0 to node 6.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[5]], weights=[0])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 77\n0 -> 2, weight: 305\n1 -> 2, weight: 89\n1 -> 3, weight: 32\n2 -> 3, weight: 88\n2 -> 4, weight: 131\n3 -> 4, weight: 214\n3 -> 5, weight: 119\n4 -> 5, weight: 138\n4 -> 0, weight: 79\n5 -> 0, weight: 69\n5 -> 1, weight: 120\n\nFind the top 3 shortest paths from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "21. The ratio of the number of boys to the number of girls in a school is 3:5. If there are 1200 girls, how many boys are there in the school? Also, find the total number of students in the school.\n\n22. A bag contains 4 red marbles, 5 green marbles, and 6 blue marbles. If one marble is drawn at random, what is the probability that it is blue?\n\n23. A train leaves a station at 10:20 a.m. and reaches its destination at 12:45 p.m. How long does it take for the train to reach the destination?\n\n24. The perimeter of a square is 48 cm. What is the length of each side of the square?\n\n25. Find the perimeter of the given figure. (Assume the figure is a rectangle with length 10 cm and width 5 cm.)\n\n26. Express 1.25 as a fraction.\n\n27. A sum of money is divided between A and B in the ratio 3:5. If B gets Rs. 2000, how much does A get?\n\n28. The area of the given figure is 60 cm\u00b2. What is the length of one of the sides of the square? (Assume the figure is a square.)\n\n29. 1.5 is the same as what percent?\n\n30. There are 1000 books in a library. 25% of them are fiction. How many books are fiction?\n\n31. A square has sides of 10 cm. What is its area?\n\n32. The sum of the angles of a triangle is 180\u00b0. If two angles of a triangle are 60\u00b0 and 70\u00b0, find the third angle.\n\n33. A train travels 200 km in 4 hours. How many kilometers does it travel in 6 hours?\n\n34. The radius of a circle is 7 cm. What is its circumference? (Use \u03c0 = 22/7)\n\n35. The cost of 5 pens is Rs. 25. What is the cost of 1 pen?\n\n36. The average of 5 numbers is 10. What is the sum of the numbers?\n\n37. A field is 100 m long and 50 m broad. What is",
+        "prompt": "Instruction: Make a list of outdoor activities that are suitable for the given weather condition.\nQuestion: Temperature: 57 F, Showers\nGeneration:",
+        "index": 3,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[8]], weights=[0])",
+        "prompt": "You are given a directed graph with 9 nodes (numbered 0 to 8) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 12\n0 -> 2, weight: 12\n1 -> 2, weight: 73\n1 -> 3, weight: 31\n2 -> 3, weight: 52\n2 -> 4, weight: 70\n3 -> 4, weight: 70\n3 -> 5, weight: 55\n4 -> 5, weight: 60\n4 -> 6, weight: 15\n5 -> 6, weight: 36\n5 -> 7, weight: 44\n6 -> 7, weight: 75\n6 -> 8, weight: 24\n7 -> 8, weight: 34\n7 -> 0, weight: 45\n8 -> 0, weight: 13\n8 -> 1, weight: 78\n\nFind the top 1 shortest path from node 0 to node 8.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 4,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 39,
+      "completion_tokens": 350,
+      "total_tokens": 389
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "batch_id": 17,
+  "batch_size": 3,
+  "scheduled_arrival_time": 175.63133474576935,
+  "actual_send_time": 175.6431450843811,
+  "request_duration": 28.409886598587036,
+  "completion_time": 204.05305433273315,
+  "status_code": 200,
+  "prompt_idxs": [
+    58,
+    214,
+    74
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 3, 7, 11]], weights=[388])",
+        "prompt": "You are given a directed graph with 12 nodes (numbered 0 to 11) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 245\n0 -> 2, weight: 84\n0 -> 3, weight: 28\n0 -> 4, weight: 387\n0 -> 5, weight: 137\n1 -> 2, weight: 320\n1 -> 3, weight: 326\n1 -> 4, weight: 254\n1 -> 5, weight: 344\n1 -> 6, weight: 171\n2 -> 3, weight: 334\n2 -> 4, weight: 229\n2 -> 5, weight: 151\n2 -> 6, weight: 234\n2 -> 7, weight: 151\n3 -> 4, weight: 300\n3 -> 5, weight: 210\n3 -> 6, weight: 119\n3 -> 7, weight: 105\n3 -> 8, weight: 61\n4 -> 5, weight: 98\n4 -> 6, weight: 385\n4 -> 7, weight: 183\n4 -> 8, weight: 87\n4 -> 9, weight: 180\n5 -> 6, weight: 286\n5 -> 7, weight: 343\n5 -> 8, weight: 235\n5 -> 9, weight: 152\n5 -> 10, weight: 210\n6 -> 7, weight: 374\n6 -> 8, weight: 221\n6 -> 9, weight: 404\n6 -> 10, weight: 356\n6 -> 11, weight: 405\n7 -> 8, weight: 14\n7 -> 9, weight: 327\n7 -> 10, weight: 51\n7 -> 11, weight: 255\n7 -> 0, weight: 72\n8 -> 9, weight: 446\n8 -> 10, weight: 73\n8 -> 11, weight: 308\n8 -> 0, weight: 41\n8 -> 1, weight: 376\n9 -> 10, weight: 346\n9 -> 11, weight: 366\n9 -> 0, weight: 395\n9 -> 1, weight: 189\n9 -> 2, weight: 322\n10 -> 11, weight: 254\n10 -> 0, weight: 441\n10 -> 1, weight: 441\n10 -> 2, weight: 339\n10 -> 3, weight: 357\n11 -> 0, weight: 318\n11 -> 1, weight: 248\n11 -> 2, weight: 238\n11 -> 3, weight: 381\n11 -> 4, weight: 324\n\nFind the top 1 shortest path from node 0 to node 11.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: An action potential arriving at the motor endplate causes release of:\n Options:\nA. acetylcholine which traverses the neuromuscular junction.\nB. sodium ions which binds to sodium receptors on the muscle membrane.\nC. calcium ions which initiate an action potential along the muscle fibre.\nD. noradrenaline which increases muscle metabolic activity.\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 4, 7], [0, 4, 5, 7], [0, 4, 5, 6, 7]], weights=[114, 192, 289])",
+        "prompt": "You are given a directed graph with 8 nodes (numbered 0 to 7) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 7\n0 -> 2, weight: 244\n0 -> 3, weight: 136\n0 -> 4, weight: 48\n1 -> 2, weight: 333\n1 -> 3, weight: 89\n1 -> 4, weight: 260\n1 -> 5, weight: 229\n2 -> 3, weight: 39\n2 -> 4, weight: 340\n2 -> 5, weight: 200\n2 -> 6, weight: 91\n3 -> 4, weight: 161\n3 -> 5, weight: 272\n3 -> 6, weight: 263\n3 -> 7, weight: 337\n4 -> 5, weight: 24\n4 -> 6, weight: 131\n4 -> 7, weight: 66\n4 -> 0, weight: 44\n5 -> 6, weight: 120\n5 -> 7, weight: 120\n5 -> 0, weight: 69\n5 -> 1, weight: 307\n6 -> 7, weight: 97\n6 -> 0, weight: 261\n6 -> 1, weight: 348\n6 -> 2, weight: 36\n7 -> 0, weight: 345\n7 -> 1, weight: 222\n7 -> 2, weight: 348\n7 -> 3, weight: 14\n\nFind the top 3 shortest paths from node 0 to node 7.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 24,
+      "total_tokens": 24
+    }
+  },
+  "error": null
+}

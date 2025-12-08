@@ -1,0 +1,36 @@
+{
+  "batch_id": 28,
+  "batch_size": 2,
+  "scheduled_arrival_time": 315.1541597849499,
+  "actual_send_time": 315.1691279411316,
+  "request_duration": 268.2078800201416,
+  "completion_time": 583.3770649433136,
+  "status_code": 200,
+  "prompt_idxs": [
+    199,
+    34
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "adation, and the maintenance of the environment, and the importance of the role of the state in the management of the environment. The module also focusses on the legal framework and the key areas of environmental law, and the use of the law to protect, manage and sustain the environment. The course will provide students with a clear historical and contemporary understanding of the main principles and issues in environmental law, as well as an insight into the ways in which the law is used to implement environmental policy.\n\nLearning Outcomes:\n\nOn completion of this module, students should be able to:\n\n1. Understand the core concepts of environmental law, its development, and the relationship between law and policy in environmental management.\n\n2. Apply the principles and concepts of environmental law to a range of environmental issues.\n\n3. Identify and critically evaluate the key aspects of the law that affect environmental policy and management.\n\n4. Analyse the key areas of environmental law, including those of international, national and regional law.\n\n5. Understand the role of the state in the management of the environment and the legal instruments used to implement environmental policy.\n\nAssessment:\n\n1. In-class test (30% of total mark)\n\n2. Assignment (40% of total mark)\n\n3. Final exam (30% of total mark)\n\nTotal: 100% of total mark\n\nNotes:\n\nThis module is for students on the LLB (Environmental Law) degree. It is the first module in the degree. It is also available to students on the LLB (Law) and LLM (Environmental Law) degrees, but in that case, it is considered as a module of the first year of the degree. It is also available to students on the LLM (Environmental Law) who are not on the LLB (Environmental Law) degree. The module is also available to students on the MSc (Environmental Law and Policy) degree, but in that case, it is considered as a module of the first year of the degree. The module is also available to students on the MSc (Environmental Sciences) degree, but in that case, it is considered as a module of the second year of the degree. Please note that the module may not be available in all years of the degree.\n\nThe module is taught in English. The lectures are delivered in English, and the assessments are in English. However, some of the readings may be in other languages, and some of the materials may be in English, but the course is delivered in English.\n\nThere are no prerequisites for this module",
+        "prompt": "Instruction: Enter the words that satisfy the given condition.\nQuestion: 5 Countries that Start with S\nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 1, 3, 9], [0, 1, 5, 6, 9]], weights=[129, 200])",
+        "prompt": "You are given a directed graph with 10 nodes (numbered 0 to 9) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 39\n0 -> 2, weight: 126\n0 -> 3, weight: 352\n0 -> 4, weight: 190\n0 -> 5, weight: 363\n0 -> 6, weight: 406\n1 -> 2, weight: 60\n1 -> 3, weight: 17\n1 -> 4, weight: 230\n1 -> 5, weight: 7\n1 -> 6, weight: 336\n1 -> 7, weight: 122\n2 -> 3, weight: 285\n2 -> 4, weight: 376\n2 -> 5, weight: 395\n2 -> 6, weight: 284\n2 -> 7, weight: 359\n2 -> 8, weight: 426\n3 -> 4, weight: 100\n3 -> 5, weight: 340\n3 -> 6, weight: 471\n3 -> 7, weight: 331\n3 -> 8, weight: 219\n3 -> 9, weight: 73\n4 -> 5, weight: 91\n4 -> 6, weight: 307\n4 -> 7, weight: 60\n4 -> 8, weight: 398\n4 -> 9, weight: 458\n4 -> 0, weight: 341\n5 -> 6, weight: 74\n5 -> 7, weight: 5\n5 -> 8, weight: 277\n5 -> 9, weight: 485\n5 -> 0, weight: 488\n5 -> 1, weight: 156\n6 -> 7, weight: 522\n6 -> 8, weight: 230\n6 -> 9, weight: 80\n6 -> 0, weight: 38\n6 -> 1, weight: 162\n6 -> 2, weight: 28\n7 -> 8, weight: 4\n7 -> 9, weight: 565\n7 -> 0, weight: 215\n7 -> 1, weight: 419\n7 -> 2, weight: 475\n7 -> 3, weight: 519\n8 -> 9, weight: 193\n8 -> 0, weight: 354\n8 -> 1, weight: 31\n8 -> 2, weight: 505\n8 -> 3, weight: 543\n8 -> 4, weight: 279\n9 -> 0, weight: 247\n9 -> 1, weight: 288\n9 -> 2, weight: 483\n9 -> 3, weight: 273\n9 -> 4, weight: 456\n9 -> 5, weight: 120\n\nFind the top 2 shortest paths from node 0 to node 9.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 428,
+      "total_tokens": 459
+    }
+  },
+  "error": null
+}

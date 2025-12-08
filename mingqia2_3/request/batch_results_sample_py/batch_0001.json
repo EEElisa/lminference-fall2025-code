@@ -1,0 +1,29 @@
+{
+  "batch_id": 1,
+  "batch_size": 1,
+  "scheduled_arrival_time": 17.21852776399176,
+  "actual_send_time": 17.22826886177063,
+  "request_duration": 19.555766105651855,
+  "completion_time": 36.78408122062683,
+  "status_code": 200,
+  "prompt_idxs": [
+    4
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Neonatal Respiratory Distress Syndrome (NRDS) is a serious complication seen in infants born prematurely who have a compromised ability to facilitate oxygen diffusion across their alveolar membranes. This is caused by inadequate surfactant production. What role does surfactant play in facilitating oxygen diffusion?\n Options:\nA. Increases surface permeability\nB. Maintains alveoli in an open state\nC. Depresses cilia of the lung\nD. Dilates blood vessels\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 135,
+      "completion_tokens": 50,
+      "total_tokens": 185
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,29 @@
+{
+  "batch_id": 95,
+  "batch_size": 1,
+  "scheduled_arrival_time": 1140.068877067297,
+  "actual_send_time": 1140.07004404068,
+  "request_duration": 21.588159799575806,
+  "completion_time": 1161.658237695694,
+  "status_code": 200,
+  "prompt_idxs": [
+    228
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old woman has a 6-month history of progressive irritability, palpitations, heat intolerance, frequent bowel movements, and a 6.8-kg (15-lb) weight loss. She has had a neck mass for more than 10 years. 131I scan shows an enlarged thyroid gland with multiple areas of increased and decreased uptake. Which of the following is the most likely diagnosis?\n Options:\nA. Defect in thyroxine (T4) biosynthesis\nB. Graves' disease\nC. Multinodular goiter\nD. Riedel's thyroiditis\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 4,
+      "total_tokens": 4
+    }
+  },
+  "error": null
+}

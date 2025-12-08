@@ -1,0 +1,36 @@
+{
+  "batch_id": 89,
+  "batch_size": 2,
+  "scheduled_arrival_time": 1096.1028731922158,
+  "actual_send_time": 1096.1063578128815,
+  "request_duration": 17.920037508010864,
+  "completion_time": 1114.0264179706573,
+  "status_code": 200,
+  "prompt_idxs": [
+    298,
+    212
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 35-year-old woman comes to the physician because of two 12-hour episodes of dizziness over the past 3 months. During episodes, she experiences the acute onset of rotatory vertigo and imbalance, decreased hearing, tinnitus, a sense of fullness of the right ear, and vomiting. Examination shows a mild hearing loss of the right ear. Which of the following is the most likely diagnosis?\n Options:\nA. Acoustic neuroma\nB. Benign positional vertigo\nC. Brain stem transient ischemic attacks\nD. Meniere's disease\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old female is admitted to the hospital after experiencing aphasia and right-sided hemiparesis. She subsequently develops urinary incontinence. There is no evidence of urinary tract infection and no prior history of urinary pathology. The most likely diagnosis is\n Options:\nA. autonomic neurogenic bladderv\nB. motor paralytic bladder\nC. reflex neurogenic bladder\nD. uninhibited neurogenic bladder\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

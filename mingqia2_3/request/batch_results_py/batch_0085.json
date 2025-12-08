@@ -1,0 +1,50 @@
+{
+  "batch_id": 85,
+  "batch_size": 4,
+  "scheduled_arrival_time": 1024.9753068416169,
+  "actual_send_time": 1024.9802618026733,
+  "request_duration": 569.7800896167755,
+  "completion_time": 1594.7603709697723,
+  "status_code": 200,
+  "prompt_idxs": [
+    106,
+    285,
+    64,
+    119
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "from leetcode import *\n\nclass Solution:\n    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:\n        if len(s1) + len(s2) != len(s3):\n            return False\n        m, n = len(s1), len(s2)\n        dp = [[False]*(n+1) for _ in range(m+1)]\n        dp[0][0] = True\n        for i in range(1, m+1):\n            dp[i][0] = dp[i-1][0] and (s1[i-1] == s3[i-1])\n        for j in range(1, n+1):\n            dp[0][j] = dp[0][j-1] and (s2[j-1] == s3[j-1])\n        for i in range(1, m+1):\n            for j in range(1, n+1):\n                if (dp[i-1][j] and s1[i-1] == s3[i+j-1]) or (dp[i][j-1] and s2[j-1] == s3[i+j-1]):\n                    dp[i][j] = True\n        return dp[m][n]\n\nclass Solution2:\n    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:\n        if len(s1) + len(s2) != len(s3):\n            return False\n        m, n = len(s1), len(s2)\n        dp = [False]*(n+1)\n        dp[0] = True\n        for j in range(1, n+1):\n            dp[j] = dp[j-1] and (s2[j-1] == s3[j-1])\n        for i in range(1, m+1):\n            dp[0] = dp[0] and (s1[i-1] == s3[i-1])\n            for j in range(1, n+1):\n                dp[j] = (dp[j] and s1[i-1] == s3[i+j-1]) or (dp[j-1] and s2[j-1] == s3[i+j-1])\n        return dp[n]\n\nclass Solution3:\n    def isInterleave(self, s1: str, s2: str, s3: str)",
+        "prompt": "Instruction: As part of software engineering, user stories describe what the user wants the system to do, while acceptance criteria describe the conditions a specific user story must meet. Create basic acceptance criteria based on the given user story.\nQuestion: User story: As a user, I want to use a search field to type a city, name, or street, so that I could find matching hotel options.\nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A male stillborn is delivered at 32 weeks' gestation to a 30-year-old woman. The pregnancy was complicated by oligohydramnios. Examination of the stillborn shows the absence of a urethral opening. Which of the following additional findings is most likely in this stillborn?\n Options:\nA. Congenital diaphragmatic hernia\nB. Intralobar sequestration\nC. Pulmonary hypoplasia\nD. Situs inversus\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 8, 5, 9]], weights=[283])",
+        "prompt": "You are given a directed graph with 10 nodes (numbered 0 to 9) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 439\n0 -> 2, weight: 235\n0 -> 3, weight: 324\n0 -> 4, weight: 134\n0 -> 5, weight: 234\n0 -> 6, weight: 284\n0 -> 7, weight: 154\n0 -> 8, weight: 39\n1 -> 2, weight: 104\n1 -> 3, weight: 528\n1 -> 4, weight: 269\n1 -> 5, weight: 157\n1 -> 6, weight: 196\n1 -> 7, weight: 500\n1 -> 8, weight: 576\n1 -> 9, weight: 446\n2 -> 3, weight: 352\n2 -> 4, weight: 433\n2 -> 5, weight: 71\n2 -> 6, weight: 205\n2 -> 7, weight: 398\n2 -> 8, weight: 451\n2 -> 9, weight: 195\n2 -> 0, weight: 110\n3 -> 4, weight: 434\n3 -> 5, weight: 344\n3 -> 6, weight: 554\n3 -> 7, weight: 142\n3 -> 8, weight: 394\n3 -> 9, weight: 216\n3 -> 0, weight: 524\n3 -> 1, weight: 591\n4 -> 5, weight: 570\n4 -> 6, weight: 213\n4 -> 7, weight: 548\n4 -> 8, weight: 90\n4 -> 9, weight: 180\n4 -> 0, weight: 166\n4 -> 1, weight: 479\n4 -> 2, weight: 132\n5 -> 6, weight: 562\n5 -> 7, weight: 125\n5 -> 8, weight: 320\n5 -> 9, weight: 125\n5 -> 0, weight: 518\n5 -> 1, weight: 271\n5 -> 2, weight: 542\n5 -> 3, weight: 320\n6 -> 7, weight: 205\n6 -> 8, weight: 445\n6 -> 9, weight: 451\n6 -> 0, weight: 243\n6 -> 1, weight: 516\n6 -> 2, weight: 500\n6 -> 3, weight: 592\n6 -> 4, weight: 459\n7 -> 8, weight: 529\n7 -> 9, weight: 374\n7 -> 0, weight: 241\n7 -> 1, weight: 123\n7 -> 2, weight: 587\n7 -> 3, weight: 285\n7 -> 4, weight: 517\n7 -> 5, weight: 367\n8 -> 9, weight: 359\n8 -> 0, weight: 86\n8 -> 1, weight: 476\n8 -> 2, weight: 518\n8 -> 3, weight: 471\n8 -> 4, weight: 338\n8 -> 5, weight: 119\n8 -> 6, weight: 47\n9 -> 0, weight: 125\n9 -> 1, weight: 215\n9 -> 2, weight: 466\n9 -> 3, weight: 195\n9 -> 4, weight: 413\n9 -> 5, weight: 19\n9 -> 6, weight: 572\n9 -> 7, weight: 446\n\nFind the top 1 shortest path from node 0 to node 9.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "from fractions import Fraction\nfrom math import gcd\nimport sys\nfrom collections import deque\nfrom heapq import heappush, heappop\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    n = int(data[0])\n    m = int(data[1])\n    \n    graph = [[] for _ in range(n)]\n    for i in range(m):\n        a = int(data[2 + 3*i])\n        b = int(data[3 + 3*i])\n        c = int(data[4 + 3*i])\n        graph[a].append((b, c))\n        graph[b].append((a, c))\n    \n    INF = float('inf')\n    dist = [INF] * n\n    dist[0] = 0\n    visited = [False] * n\n    \n    while True:\n        # Find the unvisited node with the smallest distance\n        u = -1\n        min_dist = INF\n        for i in range(n):\n            if not visited[i] and dist[i] < min_dist:\n                min_dist = dist[i]\n                u = i\n        if u == -1:\n            break\n        visited[u] = True\n        \n        for v, weight in graph[u]:\n            if not visited[v] and dist[v] > dist[u] + weight:\n                dist[v] = dist[u] + weight\n    \n    print(dist[n-1])\n    \nif __name__ == '__main__':\n    main()\n\n# Sample Input 1\n# 3 3\n# 0 1 1\n# 0 2 3\n# 1 2 2\n# Sample Output 1\n# 2\n\n# Sample Input 2\n# 2 1\n# 0 1 5\n# Sample Output 2\n# 5\n\n# Sample Input 3\n# 3 3\n# 0 1 10\n# 1 2 10\n# 0 2 100\n# Sample Output 3\n# 20\n\n# Sample Input 4\n# 4 4\n# 0 1 1\n# 1 2 1\n# 2 3 1\n# 3 0 1\n# Sample Output 4\n# 2\n\n# Sample Input 5\n# 4 5\n# 0 1 1\n",
+        "prompt": "Instruction: Given the following text about a product launch, please provide annotations or comments on any unclear or ambiguous parts and limit each annotation or comment to 15 words.\nQuestion: \"The new product will be released next month, with a starting price point lower than competitors. Initial distribution will focus on local stores.\"\nGeneration:",
+        "index": 3,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 437,
+      "total_tokens": 599
+    }
+  },
+  "error": null
+}

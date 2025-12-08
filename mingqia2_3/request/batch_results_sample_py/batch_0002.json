@@ -1,0 +1,29 @@
+{
+  "batch_id": 2,
+  "batch_size": 1,
+  "scheduled_arrival_time": 33.35654626306513,
+  "actual_send_time": 33.37507963180542,
+  "request_duration": 20.86929941177368,
+  "completion_time": 54.244422912597656,
+  "status_code": 200,
+  "prompt_idxs": [
+    5
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A teacher sets up a reward system for her elementary school students. At the end of each day, she gives a sticker to each student who showed up on time that morning. At the end of each week, she gives a sticker to any student who got above a 90% on three quizzes in a row. After months of this regimen, she finds that performance on the quizzes has increased significantly but that tardiness has only decreased slightly. Which of the following best explains the teacher\u2019s observation?\n Options:\nA. Variable ratio schedules create the strongest responses and behavior that is the least susceptible to extinction.\nB. The students had more intrinsic motivation to do well on quizzes than to show up on time.\nC. The students\u2019 behavior change was stronger in response to a fixed-ratio schedule than it was to a continuous reinforcement schedule.\nD. The students\u2019 behavior change was stronger in response to a fixed-ratio schedule than it was to a variable-interval schedule.\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 233,
+      "completion_tokens": 50,
+      "total_tokens": 283
+    }
+  },
+  "error": null
+}

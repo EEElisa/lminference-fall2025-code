@@ -1,0 +1,57 @@
+{
+  "batch_id": 61,
+  "batch_size": 5,
+  "scheduled_arrival_time": 774.3522847764018,
+  "actual_send_time": 774.3525605201721,
+  "request_duration": 46.60782051086426,
+  "completion_time": 820.9603934288025,
+  "status_code": 200,
+  "prompt_idxs": [
+    86,
+    53,
+    253,
+    286,
+    5
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[11]], weights=[0])",
+        "prompt": "You are given a directed graph with 12 nodes (numbered 0 to 11) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 208\n0 -> 2, weight: 632\n0 -> 3, weight: 116\n0 -> 4, weight: 571\n0 -> 5, weight: 651\n1 -> 2, weight: 409\n1 -> 3, weight: 632\n1 -> 4, weight: 390\n1 -> 5, weight: 75\n1 -> 6, weight: 643\n2 -> 3, weight: 248\n2 -> 4, weight: 127\n2 -> 5, weight: 156\n2 -> 6, weight: 261\n2 -> 7, weight: 625\n3 -> 4, weight: 280\n3 -> 5, weight: 340\n3 -> 6, weight: 426\n3 -> 7, weight: 569\n3 -> 8, weight: 547\n4 -> 5, weight: 517\n4 -> 6, weight: 395\n4 -> 7, weight: 581\n4 -> 8, weight: 325\n4 -> 9, weight: 155\n5 -> 6, weight: 169\n5 -> 7, weight: 534\n5 -> 8, weight: 570\n5 -> 9, weight: 581\n5 -> 10, weight: 501\n6 -> 7, weight: 598\n6 -> 8, weight: 439\n6 -> 9, weight: 243\n6 -> 10, weight: 194\n6 -> 11, weight: 78\n7 -> 8, weight: 652\n7 -> 9, weight: 465\n7 -> 10, weight: 96\n7 -> 11, weight: 651\n7 -> 0, weight: 338\n8 -> 9, weight: 305\n8 -> 10, weight: 201\n8 -> 11, weight: 88\n8 -> 0, weight: 627\n8 -> 1, weight: 94\n9 -> 10, weight: 257\n9 -> 11, weight: 270\n9 -> 0, weight: 370\n9 -> 1, weight: 331\n9 -> 2, weight: 16\n10 -> 11, weight: 29\n10 -> 0, weight: 282\n10 -> 1, weight: 444\n10 -> 2, weight: 551\n10 -> 3, weight: 310\n11 -> 0, weight: 149\n11 -> 1, weight: 394\n11 -> 2, weight: 584\n11 -> 3, weight: 72\n11 -> 4, weight: 356\n\nFind the top 2 shortest paths from node 0 to node 11.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[17]], weights=[0])",
+        "prompt": "You are given a directed graph with 18 nodes (numbered 0 to 17) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 370\n0 -> 2, weight: 140\n0 -> 3, weight: 57\n0 -> 4, weight: 427\n0 -> 5, weight: 279\n0 -> 6, weight: 32\n1 -> 2, weight: 142\n1 -> 3, weight: 34\n1 -> 4, weight: 369\n1 -> 5, weight: 434\n1 -> 6, weight: 327\n1 -> 7, weight: 210\n2 -> 3, weight: 340\n2 -> 4, weight: 360\n2 -> 5, weight: 94\n2 -> 6, weight: 207\n2 -> 7, weight: 108\n2 -> 8, weight: 84\n3 -> 4, weight: 63\n3 -> 5, weight: 485\n3 -> 6, weight: 30\n3 -> 7, weight: 190\n3 -> 8, weight: 329\n3 -> 9, weight: 534\n4 -> 5, weight: 205\n4 -> 6, weight: 204\n4 -> 7, weight: 511\n4 -> 8, weight: 473\n4 -> 9, weight: 321\n4 -> 10, weight: 453\n5 -> 6, weight: 414\n5 -> 7, weight: 421\n5 -> 8, weight: 186\n5 -> 9, weight: 410\n5 -> 10, weight: 64\n5 -> 11, weight: 371\n6 -> 7, weight: 363\n6 -> 8, weight: 375\n6 -> 9, weight: 347\n6 -> 10, weight: 430\n6 -> 11, weight: 203\n6 -> 12, weight: 166\n7 -> 8, weight: 56\n7 -> 9, weight: 453\n7 -> 10, weight: 310\n7 -> 11, weight: 312\n7 -> 12, weight: 119\n7 -> 13, weight: 430\n8 -> 9, weight: 89\n8 -> 10, weight: 36\n8 -> 11, weight: 170\n8 -> 12, weight: 394\n8 -> 13, weight: 320\n8 -> 14, weight: 430\n9 -> 10, weight: 82\n9 -> 11, weight: 566\n9 -> 12, weight: 361\n9 -> 13, weight: 116\n9 -> 14, weight: 288\n9 -> 15, weight: 448\n10 -> 11, weight: 120\n10 -> 12, weight: 82\n10 -> 13, weight: 243\n10 -> 14, weight: 110\n10 -> 15, weight: 177\n10 -> 16, weight: 10\n11 -> 12, weight: 522\n11 -> 13, weight: 225\n11 -> 14, weight: 364\n11 -> 15, weight: 311\n11 -> 16, weight: 321\n11 -> 17, weight: 146\n12 -> 13, weight: 115\n12 -> 14, weight: 3\n12 -> 15, weight: 67\n12 -> 16, weight: 374\n12 -> 17, weight: 127\n12 -> 0, weight: 214\n13 -> 14, weight: 202\n13 -> 15, weight: 185\n13 -> 16, weight: 81\n13 -> 17, weight: 270\n13 -> 0, weight: 484\n13 -> 1, weight: 170\n14 -> 15, weight: 528\n14 -> 16, weight: 394\n14 -> 17, weight: 505\n14 -> 0, weight: 392\n14 -> 1, weight: 356\n14 -> 2, weight: 507\n15 -> 16, weight: 300\n15 -> 17, weight: 515\n15 -> 0, weight: 343\n15 -> 1, weight: 352\n15 -> 2, weight: 79\n15 -> 3, weight: 15\n16 -> 17, weight: 371\n16 -> 0, weight: 340\n16 -> 1, weight: 45\n16 -> 2, weight: 480\n16 -> 3, weight: 348\n16 -> 4, weight: 562\n17 -> 0, weight: 133\n17 -> 1, weight: 84\n17 -> 2, weight: 10\n17 -> 3, weight: 496\n17 -> 4, weight: 6\n17 -> 5, weight: 213\n\nFind the top 1 shortest path from node 0 to node 17.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 54-year-old man comes to the physician because of episodes of fainting for 3 months. He also has had difficulty performing daily tasks because he is easily fatigued. He had a myocardial infarction 12 years ago. His pulse is 40/min, respirations are 18/min, and blood pressure is 138/85 mm Hg. Physical examination shows evidence of cannon a waves. An ECG shows a P-wave rate of 90/min, and an R-wave rate of 40/min, with no apparent relation between the two. Which of the following is the most likely diagnosis?\n Options:\nA. Right bundle branch block\nB. Second-degree atrioventricular block, type I\nC. Second-degree atrioventricular block, type II\nD. Third-degree atrioventricular block\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The body compensates for increased environmental temperature by:\n Options:\nA. decreasing salt retention\nB. increasing respiration rate\nC. increasing heart rate\nD. increasing water lost through skin\nAnswer:",
+        "index": 3,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[4]], weights=[0])",
+        "prompt": "You are given a directed graph with 5 nodes (numbered 0 to 4) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 282\n0 -> 2, weight: 22\n0 -> 3, weight: 108\n1 -> 2, weight: 263\n1 -> 3, weight: 36\n1 -> 4, weight: 166\n2 -> 3, weight: 302\n2 -> 4, weight: 191\n2 -> 0, weight: 183\n3 -> 4, weight: 269\n3 -> 0, weight: 277\n3 -> 1, weight: 235\n4 -> 0, weight: 10\n4 -> 1, weight: 294\n4 -> 2, weight: 150\n\nFind the top 3 shortest paths from node 0 to node 4.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 4,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 14,
+      "total_tokens": 14
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,36 @@
+{
+  "batch_id": 60,
+  "batch_size": 2,
+  "scheduled_arrival_time": 762.893870693635,
+  "actual_send_time": 762.8967158794403,
+  "request_duration": 58.06153464317322,
+  "completion_time": 820.9582719802856,
+  "status_code": 200,
+  "prompt_idxs": [
+    260,
+    10
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 19-year-old Asian female college student comes to the university health center because of a 1-week history of nasal stuffiness, occasional clear rhinorrhea, and a mild sore throat. Two days ago, she began to feel hot, but she has not taken her temperature. Medical history is unremarkable and her only medication is an oral contraceptive. She has no history of allergies. She does not smoke cigarettes. BMI is 22 kg/m2 . Vital signs are temperature 38.1\u00b0C (100.6\u00b0F), pulse 88/min, respirations 16/min, and blood pressure 116/74 mm Hg. Physical examination discloses tenderness over the left maxillary sinus without purulent drainage. There is clear fluid behind the left tympanic membrane, enlarged tonsils bilaterally, and pain with tapping of the left upper incisors. Left frontal sinus does not transilluminate. Cardiopulmonary examination discloses no abnormalities. Which of the following is the most likely underlying mechanism of this patient's sinusitis?\n Options:\nA. Eustachian tube dysfunction\nB. Mucosal edema\nC. Nasal polyps\nD. Oral contraceptive use\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[10]], weights=[0])",
+        "prompt": "You are given a directed graph with 11 nodes (numbered 0 to 10) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 46\n0 -> 2, weight: 45\n0 -> 3, weight: 25\n1 -> 2, weight: 54\n1 -> 3, weight: 48\n1 -> 4, weight: 9\n2 -> 3, weight: 64\n2 -> 4, weight: 32\n2 -> 5, weight: 70\n3 -> 4, weight: 41\n3 -> 5, weight: 1\n3 -> 6, weight: 12\n4 -> 5, weight: 12\n4 -> 6, weight: 38\n4 -> 7, weight: 62\n5 -> 6, weight: 32\n5 -> 7, weight: 56\n5 -> 8, weight: 49\n6 -> 7, weight: 24\n6 -> 8, weight: 59\n6 -> 9, weight: 21\n7 -> 8, weight: 10\n7 -> 9, weight: 20\n7 -> 10, weight: 55\n8 -> 9, weight: 44\n8 -> 10, weight: 52\n8 -> 0, weight: 41\n9 -> 10, weight: 26\n9 -> 0, weight: 56\n9 -> 1, weight: 66\n10 -> 0, weight: 9\n10 -> 1, weight: 60\n10 -> 2, weight: 59\n\nFind the top 1 shortest path from node 0 to node 10.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 6,
+      "total_tokens": 6
+    }
+  },
+  "error": null
+}

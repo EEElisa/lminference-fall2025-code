@@ -1,0 +1,36 @@
+{
+  "batch_id": 21,
+  "batch_size": 2,
+  "scheduled_arrival_time": 210.19562085634877,
+  "actual_send_time": 210.2028501033783,
+  "request_duration": 17.72688913345337,
+  "completion_time": 227.92976069450378,
+  "status_code": 200,
+  "prompt_idxs": [
+    3,
+    289
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 4, 6]], weights=[1040])",
+        "prompt": "You are given a directed graph with 7 nodes (numbered 0 to 6) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 432\n0 -> 2, weight: 277\n1 -> 2, weight: 670\n1 -> 3, weight: 357\n2 -> 3, weight: 743\n2 -> 4, weight: 740\n3 -> 4, weight: 564\n3 -> 5, weight: 562\n4 -> 5, weight: 742\n4 -> 6, weight: 23\n5 -> 6, weight: 466\n5 -> 0, weight: 115\n6 -> 0, weight: 412\n6 -> 1, weight: 756\n\nFind the top 1 shortest path from node 0 to node 6.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: David is a nationally ranked cellist who recently accepted a scholarship to a major college to perform in the orchestra. Over the summer, he has been given a packet of sheet music to be proficient in by fall semester. David is a perfectionist when it comes to his craft. He always compares himself to better players, and is very hard on himself when he cannot master a section of one of his pieces. Which of the following answers best describes David?\n Options:\nA. Low self-esteem, strong self-efficacy, internal locus of control\nB. High self-esteem, strong self-efficacy, internal locus of control\nC. Low self-esteem, strong self-efficacy, external locus of control\nD. Low self-esteem, low self-efficacy, internal locus of control\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 9,
+      "total_tokens": 9
+    }
+  },
+  "error": null
+}

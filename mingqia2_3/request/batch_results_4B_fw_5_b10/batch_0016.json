@@ -1,0 +1,29 @@
+{
+  "batch_id": 16,
+  "batch_size": 1,
+  "scheduled_arrival_time": 160.31301067672356,
+  "actual_send_time": 160.3140139579773,
+  "request_duration": 32.55164194107056,
+  "completion_time": 192.8656690120697,
+  "status_code": 200,
+  "prompt_idxs": [
+    268
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A sexually active 23-year-old man with multiple sex partners has dysuria and a yellow urethral exudate. Gram stain of the exudate shows numerous neutrophils, many that contain intracellular gram-negative diplococci. He has had three similar episodes of urethritis over the past 2 years. Which of the following properties of the infecting organism best explains the reinfection?\n Options:\nA. Antigenic variation\nB. Catalase\nC. Inhibition of B-lymphocyte function\nD. Inhibition of T-lymphocyte function\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 4,
+      "total_tokens": 4
+    }
+  },
+  "error": null
+}
