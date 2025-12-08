@@ -228,9 +228,17 @@ class SpeculativeDecoder:
         else:
             lookahead = base_lookahead
 
-        # Tokenize
+        # Apply chat template with thinking mode disabled, then tokenize
+        messages = [{"role": "user", "content": prompt}]
+        formatted_prompt = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+            enable_thinking=False,  # Disable Qwen thinking mode
+        )
+
         tokenized = self.tokenizer(
-            prompt,
+            formatted_prompt,
             return_tensors="pt",
             truncation=True,
             max_length=2048,
@@ -344,9 +352,21 @@ class SpeculativeDecoder:
         else:
             lookahead = base_lookahead
 
+        # Apply chat template to each prompt with thinking mode disabled
+        formatted_prompts = []
+        for prompt in prompts:
+            messages = [{"role": "user", "content": prompt}]
+            formatted_prompt = self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,  # Disable Qwen thinking mode
+            )
+            formatted_prompts.append(formatted_prompt)
+
         # Tokenize with padding, then store per-example trimmed tensors
         tokenized = self.tokenizer(
-            prompts,
+            formatted_prompts,
             return_tensors="pt",
             padding=True,
             truncation=True,

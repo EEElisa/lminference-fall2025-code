@@ -4,19 +4,19 @@
   "task_metrics": {
     "mmlu_med": {
       "count": 100,
-      "accuracy": 0.72,
-      "total_score": 72.0
+      "accuracy": 0.29,
+      "total_score": 29.0
     },
     "graph": {
       "count": 100,
-      "accuracy": 0.8833333333333333,
-      "total_score": 88.33333333333333
+      "accuracy": 0.9133333333333333,
+      "total_score": 91.33333333333333
     },
     "infobench": {
       "count": 100,
-      "accuracy": 0.2779751082251082,
-      "total_score": 27.79751082251082
+      "accuracy": 0.737803058053058,
+      "total_score": 73.7803058053058
     }
   },
-  "overall_accuracy": 0.6271028138528139
+  "overall_accuracy": 0.6470454637954639
 }

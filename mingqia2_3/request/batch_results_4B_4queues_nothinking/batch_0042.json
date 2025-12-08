@@ -1,0 +1,50 @@
+{
+  "batch_id": 42,
+  "batch_size": 4,
+  "scheduled_arrival_time": 540.0632753155359,
+  "actual_send_time": 540.0757648944855,
+  "request_duration": 11.116078615188599,
+  "completion_time": 551.191880941391,
+  "status_code": 200,
+  "prompt_idxs": [
+    240,
+    247,
+    283,
+    143
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The energy for all forms of muscle contraction is provided by:\n Options:\nA. ATP.\nB. ADP.\nC. phosphocreatine.\nD. oxidative phosphorylation.\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A male neonate, who was born at 36 weeks' gestation 2 hours ago in the labor and delivery unit of the hospital, now shows signs of respiratory difficulty. The mother, an 18-year-old primigravid woman, smoked one pack of cigarettes daily throughout her pregnancy. She received prenatal care during most of the pregnancy. One episode of chlamydial cervicitis was detected during the last trimester and treated with azithromycin. The neonate was born via cesarean delivery due to fetal heart rate decelerations. The amniotic fluid was stained with light particulate meconium. Apgar scores were 9 and 9 at 1 and 5 minutes, respectively. The patient is 50 cm (20 in; 50th percentile) long and weighs 3005 g (6 lb 10 oz; 50th percentile); head circumference is 35 cm (14 in; 50th percentile). The infant's vital signs now are temperature 36.6\u00b0C (97.8\u00b0F), pulse 150/min, and respirations 70/min. Pulse oximetry on room air shows an oxygen saturation of 95%. Physical examination discloses mild subcostal and intercostal retractions. Chest x-ray shows prominent pulmonary vascular markings and fluid in the intralobar fissures. Which of the following is the most likely diagnosis?\n Options:\nA. Group B streptococcal sepsis\nB. Meconium aspiration syndrome\nC. Respiratory distress syndrome\nD. Transient tachypnea of newborn\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A placebo-controlled clinical trial is conducted to assess whether a new antihypertensive drug is more effective than standard therapy. A total of 5000 patients with essential hypertension are enrolled and randomly assigned to one of two groups: 2500 patients receive the new drug and 2500 patients receive placebo. If the alpha is set at 0.01 instead of 0.05, which of the following is the most likely result?\n Options:\nA. Significant findings can be reported with greater confidence\nB. The study will have more power\nC. There is a decreased likelihood of a Type II error\nD. There is an increased likelihood of statistically significant findings\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "Your truthfulness is genuinely commendable and adds a great deal of trustworthiness to your interactions.",
+        "prompt": "Instruction: Provide a pleasant compliment based on the quality you have been given.\nQuestion: Truthfulness\nGeneration:",
+        "index": 3,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 50,
+      "completion_tokens": 33,
+      "total_tokens": 83
+    }
+  },
+  "error": null
+}

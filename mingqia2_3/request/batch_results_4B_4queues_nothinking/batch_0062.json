@@ -1,0 +1,36 @@
+{
+  "batch_id": 62,
+  "batch_size": 2,
+  "scheduled_arrival_time": 791.4156613849945,
+  "actual_send_time": 791.4324162006378,
+  "request_duration": 39.94613432884216,
+  "completion_time": 831.3785910606384,
+  "status_code": 200,
+  "prompt_idxs": [
+    68,
+    274
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 6, 7, 8], [0, 1, 6, 7, 8], [0, 1, 6, 7, 3, 8]], weights=[104, 107, 159])",
+        "prompt": "You are given a directed graph with 9 nodes (numbered 0 to 8) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 60\n0 -> 2, weight: 143\n0 -> 3, weight: 188\n0 -> 4, weight: 55\n0 -> 5, weight: 191\n0 -> 6, weight: 70\n1 -> 2, weight: 72\n1 -> 3, weight: 21\n1 -> 4, weight: 93\n1 -> 5, weight: 171\n1 -> 6, weight: 13\n1 -> 7, weight: 155\n2 -> 3, weight: 179\n2 -> 4, weight: 144\n2 -> 5, weight: 17\n2 -> 6, weight: 159\n2 -> 7, weight: 92\n2 -> 8, weight: 174\n3 -> 4, weight: 45\n3 -> 5, weight: 119\n3 -> 6, weight: 161\n3 -> 7, weight: 51\n3 -> 8, weight: 25\n3 -> 0, weight: 100\n4 -> 5, weight: 147\n4 -> 6, weight: 49\n4 -> 7, weight: 149\n4 -> 8, weight: 128\n4 -> 0, weight: 156\n4 -> 1, weight: 187\n5 -> 6, weight: 51\n5 -> 7, weight: 24\n5 -> 8, weight: 79\n5 -> 0, weight: 5\n5 -> 1, weight: 194\n5 -> 2, weight: 194\n6 -> 7, weight: 33\n6 -> 8, weight: 148\n6 -> 0, weight: 167\n6 -> 1, weight: 132\n6 -> 2, weight: 77\n6 -> 3, weight: 163\n7 -> 8, weight: 1\n7 -> 0, weight: 79\n7 -> 1, weight: 104\n7 -> 2, weight: 94\n7 -> 3, weight: 28\n7 -> 4, weight: 32\n8 -> 0, weight: 187\n8 -> 1, weight: 162\n8 -> 2, weight: 167\n8 -> 3, weight: 172\n8 -> 4, weight: 77\n8 -> 5, weight: 90\n\nFind the top 3 shortest paths from node 0 to node 8.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following factors does not influence success in sport?\n Options:\nA. Ability to tolerate heavy training without succumbing to illness or injury.\nB. Tactics.\nC. The diet.\nD. Ingestion of carnitine during exercise.\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 22,
+      "total_tokens": 22
+    }
+  },
+  "error": null
+}

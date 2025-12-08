@@ -1,0 +1,43 @@
+{
+  "batch_id": 19,
+  "batch_size": 3,
+  "scheduled_arrival_time": 193.08826852397357,
+  "actual_send_time": 193.09192657470703,
+  "request_duration": 11.35758113861084,
+  "completion_time": 204.4495415687561,
+  "status_code": 200,
+  "prompt_idxs": [
+    243,
+    159,
+    259
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Creatine is synthesized from:\n Options:\nA. amino acids in the muscles.\nB. amino acids in the liver.\nC. amino acids in the kidneys.\nD. creatinine in the kidneys.\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "we need to know",
+        "prompt": "Instruction: During writing, we added an asterisk for the word that did not come to mind. You will need to provide several examples to demonstrate all the words that can be used in the sentence instead of the asterisk.\nQuestion: we * to know\nGeneration:",
+        "index": 1,
+        "finish_reason": "stop"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old man who is quadriplegic as a result of multiple sclerosis is hospitalized for treatment of left lower lobe pneumonia. His temperature is 38.1\u00b0C (100.5\u00b0F), pulse is 95/min, respirations are 12/min, and blood pressure is 120/80 mm Hg. He appears malnourished. Rhonchi are heard at the left lower lobe of the lung on auscultation. Examination of the heart, lymph nodes, abdomen, and extremities shows no abnormalities. There is a 1-cm area of erythema over the sacrum with intact skin and no induration. Neurologic examination shows quadriparesis. Test of the stool for occult blood is negative. Which of the following is the most effective intervention for this patient's skin lesion?\n Options:\nA. Frequent turning\nB. Use of wet to dry dressings\nC. Whirlpool therapy\nD. Broad-spectrum antibiotic therapy\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 13,
+      "total_tokens": 95
+    }
+  },
+  "error": null
+}

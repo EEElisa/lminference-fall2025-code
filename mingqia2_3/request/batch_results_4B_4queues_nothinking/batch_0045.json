@@ -1,0 +1,43 @@
+{
+  "batch_id": 45,
+  "batch_size": 3,
+  "scheduled_arrival_time": 599.8189210277235,
+  "actual_send_time": 599.8288769721985,
+  "request_duration": 78.62321043014526,
+  "completion_time": 678.4521243572235,
+  "status_code": 200,
+  "prompt_idxs": [
+    191,
+    215,
+    193
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "DIVORCE SETTLEMENT AGREEMENT\n\nTHIS DIVORCE SETTLEMENT AGREEMENT (\"Agreement\") is made on this 15th day of April, 2023, by and between JOHN SMITH and JANE SMITH, hereinafter referred to as \"the parties.\"\n\n1. **Parties**: John Smith and Jane Smith, married on January 1, 2010, and residing at [Address].\n\n2. **Child**: They have one child, a daughter named Emily Smith, who is 12 years old.\n\n3. **Division of Assets and Liabilities**: All assets and liabilities acquired during the marriage are to be divided equally, with each party receiving fifty percent (50%) interest in all marital property and assuming fifty percent (50%) of all marital debts.\n\n4. **Child Custody and Visitation**:\n   - Jane Smith shall be the primary custodian of the child, Emily Smith.\n   - John Smith shall have visitation rights twice per week on alternating weekends and one full weekend per month.\n   - Holidays and school vacations shall be shared equally, with John Smith having the first week of each holiday and Jane Smith the second week.\n   - Jane Smith shall have the right to make all major decisions regarding the child's education, healthcare, and welfare.\n\n5. **Child Support**: John Smith shall pay child support in the amount of $2,500 per month, to be paid biweekly, to Jane Smith, until Emily Smith turns 18 years of age.\n\n6. **Employment and Income Status**:\n   - Jane Smith is a full-time teacher with a stable income of $60,000 per year.\n   - John Smith is a part-time software developer with an income of $45,000 per year.\n\n7. **Education Level**:\n   - Jane Smith has a Bachelor\u2019s degree in Education.\n   - John Smith has a Bachelor\u2019s degree in Computer Science.\n\n8. **Future Earning Capacities**:\n   - Jane Smith is expected to maintain her current career path and continue earning a stable income.\n   - John Smith is expected to continue in his current career and may see an increase in income over time.\n\n9. **Marital Misconduct**:\n   - John Smith was found to have engaged in inappropriate behavior during the marriage, including inappropriate communication with a former colleague.\n\n**Supporting Justification**:\n- **Jane Smith as Primary Custodian**: \n  - Emily Smith is",
+        "prompt": "Instruction: Please generate a divorce settlement agreement between John Smith and Jane Smith who were married on January 1, 2010. They've been married for 13 years and have one child. The division of assets and liabilities should be equal. \n\nIn the agreement, include the following five details: \n\n1. The age of their child\n2. The employment and income status of each parent\n3. The education level of each parent\n4. Future earning capacities of each parent\n5. Any marital misconduct that may have occurred\n\nFrom these five details, select three that support Jane Smith as the primary custodian of the child, and two that support John Smith. Your choices should be justified with valid explanations and reasoning.\n\nAlso include in the agreement terms related to child custody, visitation rights, and child support arrangements.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Six healthy subjects participate in a study of muscle metabolism during which hyperglycemia and hyperinsulinemia is induced. Muscle biopsy specimens obtained from the subjects during the resting state show significantly increased concentrations of malonyl-CoA. The increased malonyl-CoA concentration most likely directly inhibits which of the following processes in these subjects?\n Options:\nA. Fatty acid oxidation\nB. Fatty acid synthesis\nC. Gluconeogenesis\nD. Glycogenolysis\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "user\nInstruction: Suggest some product bundles that are often purchased with a given product.\nQuestion: MacBook Air\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\n- MacBook Air with Apple Pencil and Case  \n- MacBook Air with Keyboard and Trackpad  \n- MacBook Air with iPhone and Apple Watch  \n- MacBook Air with External Monitor and Mouse  \n- MacBook Air with SSD Upgrade and Case",
+        "prompt": "Instruction: Suggest some product bundles that are often purchased with a given product.\nQuestion: MacBook Air\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 472,
+      "total_tokens": 622
+    }
+  },
+  "error": null
+}

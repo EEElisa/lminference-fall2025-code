@@ -1,0 +1,36 @@
+{
+  "batch_id": 66,
+  "batch_size": 2,
+  "scheduled_arrival_time": 821.5486978311633,
+  "actual_send_time": 821.5512762069702,
+  "request_duration": 11.614469289779663,
+  "completion_time": 833.165774345398,
+  "status_code": 200,
+  "prompt_idxs": [
+    0,
+    148
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 8, 9]], weights=[25])",
+        "prompt": "You are given a directed graph with 10 nodes (numbered 0 to 9) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 51\n0 -> 2, weight: 72\n0 -> 3, weight: 97\n0 -> 4, weight: 37\n0 -> 5, weight: 32\n0 -> 6, weight: 107\n0 -> 7, weight: 17\n0 -> 8, weight: 3\n1 -> 2, weight: 96\n1 -> 3, weight: 18\n1 -> 4, weight: 16\n1 -> 5, weight: 82\n1 -> 6, weight: 66\n1 -> 7, weight: 1\n1 -> 8, weight: 45\n1 -> 9, weight: 39\n2 -> 3, weight: 35\n2 -> 4, weight: 79\n2 -> 5, weight: 98\n2 -> 6, weight: 71\n2 -> 7, weight: 64\n2 -> 8, weight: 3\n2 -> 9, weight: 55\n2 -> 0, weight: 38\n3 -> 4, weight: 60\n3 -> 5, weight: 77\n3 -> 6, weight: 96\n3 -> 7, weight: 9\n3 -> 8, weight: 52\n3 -> 9, weight: 72\n3 -> 0, weight: 3\n3 -> 1, weight: 6\n4 -> 5, weight: 57\n4 -> 6, weight: 8\n4 -> 7, weight: 76\n4 -> 8, weight: 20\n4 -> 9, weight: 102\n4 -> 0, weight: 10\n4 -> 1, weight: 79\n4 -> 2, weight: 72\n5 -> 6, weight: 9\n5 -> 7, weight: 99\n5 -> 8, weight: 95\n5 -> 9, weight: 52\n5 -> 0, weight: 71\n5 -> 1, weight: 98\n5 -> 2, weight: 59\n5 -> 3, weight: 45\n6 -> 7, weight: 53\n6 -> 8, weight: 105\n6 -> 9, weight: 98\n6 -> 0, weight: 13\n6 -> 1, weight: 32\n6 -> 2, weight: 105\n6 -> 3, weight: 22\n6 -> 4, weight: 11\n7 -> 8, weight: 32\n7 -> 9, weight: 25\n7 -> 0, weight: 68\n7 -> 1, weight: 106\n7 -> 2, weight: 1\n7 -> 3, weight: 111\n7 -> 4, weight: 94\n7 -> 5, weight: 84\n8 -> 9, weight: 22\n8 -> 0, weight: 15\n8 -> 1, weight: 72\n8 -> 2, weight: 18\n8 -> 3, weight: 68\n8 -> 4, weight: 57\n8 -> 5, weight: 81\n8 -> 6, weight: 49\n9 -> 0, weight: 44\n9 -> 1, weight: 103\n9 -> 2, weight: 110\n9 -> 3, weight: 25\n9 -> 4, weight: 45\n9 -> 5, weight: 60\n9 -> 6, weight: 23\n9 -> 7, weight: 81\n\nFind the top 1 shortest path from node 0 to node 9.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "I love my mom, and she loves me.  \n\u6211\u7231\u6211\u7684\u5988\u5988\uff0c\u5979\u4e5f\u7231\u6211\u3002",
+        "prompt": "Instruction: Generate two palindromic sentences, one in English and the other in Chinese. Each sentence should be on a separate line and convey a clear, understandable meaning.\nQuestion: \nGeneration:",
+        "index": 1,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 68,
+      "completion_tokens": 26,
+      "total_tokens": 94
+    }
+  },
+  "error": null
+}

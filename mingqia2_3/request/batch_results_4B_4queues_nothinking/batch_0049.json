@@ -1,0 +1,29 @@
+{
+  "batch_id": 49,
+  "batch_size": 1,
+  "scheduled_arrival_time": 653.8187137264767,
+  "actual_send_time": 653.8224647045135,
+  "request_duration": 67.08704781532288,
+  "completion_time": 720.9095437526703,
+  "status_code": 200,
+  "prompt_idxs": [
+    183
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "Master new languages with fun, effective lessons on LinguaPath. Our platform offers engaging, interactive courses designed for students of all levels. With personalized learning plans, you'll progress at your own pace, mastering vocabulary, grammar, and conversation skills. Experience real-time feedback and immersive exercises that make learning enjoyable. One unique feature: flexible pricing options, including monthly and annual plans, with a 30% discount for students. Start speaking confidently today\u2014LinguaPath makes language learning simple, effective, and exciting. Enroll now and take your language skills to the next level!",
+        "prompt": "Instruction: Compose an advertisement for an online language learning platform aimed at students with no more than 120 words. The advertisement should emphasize the platform's engaging lessons, interactive tools, and personalized learning plans. Additionally, highlight at least one unique feature, such as pricing options, or special offers that set the platform apart from competitors. Consider using persuasive language to attract potential users.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 118,
+      "total_tokens": 228
+    }
+  },
+  "error": null
+}
