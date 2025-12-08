@@ -1,0 +1,64 @@
+{
+  "batch_id": 26,
+  "batch_size": 6,
+  "scheduled_arrival_time": 286.3623087284511,
+  "actual_send_time": 286.3731601238251,
+  "request_duration": 56.374531269073486,
+  "completion_time": 342.7477285861969,
+  "status_code": 200,
+  "prompt_idxs": [
+    127,
+    20,
+    111,
+    161,
+    134,
+    276
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "**Invoice**  \n**Order Number:** #ORD123456  \n**Billing Address:** 123 Main Street, Cityville, CA 90210  \n**Shipping Address:** 456 Oak Avenue, Suburbia, CA 90211  \n**Order Date:** April 5, 2025  \n\n| Quantity | Item Code | Product Name       | Price  | Total Cost |\n|---------|-----------|--------------------|--------|------------|\n| 1       | D001      | Classic Dress      | $89.99 | $89.99     |\n| 2       | D002      | Evening Dress      | $129.99| $259.98    |\n| 1       | S001      | Black Heels        | $49.99 | $49.99     |\n| 1       | S001      | Black Heels        | $49.99 | $49.99     |\n| 1       | D003      | Floral Dress       | $69.99 | $69.99     |\n\n**Subtotal:** $320.85",
+        "prompt": "Instruction: Create an invoice for an online order that consists of three distinct dresses and two identical pairs of shoes. The invoice must display the order number, billing address, shipping address, order date, and a table outlining the details of each ordered item (quantity, item code, product name, price, and total cost calculated by multiplying the quantity and price of each specific item). Additionally, include a subtotal cost for all the items combined.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 7, 11, 15]], weights=[143])",
+        "prompt": "You are given a directed graph with 16 nodes (numbered 0 to 15) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 49\n0 -> 2, weight: 536\n0 -> 3, weight: 106\n0 -> 4, weight: 406\n0 -> 5, weight: 876\n0 -> 6, weight: 226\n0 -> 7, weight: 100\n0 -> 8, weight: 329\n1 -> 2, weight: 51\n1 -> 3, weight: 116\n1 -> 4, weight: 821\n1 -> 5, weight: 879\n1 -> 6, weight: 103\n1 -> 7, weight: 418\n1 -> 8, weight: 656\n1 -> 9, weight: 393\n2 -> 3, weight: 181\n2 -> 4, weight: 292\n2 -> 5, weight: 197\n2 -> 6, weight: 692\n2 -> 7, weight: 62\n2 -> 8, weight: 509\n2 -> 9, weight: 811\n2 -> 10, weight: 487\n3 -> 4, weight: 827\n3 -> 5, weight: 21\n3 -> 6, weight: 21\n3 -> 7, weight: 126\n3 -> 8, weight: 644\n3 -> 9, weight: 758\n3 -> 10, weight: 672\n3 -> 11, weight: 390\n4 -> 5, weight: 853\n4 -> 6, weight: 214\n4 -> 7, weight: 406\n4 -> 8, weight: 760\n4 -> 9, weight: 650\n4 -> 10, weight: 362\n4 -> 11, weight: 511\n4 -> 12, weight: 9\n5 -> 6, weight: 675\n5 -> 7, weight: 853\n5 -> 8, weight: 734\n5 -> 9, weight: 606\n5 -> 10, weight: 298\n5 -> 11, weight: 874\n5 -> 12, weight: 525\n5 -> 13, weight: 410\n6 -> 7, weight: 888\n6 -> 8, weight: 313\n6 -> 9, weight: 636\n6 -> 10, weight: 815\n6 -> 11, weight: 284\n6 -> 12, weight: 713\n6 -> 13, weight: 575\n6 -> 14, weight: 542\n7 -> 8, weight: 81\n7 -> 9, weight: 565\n7 -> 10, weight: 447\n7 -> 11, weight: 34\n7 -> 12, weight: 242\n7 -> 13, weight: 704\n7 -> 14, weight: 402\n7 -> 15, weight: 592\n8 -> 9, weight: 599\n8 -> 10, weight: 57\n8 -> 11, weight: 71\n8 -> 12, weight: 559\n8 -> 13, weight: 604\n8 -> 14, weight: 924\n8 -> 15, weight: 773\n8 -> 0, weight: 587\n9 -> 10, weight: 114\n9 -> 11, weight: 34\n9 -> 12, weight: 74\n9 -> 13, weight: 534\n9 -> 14, weight: 673\n9 -> 15, weight: 13\n9 -> 0, weight: 372\n9 -> 1, weight: 6\n10 -> 11, weight: 702\n10 -> 12, weight: 188\n10 -> 13, weight: 688\n10 -> 14, weight: 288\n10 -> 15, weight: 689\n10 -> 0, weight: 927\n10 -> 1, weight: 659\n10 -> 2, weight: 762\n11 -> 12, weight: 176\n11 -> 13, weight: 245\n11 -> 14, weight: 424\n11 -> 15, weight: 9\n11 -> 0, weight: 443\n11 -> 1, weight: 559\n11 -> 2, weight: 572\n11 -> 3, weight: 298\n12 -> 13, weight: 170\n12 -> 14, weight: 753\n12 -> 15, weight: 425\n12 -> 0, weight: 524\n12 -> 1, weight: 513\n12 -> 2, weight: 377\n12 -> 3, weight: 911\n12 -> 4, weight: 863\n13 -> 14, weight: 481\n13 -> 15, weight: 780\n13 -> 0, weight: 341\n13 -> 1, weight: 208\n13 -> 2, weight: 385\n13 -> 3, weight: 830\n13 -> 4, weight: 394\n13 -> 5, weight: 546\n14 -> 15, weight: 755\n14 -> 0, weight: 54\n14 -> 1, weight: 400\n14 -> 2, weight: 282\n14 -> 3, weight: 464\n14 -> 4, weight: 788\n14 -> 5, weight: 383\n14 -> 6, weight: 879\n15 -> 0, weight: 56\n15 -> 1, weight: 837\n15 -> 2, weight: 84\n15 -> 3, weight: 298\n15 -> 4, weight: 478\n15 -> 5, weight: 480\n15 -> 6, weight: 279\n15 -> 7, weight: 208\n\nFind the top 1 shortest path from node 0 to node 15.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": " your knowledge of literature for high school students.\nQuestion: What does the green light symbolize at the end of the book?\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nThe green light at the end of the book symbolizes Gatsby's hope for the future, his dreams, and his longing for Daisy Buchanan.",
+        "prompt": "Instruction: Answer the following literature question as accurately as possible based on your knowledge of literature for high school students.\nQuestion: What does the green light symbolize at the end of the book?\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "user\nInstruction: List a few popular songs from the given album.\nQuestion: Back To Black\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nBack To Black - Amy Winehouse  \nPopular songs: Back To Black, Rehab, Love Is a Losing Game, Valleys, Tears in Heaven.",
+        "prompt": "Instruction: List a few popular songs from the given album.\nQuestion: Back To Black\nGeneration:",
+        "index": 3,
+        "finish_reason": "length"
+      },
+      {
+        "text": " x2, 12V power supply\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nEstimated cost of supplies: $250 - $350. Total cost: $250 - $350.",
+        "prompt": "Instruction: Estimate the cost of supplies required to create the given project and calculate the total cost.\nQuestion: DIY Water Chiller\nRequired items are: Ice-maker, Icebox/cooler, Temperature regulator, Aquarium pump x2, 12V power supply\nGeneration:",
+        "index": 4,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 63-year-old woman comes to the physician 1 day after the sudden onset of pain and swelling of her right knee. She has had no injury. Her medications include occasional ibuprofen for mild osteoarthritis of both knees. Her temperature is 37\u00b0C (98.6\u00b0F), pulse is 97/min, respirations are 19/min, and blood pressure is 129/79 mm Hg. Examination of the right knee shows warmth, erythema, and effusion. Exquisite tenderness is produced with minimal range-of-motion testing. Examination of synovial fluid obtained via joint aspiration shows that it is clear, with positively birefringent rhomboids observed under polarized light microscopy. Deposition of which of the following substances is the most likely cause of these findings?\n Options:\nA. Ammonium urate\nB. Calcium oxalate\nC. Calcium pyrophosphate\nD. Calcium urate\nAnswer:",
+        "index": 5,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 254,
+      "completion_tokens": 409,
+      "total_tokens": 663
+    }
+  },
+  "error": null
+}

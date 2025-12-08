@@ -1,0 +1,29 @@
+{
+  "batch_id": 22,
+  "batch_size": 1,
+  "scheduled_arrival_time": 235.57956506203408,
+  "actual_send_time": 235.58878588676453,
+  "request_duration": 60.30496263504028,
+  "completion_time": 295.8937828540802,
+  "status_code": 200,
+  "prompt_idxs": [
+    213
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The most rapid method to resynthesize ATP during exercise is through:\n Options:\nA. glycolysis.\nB. phosphocreatine breakdown.\nC. tricarboxylic acid cycle (Krebs' cycle).\nD. glycogenolysis.\nAnswer:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 62,
+      "total_tokens": 167
+    }
+  },
+  "error": null
+}

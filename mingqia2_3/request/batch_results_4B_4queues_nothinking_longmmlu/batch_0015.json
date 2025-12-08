@@ -1,0 +1,36 @@
+{
+  "batch_id": 15,
+  "batch_size": 2,
+  "scheduled_arrival_time": 159.88020355429373,
+  "actual_send_time": 159.8859007358551,
+  "request_duration": 67.1516969203949,
+  "completion_time": 227.03763723373413,
+  "status_code": 200,
+  "prompt_idxs": [
+    229,
+    207
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is B",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 54-year-old woman comes to the emergency department because of severe jaw pain since undergoing a painful dental procedure 1 day ago. The patient was prescribed codeine after the procedure and instructed to take the medication every 4 hours, but she has continued pain despite adherence to this analgesic regimen. Other members of her family also have experienced poor pain control with codeine. Which of the following is the most likely explanation for this therapeutic failure?\n Options:\nA. Decreased absorption of codeine\nB. Decreased metabolism of codeine to morphine\nC. Deficiency of \u03ba receptors\nD. Increased plasma protein-binding of codeine\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 46-year-old woman with active ankylosing spondylitis comes to the office for a follow-up examination. The use of various conventional nonsteroidal anti-inflammatory drugs has been ineffective. Sulfasalazine treatment also has not resulted in improvement. The most appropriate next step in treatment is administration of a drug that inhibits which of the following?\n Options:\nA. Cytotoxic T-lymphocyte antigen 4\nB. Epidermal growth factor\nC. Interleukin-1 (IL-1)\nD. Tumor necrosis factor \u03b1\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

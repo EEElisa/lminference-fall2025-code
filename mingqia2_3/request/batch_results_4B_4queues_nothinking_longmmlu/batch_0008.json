@@ -1,0 +1,50 @@
+{
+  "batch_id": 8,
+  "batch_size": 4,
+  "scheduled_arrival_time": 85.28562849016384,
+  "actual_send_time": 85.29197311401367,
+  "request_duration": 99.44580554962158,
+  "completion_time": 184.7378168106079,
+  "status_code": 200,
+  "prompt_idxs": [
+    294,
+    73,
+    271,
+    233
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 24-year-old recent college graduate comes to the office because of a 3-year history of increased frequency of urination and occasional incontinence whenever she travels. She says the urinary symptoms typically begin a few days before she is going to fly and they stop the day after she arrives at her destination. She says she is anxious about flying and even slightly \"panicky.\" She reports having had similar but milder symptoms prior to examinations before graduating. Medical history is otherwise unremarkable. Her only medication is an oral contraceptive. Vital signs are normal. Physical examination discloses no abnormalities. Urinalysis and urine culture are normal. Which of the following is the most appropriate next step?\n Options:\nA. Recommend behavioral therapy\nB. Recommend psychoanalytic psychotherapy\nC. Recommend that the patient avoid any stressful activities that cause the problem\nD. Review the patient's sexual history\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 2, 3, 4, 5]], weights=[52])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 14\n0 -> 2, weight: 13\n0 -> 3, weight: 46\n0 -> 4, weight: 75\n1 -> 2, weight: 65\n1 -> 3, weight: 18\n1 -> 4, weight: 49\n1 -> 5, weight: 112\n2 -> 3, weight: 8\n2 -> 4, weight: 66\n2 -> 5, weight: 68\n2 -> 0, weight: 12\n3 -> 4, weight: 26\n3 -> 5, weight: 108\n3 -> 0, weight: 66\n3 -> 1, weight: 69\n4 -> 5, weight: 5\n4 -> 0, weight: 72\n4 -> 1, weight: 70\n4 -> 2, weight: 10\n5 -> 0, weight: 39\n5 -> 1, weight: 21\n5 -> 2, weight: 62\n5 -> 3, weight: 40\n\nFind the top 1 shortest path from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 55-year-old man comes to the physician because of a 2-week history of recurrent, widespread blister formation. Physical examination shows lesions that are most numerous in the flexural areas including the axillae and groin. The blisters do not break easily, and there are no oral lesions. These blisters are most likely the result of adhesion failure involving which of the following?\n Options:\nA. Basement membrane\nB. Dermal papillae\nC. Langerhans cells\nD. Melanocytes\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 31-year-old woman with type 2 diabetes mellitus comes to the physician because of an oozing, foul-smelling wound on her foot for 2 days. Physical examination shows a 4-cm, necrotizing wound with a purplish black discoloration over the heel. Crepitant bullae producing profuse amounts of serous drainage are seen. A Gram stain of a tissue biopsy specimen shows gram-positive rods. The causal organism most likely produces which of the following virulence factors?\n Options:\nA. Fimbriae\nB. Pneumolysin\nC. Polysaccharide capsule\nD. \u03b1-Toxin\nAnswer:",
+        "index": 3,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 18,
+      "total_tokens": 18
+    }
+  },
+  "error": null
+}

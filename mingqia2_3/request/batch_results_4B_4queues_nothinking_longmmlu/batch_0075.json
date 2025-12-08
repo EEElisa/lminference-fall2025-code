@@ -1,0 +1,29 @@
+{
+  "batch_id": 75,
+  "batch_size": 1,
+  "scheduled_arrival_time": 886.5879332101715,
+  "actual_send_time": 886.5971541404724,
+  "request_duration": 90.42390322685242,
+  "completion_time": 977.0210952758789,
+  "status_code": 200,
+  "prompt_idxs": [
+    266
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: One of the many reasons that the eukaryotic cell can possess so much information in its DNA is the ability to condense coding regions when they are not being expressed. When acting on DNA, which of the following processes will usually lead to a decrease in gene expression?\n Options:\nA. Increased histone acetyltransferase activity\nB. Decrease in histone deacetyltransferase activity\nC. Increase in methylation activity\nD. Increase in heterochromatin:euchromatin ratio\nAnswer:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 135,
+      "total_tokens": 290
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,29 @@
+{
+  "batch_id": 12,
+  "batch_size": 1,
+  "scheduled_arrival_time": 116.70823005698357,
+  "actual_send_time": 116.7108211517334,
+  "request_duration": 92.59887528419495,
+  "completion_time": 209.30972266197205,
+  "status_code": 200,
+  "prompt_idxs": [
+    197
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": " Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nThe Wizard of Oz",
+        "prompt": "Instruction: The story of a movie has been described using many emojis. You need to guess the name of the movie based on the emojis.\nQuestion: \ud83e\uddd9\u200d\u2642\ufe0f\ud83d\udeaa\ud83d\udcda\ud83e\udd85\u26a1\nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 15,
+      "total_tokens": 15
+    }
+  },
+  "error": null
+}

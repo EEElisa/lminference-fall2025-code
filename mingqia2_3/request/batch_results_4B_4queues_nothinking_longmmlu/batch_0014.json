@@ -1,0 +1,36 @@
+{
+  "batch_id": 14,
+  "batch_size": 2,
+  "scheduled_arrival_time": 151.30613147316646,
+  "actual_send_time": 151.30956602096558,
+  "request_duration": 97.64920544624329,
+  "completion_time": 248.95879936218262,
+  "status_code": 200,
+  "prompt_idxs": [
+    269,
+    135
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is being conducted to assess mesothelioma in shipyard workers. A large shipyard firm has provided the asbestos exposure records of all employees during the past 50 years. The health insurer for the workers has provided claims data that documents all chest x-rays and diagnoses of mesothelioma among current workers and retirees. The study enrolled shipyard workers who were diagnosed with mesothelioma and shipyard workers who were not diagnosed with mesothelioma. All subjects in the study had to have chest xrays. Which of the following is the best rationale for selecting a comparison group that had chest x-rays?\n Options:\nA. Address confounding\nB. Demonstrate causality\nC. Minimize ascertainment bias\nD. Reduce recall bias\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "A mother\u2019s lost ring sparks a chain of events: a thief steals it, a librarian finds it, a painter uses it in a masterpiece, a child loses it, a soldier returns with it, a scientist studies it, and a ghost claims it. All tied by the theme of lost and found.",
+        "prompt": "Instruction: Create a sequence of flash fiction stories limited to 50 words, all of which center around different characters (at least seven), each with their own unique name. Each story should give a brief insight into the character's life while still subtly contributing to a unifying narrative or theme that ties all the stories together.\nQuestion: \nGeneration:",
+        "index": 1,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 98,
+      "completion_tokens": 66,
+      "total_tokens": 164
+    }
+  },
+  "error": null
+}

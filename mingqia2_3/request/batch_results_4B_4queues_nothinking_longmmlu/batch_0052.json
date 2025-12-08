@@ -1,0 +1,36 @@
+{
+  "batch_id": 52,
+  "batch_size": 2,
+  "scheduled_arrival_time": 684.9672989348904,
+  "actual_send_time": 684.9753031730652,
+  "request_duration": 0.1265091896057129,
+  "completion_time": 685.1018483638763,
+  "status_code": 200,
+  "prompt_idxs": [
+    94,
+    50
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 3, 4, 5, 7]], weights=[272])",
+        "prompt": "You are given a directed graph with 8 nodes (numbered 0 to 7) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 265\n0 -> 2, weight: 263\n0 -> 3, weight: 100\n1 -> 2, weight: 283\n1 -> 3, weight: 59\n1 -> 4, weight: 361\n2 -> 3, weight: 83\n2 -> 4, weight: 116\n2 -> 5, weight: 96\n3 -> 4, weight: 74\n3 -> 5, weight: 262\n3 -> 6, weight: 250\n4 -> 5, weight: 62\n4 -> 6, weight: 91\n4 -> 7, weight: 187\n5 -> 6, weight: 19\n5 -> 7, weight: 36\n5 -> 0, weight: 279\n6 -> 7, weight: 174\n6 -> 0, weight: 8\n6 -> 1, weight: 130\n7 -> 0, weight: 184\n7 -> 1, weight: 53\n7 -> 2, weight: 136\n\nFind the top 1 shortest path from node 0 to node 7.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 6, 12], [0, 3, 7, 8, 12]], weights=[23, 57])",
+        "prompt": "You are given a directed graph with 13 nodes (numbered 0 to 12) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 88\n0 -> 2, weight: 81\n0 -> 3, weight: 5\n0 -> 4, weight: 71\n0 -> 5, weight: 118\n0 -> 6, weight: 17\n0 -> 7, weight: 111\n0 -> 8, weight: 126\n1 -> 2, weight: 48\n1 -> 3, weight: 35\n1 -> 4, weight: 24\n1 -> 5, weight: 30\n1 -> 6, weight: 69\n1 -> 7, weight: 48\n1 -> 8, weight: 94\n1 -> 9, weight: 15\n2 -> 3, weight: 102\n2 -> 4, weight: 22\n2 -> 5, weight: 74\n2 -> 6, weight: 19\n2 -> 7, weight: 34\n2 -> 8, weight: 95\n2 -> 9, weight: 4\n2 -> 10, weight: 49\n3 -> 4, weight: 32\n3 -> 5, weight: 80\n3 -> 6, weight: 49\n3 -> 7, weight: 21\n3 -> 8, weight: 82\n3 -> 9, weight: 53\n3 -> 10, weight: 57\n3 -> 11, weight: 32\n4 -> 5, weight: 57\n4 -> 6, weight: 53\n4 -> 7, weight: 58\n4 -> 8, weight: 74\n4 -> 9, weight: 108\n4 -> 10, weight: 42\n4 -> 11, weight: 44\n4 -> 12, weight: 56\n5 -> 6, weight: 81\n5 -> 7, weight: 101\n5 -> 8, weight: 55\n5 -> 9, weight: 19\n5 -> 10, weight: 115\n5 -> 11, weight: 103\n5 -> 12, weight: 116\n5 -> 0, weight: 86\n6 -> 7, weight: 27\n6 -> 8, weight: 34\n6 -> 9, weight: 8\n6 -> 10, weight: 62\n6 -> 11, weight: 51\n6 -> 12, weight: 6\n6 -> 0, weight: 36\n6 -> 1, weight: 75\n7 -> 8, weight: 25\n7 -> 9, weight: 71\n7 -> 10, weight: 79\n7 -> 11, weight: 9\n7 -> 12, weight: 121\n7 -> 0, weight: 88\n7 -> 1, weight: 121\n7 -> 2, weight: 114\n8 -> 9, weight: 125\n8 -> 10, weight: 79\n8 -> 11, weight: 54\n8 -> 12, weight: 6\n8 -> 0, weight: 58\n8 -> 1, weight: 88\n8 -> 2, weight: 1\n8 -> 3, weight: 108\n9 -> 10, weight: 6\n9 -> 11, weight: 33\n9 -> 12, weight: 93\n9 -> 0, weight: 118\n9 -> 1, weight: 107\n9 -> 2, weight: 51\n9 -> 3, weight: 50\n9 -> 4, weight: 109\n10 -> 11, weight: 93\n10 -> 12, weight: 101\n10 -> 0, weight: 57\n10 -> 1, weight: 56\n10 -> 2, weight: 99\n10 -> 3, weight: 53\n10 -> 4, weight: 125\n10 -> 5, weight: 71\n11 -> 12, weight: 76\n11 -> 0, weight: 106\n11 -> 1, weight: 121\n11 -> 2, weight: 39\n11 -> 3, weight: 31\n11 -> 4, weight: 111\n11 -> 5, weight: 41\n11 -> 6, weight: 100\n12 -> 0, weight: 10\n12 -> 1, weight: 83\n12 -> 2, weight: 116\n12 -> 3, weight: 37\n12 -> 4, weight: 42\n12 -> 5, weight: 125\n12 -> 6, weight: 87\n12 -> 7, weight: 80\n\nFind the top 2 shortest paths from node 0 to node 12.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 16,
+      "total_tokens": 16
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "batch_id": 63,
+  "batch_size": 3,
+  "scheduled_arrival_time": 793.4768246432019,
+  "actual_send_time": 793.4800980091095,
+  "request_duration": 79.12790012359619,
+  "completion_time": 872.6080298423767,
+  "status_code": 200,
+  "prompt_idxs": [
+    290,
+    295,
+    152
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 47-year-old woman comes to the physician because of persistent nonproductive cough for 6 weeks. She has not had fever or weight loss. She has hypertension treated with enalapril for the past 3 months. She does not smoke. There is no history of lung disease. She weighs 54 kg (120 lb) and is 163 cm (64 in) tall. Her temperature is 37\u00b0C (98.6\u00b0F), blood pressure is 130/80 mm Hg, pulse is 70/min, and respirations are 12/min. Examination and an x-ray of the chest show no abnormalities. Which of the following is the most likely mechanism of this patient's cough?\n Options:\nA. Decreased plasma renin activity\nB. Decreased serum angiotensin II concentrations\nC. Increased serum angiotensin I concentrations\nD. Increased serum bradykinin concentrations\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is D",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 22-year-old woman comes to the office because of urticaria. This is her first episode of urticaria and it has occurred and then resolved several times in the past week. The history and physical examination disclose no abnormalities. Which of the following is the most appropriate course of action?\n Options:\nA. Determine the serum IgE concentration\nB. Determine the total eosinophil count\nC. Refer her to an allergist\nD. Treat the symptoms\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": ". Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nMatilda is a children's book by Roald Dahl about a bright and curious girl named Matilda who discovers she has a special talent for reading and learning. She lives with her parents and her unkind but wealthy aunt, and she uses her intelligence to outwit the aunt's bad intentions. The story highlights Matilda's kindness, intelligence, and ability to overcome adversity.",
+        "prompt": "Instruction: Give a brief description of the book that you are given.\nQuestion: Matilda\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 80,
+      "total_tokens": 80
+    }
+  },
+  "error": null
+}
