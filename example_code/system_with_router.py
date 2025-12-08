@@ -66,7 +66,7 @@ class Model:
         print("Loading models...")
 
         # Model configuration
-        target_model_name = "Qwen/Qwen3-8B"
+        target_model_name = "Qwen/Qwen3-4B"
         draft_model_name = "Qwen/Qwen3-0.6B"
 
         # Load shared tokenizer for router/graph/MMLU string handling
@@ -109,7 +109,7 @@ class Model:
                 "best_of_n": 3,  # reduced to cut per-request latency
             },
             "infobench": {
-                "max_tokens": 512,  # lower cap to cut long-running generations
+                "max_tokens": 512,  
                 "add_concise_prompt": True,
                 "concise_token_limit": 150,
                 "use_self_refine": False,  # optional toggle for later use
@@ -120,7 +120,7 @@ class Model:
         # Micro-batching config for server-side batching (per task)
         self._microbatch_settings = {
             "mmlu": {"flush_window": 0.5, "max_batch_size": 5},
-            "infobench": {"flush_window": 10, "max_batch_size": 10},  # smaller/shorter batches to avoid queue buildup
+            "infobench": {"flush_window": 5, "max_batch_size": 10},  # smaller/shorter batches to avoid queue buildup
         }
         # One MMLU queue, shared InfoBench queue with two workers (one per GPU)
         self._batch_queues = {
@@ -442,12 +442,7 @@ class Model:
         use_specdec = self.task_specdec_enabled.get(task_type, False)
 
         # Task-specific prompt modifications
-        if task_type == "mmlu":
-            prompts = [
-                f"{p}\n\nAnswer with a single letter (A, B, C, or D). Output only the letter."
-                for p in prompts
-            ]
-        elif task_type == "graph":
+        if task_type == "graph":
             temperature = 0.0
         elif task_type == "infobench" and add_concise_prompt and concise_limit > 0:
             prompts = [
@@ -532,7 +527,7 @@ class Model:
         if task_type == "infobench" and len(prompts) > 1:
             print(f"[infobench] Using BATCHED speculative decoding for {len(prompts)} prompts")
 
-            # Step 1: Batch speculative decoding (draft: 0.6B, target: 8B)
+            # Step 1: Batch speculative decoding (draft: 0.6B, target: 4B)
             gen_ids_list, acc_rates, prompt_lens = specdec.generate_batch(
                 prompts,
                 max_new_tokens=max_tokens,
@@ -641,7 +636,13 @@ class Model:
         return generated_texts, prompt_lengths, outputs
 
     def _extract_letter(self, text):
-        """Extract first occurrence of A/B/C/D (uppercase) from text."""
+        """Extract first occurrence of A/B/C/D from common answer formats."""
+        import re
+        # Prefer explicit "The answer is X" pattern
+        m = re.search(r"The answer is\\s*\\(?([A-D])\\)?", text, re.IGNORECASE)
+        if m:
+            return m.group(1).upper()
+        # Fallback: first standalone letter
         for ch in text:
             c = ch.upper()
             if c in ("A", "B", "C", "D"):

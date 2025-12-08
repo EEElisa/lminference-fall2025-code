@@ -13,48 +13,48 @@ from typing import List, Tuple, Dict, Any, Optional
 
 def parse_graph_prompt(prompt: str) -> Optional[Dict[str, Any]]:
     """
-    Parse a graph problem prompt and extract edges, N (number of nodes), and P (number of paths).
-
-    Args:
-        prompt: The graph problem prompt text
-
-    Returns:
-        Dictionary with 'edges', 'N', and 'P' keys, or None if parsing fails
+    Parse a graph problem prompt and extract edges, node count, source/target, and top-P.
+    More robust to minor noise/formatting differences.
     """
-    # Extract number of nodes: "You are given a directed graph with N nodes"
-    nodes_match = re.search(r'directed graph with (\d+) nodes', prompt)
-    if not nodes_match:
-        return None
-    N = int(nodes_match.group(1))
+    # Extract number of nodes: "directed graph with N nodes"
+    nodes_match = re.search(r'directed graph with\s+(\d+)\s+nodes', prompt, re.IGNORECASE)
+    N = int(nodes_match.group(1)) if nodes_match else None
 
-    # Extract number of paths to find: "Find the top P shortest path"
-    paths_match = re.search(r'Find the top (\d+) shortest path', prompt)
-    if not paths_match:
-        return None
-    P = int(paths_match.group(1))
+    # Extract source/target: "from node X to node Y"
+    st_match = re.search(r'from node\s+(\d+)\s+to node\s+(\d+)', prompt, re.IGNORECASE)
+    src = int(st_match.group(1)) if st_match else 0
+    tgt = int(st_match.group(2)) if st_match else (N - 1 if N is not None else None)
 
-    # Extract edges: "source -> target, weight: X"
+    # Extract number of paths: "Find the top P shortest path(s)".
+    # If not specified, default to 1.
+    paths_match = re.search(r'Find the top\s+(\d+)\s+shortest path', prompt, re.IGNORECASE)
+    P = int(paths_match.group(1)) if paths_match else 1
+
+    # Extract edges: "source -> target, weight: X" (allow spaces)
     edges = []
-    edge_pattern = r'(\d+) -> (\d+), weight: (\d+)'
-    for match in re.finditer(edge_pattern, prompt):
-        src = int(match.group(1))
-        dst = int(match.group(2))
+    edge_pattern = r'(\d+)\s*->\s*(\d+)\s*,\s*weight:\s*([-\d]+)'
+    for match in re.finditer(edge_pattern, prompt, re.IGNORECASE):
+        src_e = int(match.group(1))
+        dst_e = int(match.group(2))
         weight = int(match.group(3))
-        edges.append((src, dst, weight))
+        edges.append((src_e, dst_e, weight))
 
     if not edges:
         return None
 
-    return {
-        'edges': edges,
-        'N': N,
-        'P': P
-    }
+    # Infer N if missing from prompt: 1 + max node id seen
+    if N is None:
+        N = max(max(s, d) for s, d, _ in edges) + 1
+    if tgt is None:
+        tgt = N - 1
+
+    return {'edges': edges, 'N': N, 'P': P, 'src': src, 'tgt': tgt}
 
 
-def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int) -> Dict[str, Any]:
+def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int, src: int = 0, tgt: Optional[int] = None) -> Dict[str, Any]:
     """
-    Find the top P shortest paths from node 0 to node N-1 using modified Dijkstra's algorithm.
+    Find the top P shortest paths from node `src` to node `tgt` (default N-1)
+    using a modified Dijkstra's algorithm.
 
     Args:
         edges: List of (source, target, weight) tuples
@@ -64,6 +64,9 @@ def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int)
     Returns:
         Dictionary with 'paths' (list of lists) and 'weights' (list of ints)
     """
+    if tgt is None:
+        tgt = N - 1
+
     # Build adjacency list
     graph = {i: [] for i in range(N)}
     for src, dst, weight in edges:
@@ -71,7 +74,7 @@ def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int)
 
     # Use modified Dijkstra's algorithm to find top P paths
     # Each state is (cost, path)
-    pq = [(0, [0])]  # (cost, path)
+    pq = [(0, [src])]  # (cost, path)
     paths_found = []
     visited_states = set()
 
@@ -86,7 +89,7 @@ def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int)
         visited_states.add(state_key)
 
         # If we reached the target node, add this path to results
-        if current_node == N - 1:
+        if current_node == tgt:
             paths_found.append({
                 'path': path,
                 'weight': cost
@@ -128,9 +131,11 @@ def solve_graph_problem(prompt: str) -> str:
     edges = parsed['edges']
     N = parsed['N']
     P = parsed['P']
+    src = parsed.get('src', 0)
+    tgt = parsed.get('tgt', N - 1)
 
     # Compute the shortest paths
-    result = find_top_p_shortest_paths(edges, N, P)
+    result = find_top_p_shortest_paths(edges, N, P, src=src, tgt=tgt)
     paths = result['paths']
     weights = result['weights']
 
@@ -156,9 +161,11 @@ def solve_graph_problem_dict(prompt: str) -> Optional[Dict[str, Any]]:
     edges = parsed['edges']
     N = parsed['N']
     P = parsed['P']
+    src = parsed.get('src', 0)
+    tgt = parsed.get('tgt', N - 1)
 
     # Compute the shortest paths
-    result = find_top_p_shortest_paths(edges, N, P)
+    result = find_top_p_shortest_paths(edges, N, P, src=src, tgt=tgt)
     return result
 
 
