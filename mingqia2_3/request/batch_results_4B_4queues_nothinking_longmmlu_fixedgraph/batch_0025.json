@@ -1,0 +1,36 @@
+{
+  "batch_id": 25,
+  "batch_size": 2,
+  "scheduled_arrival_time": 271.09506551424965,
+  "actual_send_time": 271.0965824127197,
+  "request_duration": 58.333364725112915,
+  "completion_time": 329.42996287345886,
+  "status_code": 200,
+  "prompt_idxs": [
+    175,
+    118
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "\nassistant\n<think>\n\n</think>\n\n```markdown\nUse `code` in your Markdown file.\n```",
+        "prompt": "Instruction: Convert the given HTML into Markdown format.\nQuestion: <code>Use `code` in your Markdown file.</code>\nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The Dark Knight (2008) is not appropriate for children. It contains violent scenes, intense action, and mature themes that may be disturbing or inappropriate for younger audiences.",
+        "prompt": "Instruction: Decide whether children can watch the given movie. Mention what makes it inappropriate if you think they can't.\nQuestion: The Dark Knight (2008)\nGeneration:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 38,
+      "total_tokens": 38
+    }
+  },
+  "error": null
+}

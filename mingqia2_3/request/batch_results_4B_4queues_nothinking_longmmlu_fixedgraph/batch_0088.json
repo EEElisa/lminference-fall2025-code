@@ -1,0 +1,29 @@
+{
+  "batch_id": 88,
+  "batch_size": 1,
+  "scheduled_arrival_time": 1080.1382093197733,
+  "actual_send_time": 1080.1428320407867,
+  "request_duration": 105.91561245918274,
+  "completion_time": 1186.0584888458252,
+  "status_code": 200,
+  "prompt_idxs": [
+    174
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "Start: The beginning of the project, where the initiative is initiated and the project is formally approved.  \nStage 1: Planning, where objectives, scope, resources, and timelines are defined.  \nStage 2: Execution, where tasks are carried out according to the plan and team members are assigned.  \nStage 3: Monitoring and Controlling, where progress is tracked, risks are managed, and adjustments are made.  \nStage 4: Closing, where the project is reviewed, deliverables are finalized, and lessons learned are documented.  \nEnd: The conclusion of the project, where all activities are completed, and the project is formally terminated.",
+        "prompt": "Instruction: Create a description of a flow chart that represents the major stages and crucial tasks involved in a business project. Begin with a \"start\" stage and conclude with an \"end\" stage. For every stage in between, mention 3-5 important tasks associated with that stage. However, do not list any specific tasks for the \"start\" and \"end\" stages; only provide a brief description of these stages.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 118,
+      "completion_tokens": 132,
+      "total_tokens": 250
+    }
+  },
+  "error": null
+}

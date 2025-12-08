@@ -1,0 +1,36 @@
+{
+  "batch_id": 14,
+  "batch_size": 2,
+  "scheduled_arrival_time": 151.30613147316646,
+  "actual_send_time": 151.30986738204956,
+  "request_duration": 119.12666630744934,
+  "completion_time": 270.43656754493713,
+  "status_code": 200,
+  "prompt_idxs": [
+    269,
+    135
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is being conducted to assess mesothelioma in shipyard workers. A large shipyard firm has provided the asbestos exposure records of all employees during the past 50 years. The health insurer for the workers has provided claims data that documents all chest x-rays and diagnoses of mesothelioma among current workers and retirees. The study enrolled shipyard workers who were diagnosed with mesothelioma and shipyard workers who were not diagnosed with mesothelioma. All subjects in the study had to have chest xrays. Which of the following is the best rationale for selecting a comparison group that had chest x-rays?\n Options:\nA. Address confounding\nB. Demonstrate causality\nC. Minimize ascertainment bias\nD. Reduce recall bias\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "A lonely astronomer finds a star map in an old book, tracing a path to a hidden observatory. A street performer practices a melancholic melody, hoping to win a audience. A teacher shares a story about a lost planet with her students. A chef cooks a meal that tastes like memory. A soldier writes letters to a lover he'll never see. A librarian discovers a forgotten book about a vanished civilization. A child draws a picture of a world that doesn't exist. All stories converge on the theme of lost connections and the search for meaning.",
+        "prompt": "Instruction: Create a sequence of flash fiction stories limited to 50 words, all of which center around different characters (at least seven), each with their own unique name. Each story should give a brief insight into the character's life while still subtly contributing to a unifying narrative or theme that ties all the stories together.\nQuestion: \nGeneration:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 100,
+      "total_tokens": 100
+    }
+  },
+  "error": null
+}

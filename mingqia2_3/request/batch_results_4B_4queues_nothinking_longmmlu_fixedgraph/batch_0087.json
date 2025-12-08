@@ -1,0 +1,29 @@
+{
+  "batch_id": 87,
+  "batch_size": 1,
+  "scheduled_arrival_time": 1040.3419653836763,
+  "actual_send_time": 1040.3430695533752,
+  "request_duration": 72.05963850021362,
+  "completion_time": 1112.4027428627014,
+  "status_code": 200,
+  "prompt_idxs": [
+    122
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "Family Bonding Weekly Plan:\n\n1. **Family Storytime** \u2013 Read a book together each Sunday. Encourages shared attention, enhances listening skills, and fosters imagination and empathy.\n\n2. **Cooking Together** \u2013 Prepare a simple meal as a team. Promotes collaboration, teaches life skills, and creates opportunities for conversation and laughter.\n\n3. **Memory Sharing Circle** \u2013 Sit and share a favorite memory each Thursday. Strengthens communication, builds trust, and deepens emotional connections.\n\n4. **Outdoor Scavenger Hunt** \u2013 Go on a short walk with a list of items to find. Encourages teamwork, active engagement, and appreciation for the surroundings.\n\n5. **Weekly Game Night** \u2013 Play board games or card games. Boosts social interaction, problem-solving, and provides joy and camaraderie.",
+        "prompt": "Instruction: Design a family-focused weekly activity plan consisting of five activities that promote togetherness, and communication. Each activity should be suitable for various age groups and require minimal resources. Include brief descriptions (30-50 words) explaining the purpose of each activity and how it strengthens family bonds.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 94,
+      "completion_tokens": 169,
+      "total_tokens": 263
+    }
+  },
+  "error": null
+}

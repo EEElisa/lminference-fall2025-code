@@ -1,0 +1,43 @@
+{
+  "batch_id": 45,
+  "batch_size": 3,
+  "scheduled_arrival_time": 599.8189210277235,
+  "actual_send_time": 599.8282561302185,
+  "request_duration": 199.1534185409546,
+  "completion_time": 798.9817008972168,
+  "status_code": 200,
+  "prompt_idxs": [
+    191,
+    215,
+    193
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "DIVORCE SETTLEMENT AGREEMENT\n\nTHIS DIVORCE SETTLEMENT AGREEMENT (\"Agreement\") is made on this 15th day of April, 2023, by and between JOHN SMITH, a resident of [City, State], and JANE SMITH, a resident of [City, State], formerly married under the laws of the State of [State], and now divorced.\n\n1. **Background**: John and Jane Smith were married on January 1, 2010, and have been married for 13 years. They have one child, a daughter named Emily Smith, who is 12 years old.\n\n2. **Child Custody and Visitation**: Jane Smith is designated as the primary custodian of Emily Smith. John Smith is granted visitation rights on a weekly basis, with supervised visitation on weekends. Emily will reside primarily with Jane, and John will have scheduled visitation as agreed upon by both parties.\n\n3. **Child Support**: John Smith shall pay child support in the amount of $1,200 per month to Jane Smith, to be paid biweekly. This amount is determined based on the income of both parties and the needs of Emily Smith.\n\n4. **Division of Assets and Liabilities**: All marital assets and liabilities are to be divided equally. John Smith is to receive 50% of the marital assets and 50% of the marital liabilities, and Jane Smith is to receive the remaining 50% of the marital assets and 50% of the marital liabilities.\n\n5. **Employment and Income Status**: John Smith is a self-employed contractor with an annual income of approximately $80,000. Jane Smith is a nurse with an annual income of approximately $75,000.\n\n6. **Education Level**: Jane Smith holds a Bachelor\u2019s degree in Nursing, while John Smith holds a Bachelor\u2019s degree in Business Administration.\n\n7. **Future Earning Capacities**: Jane Smith is expected to maintain her current level of employment and continue her career as a nurse, while John Smith is expected to continue his self-employment with potential for growth.\n\n8. **Marital Misconduct**: There was no marital misconduct on the part of either party. The marriage was a stable and loving relationship, with no significant issues or disputes that would impact the child\u2019s well-being.\n\nThis Agreement is made in consideration of the mutual promises and covenants herein contained, and the parties agree to be bound by the",
+        "prompt": "Instruction: Please generate a divorce settlement agreement between John Smith and Jane Smith who were married on January 1, 2010. They've been married for 13 years and have one child. The division of assets and liabilities should be equal. \n\nIn the agreement, include the following five details: \n\n1. The age of their child\n2. The employment and income status of each parent\n3. The education level of each parent\n4. Future earning capacities of each parent\n5. Any marital misconduct that may have occurred\n\nFrom these five details, select three that support Jane Smith as the primary custodian of the child, and two that support John Smith. Your choices should be justified with valid explanations and reasoning.\n\nAlso include in the agreement terms related to child custody, visitation rights, and child support arrangements.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  professional medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Six healthy subjects participate in a study of muscle metabolism during which hyperglycemia and hyperinsulinemia is induced. Muscle biopsy specimens obtained from the subjects during the resting state show significantly increased concentrations of malonyl-CoA. The increased malonyl-CoA concentration most likely directly inhibits which of the following processes in these subjects?\n Options:\nA. Fatty acid oxidation\nB. Fatty acid synthesis\nC. Gluconeogenesis\nD. Glycogenolysis\nAnswer:",
+        "index": 1,
+        "finish_reason": "stop"
+      },
+      {
+        "text": "user\nInstruction: Suggest some product bundles that are often purchased with a given product.\nQuestion: MacBook Air\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\n- MacBook Air with Apple Pencil and Case  \n- MacBook Air with Keyboard and Trackpad  \n- MacBook Air with External Monitor and Keyboard  \n- MacBook Air with Wireless Mouse and Case  \n- MacBook Air with Backup Drive and Case",
+        "prompt": "Instruction: Suggest some product bundles that are often purchased with a given product.\nQuestion: MacBook Air\nGeneration:",
+        "index": 2,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 575,
+      "total_tokens": 725
+    }
+  },
+  "error": null
+}

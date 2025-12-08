@@ -1,0 +1,29 @@
+{
+  "batch_id": 49,
+  "batch_size": 1,
+  "scheduled_arrival_time": 653.8187137264767,
+  "actual_send_time": 653.8210828304291,
+  "request_duration": 98.41437268257141,
+  "completion_time": 752.2354865074158,
+  "status_code": 200,
+  "prompt_idxs": [
+    183
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "Master new languages with fun, interactive lessons and personalized plans on LinguaLearn! Our platform offers engaging content designed for all skill levels, making learning enjoyable and effective. Explore interactive tools that bring language to life, from vocabulary games to real-life conversations. With tailored learning plans, you progress at your own pace, ensuring success every step of the way. Plus, enjoy flexible pricing options and exclusive student discounts to make language learning affordable and accessible. Start today and unlock a world of opportunities with LinguaLearn!",
+        "prompt": "Instruction: Compose an advertisement for an online language learning platform aimed at students with no more than 120 words. The advertisement should emphasize the platform's engaging lessons, interactive tools, and personalized learning plans. Additionally, highlight at least one unique feature, such as pricing options, or special offers that set the platform apart from competitors. Consider using persuasive language to attract potential users.\nQuestion: \nGeneration:",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 102,
+      "total_tokens": 212
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,36 @@
+{
+  "batch_id": 46,
+  "batch_size": 2,
+  "scheduled_arrival_time": 624.1861826983423,
+  "actual_send_time": 624.1892201900482,
+  "request_duration": 116.66336011886597,
+  "completion_time": 740.8526055812836,
+  "status_code": 200,
+  "prompt_idxs": [
+    32,
+    278
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 3]], weights=[960])",
+        "prompt": "You are given a directed graph with 4 nodes (numbered 0 to 3) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 659\n0 -> 2, weight: 887\n1 -> 2, weight: 614\n1 -> 3, weight: 869\n2 -> 3, weight: 73\n2 -> 0, weight: 402\n3 -> 0, weight: 620\n3 -> 1, weight: 536\n\nFind the top 1 shortest path from node 0 to node 3.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is C",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The enzymes of glycolysis are located in the:\n Options:\nA. mitochondrion.\nB. nucleus.\nC. cytoplasm.\nD. lysosomes.\nAnswer:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

@@ -168,7 +168,7 @@ openai_key = os.getenv("OPENAI_API_KEY")
 
 # === Configuration ===
 HIDDEN_TEST_PATH = "combined_dataset.jsonl"
-STUDENT_OUTPUT_PATH = "student_outputs_longmmlu.jsonl"
+STUDENT_OUTPUT_PATH = "student_outputs_longmmlu_fixedgraph.jsonl"
 OUTPUT_DIR = "./eval_results_longmmlu"
 STUDENT_ID = "mingqia2"
 EVAL_MODEL = "gpt-5-nano-2025-08-07"

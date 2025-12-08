@@ -77,17 +77,13 @@ def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int,
     start = src  # preserve caller-provided start
     pq = [(0, [start])]  # (cost, path)
     paths_found = []
-    visited_states = set()
+    # Track how many times we've visited each node to allow finding multiple paths
+    # but prevent infinite loops
+    visit_count = {}
 
     while pq and len(paths_found) < P:
         cost, path = heapq.heappop(pq)
         current_node = path[-1]
-
-        # Create a state key to avoid revisiting the same (node, path_length) combination
-        state_key = (current_node, len(path))
-        if state_key in visited_states:
-            continue
-        visited_states.add(state_key)
 
         # If we reached the target node, add this path to results
         if current_node == tgt:
@@ -96,6 +92,13 @@ def find_top_p_shortest_paths(edges: List[Tuple[int, int, int]], N: int, P: int,
                 'weight': cost
             })
             continue
+
+        # Limit how many times we expand from the same node to prevent infinite exploration
+        # We allow up to P visits per node to ensure we can find P paths
+        visit_key = (current_node, tuple(path))
+        if visit_key in visit_count:
+            continue
+        visit_count[visit_key] = True
 
         # Explore neighbors
         for neighbor, edge_weight in graph[current_node]:

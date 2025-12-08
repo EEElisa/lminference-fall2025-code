@@ -1,0 +1,36 @@
+{
+  "batch_id": 18,
+  "batch_size": 2,
+  "scheduled_arrival_time": 183.83078614046576,
+  "actual_send_time": 183.83504939079285,
+  "request_duration": 86.60334086418152,
+  "completion_time": 270.43841767311096,
+  "status_code": 200,
+  "prompt_idxs": [
+    230,
+    72
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Performance enhancing synthetic steroids are based on the structure of the hormone:\n Options:\nA. testosterone.\nB. cortisol.\nC. progesterone.\nD. aldosterone.\nAnswer:",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 8, 11]], weights=[102])",
+        "prompt": "You are given a directed graph with 12 nodes (numbered 0 to 11) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 161\n0 -> 2, weight: 91\n0 -> 3, weight: 91\n0 -> 4, weight: 212\n0 -> 5, weight: 70\n0 -> 6, weight: 93\n0 -> 7, weight: 172\n0 -> 8, weight: 66\n0 -> 9, weight: 92\n0 -> 10, weight: 226\n1 -> 2, weight: 43\n1 -> 3, weight: 191\n1 -> 4, weight: 132\n1 -> 5, weight: 261\n1 -> 6, weight: 75\n1 -> 7, weight: 220\n1 -> 8, weight: 156\n1 -> 9, weight: 249\n1 -> 10, weight: 92\n1 -> 11, weight: 201\n2 -> 3, weight: 140\n2 -> 4, weight: 52\n2 -> 5, weight: 217\n2 -> 6, weight: 70\n2 -> 7, weight: 132\n2 -> 8, weight: 185\n2 -> 9, weight: 240\n2 -> 10, weight: 107\n2 -> 11, weight: 197\n2 -> 0, weight: 103\n3 -> 4, weight: 17\n3 -> 5, weight: 182\n3 -> 6, weight: 74\n3 -> 7, weight: 180\n3 -> 8, weight: 217\n3 -> 9, weight: 224\n3 -> 10, weight: 148\n3 -> 11, weight: 155\n3 -> 0, weight: 211\n3 -> 1, weight: 108\n4 -> 5, weight: 145\n4 -> 6, weight: 42\n4 -> 7, weight: 13\n4 -> 8, weight: 246\n4 -> 9, weight: 137\n4 -> 10, weight: 243\n4 -> 11, weight: 128\n4 -> 0, weight: 100\n4 -> 1, weight: 198\n4 -> 2, weight: 136\n5 -> 6, weight: 130\n5 -> 7, weight: 249\n5 -> 8, weight: 222\n5 -> 9, weight: 39\n5 -> 10, weight: 141\n5 -> 11, weight: 194\n5 -> 0, weight: 150\n5 -> 1, weight: 64\n5 -> 2, weight: 145\n5 -> 3, weight: 88\n6 -> 7, weight: 229\n6 -> 8, weight: 201\n6 -> 9, weight: 209\n6 -> 10, weight: 259\n6 -> 11, weight: 51\n6 -> 0, weight: 243\n6 -> 1, weight: 204\n6 -> 2, weight: 187\n6 -> 3, weight: 214\n6 -> 4, weight: 101\n7 -> 8, weight: 23\n7 -> 9, weight: 145\n7 -> 10, weight: 202\n7 -> 11, weight: 122\n7 -> 0, weight: 106\n7 -> 1, weight: 130\n7 -> 2, weight: 219\n7 -> 3, weight: 163\n7 -> 4, weight: 35\n7 -> 5, weight: 23\n8 -> 9, weight: 97\n8 -> 10, weight: 91\n8 -> 11, weight: 36\n8 -> 0, weight: 74\n8 -> 1, weight: 213\n8 -> 2, weight: 203\n8 -> 3, weight: 149\n8 -> 4, weight: 226\n8 -> 5, weight: 7\n8 -> 6, weight: 110\n9 -> 10, weight: 215\n9 -> 11, weight: 47\n9 -> 0, weight: 85\n9 -> 1, weight: 125\n9 -> 2, weight: 34\n9 -> 3, weight: 38\n9 -> 4, weight: 159\n9 -> 5, weight: 138\n9 -> 6, weight: 82\n9 -> 7, weight: 178\n10 -> 11, weight: 31\n10 -> 0, weight: 170\n10 -> 1, weight: 223\n10 -> 2, weight: 249\n10 -> 3, weight: 192\n10 -> 4, weight: 2\n10 -> 5, weight: 211\n10 -> 6, weight: 15\n10 -> 7, weight: 153\n10 -> 8, weight: 247\n11 -> 0, weight: 195\n11 -> 1, weight: 204\n11 -> 2, weight: 150\n11 -> 3, weight: 220\n11 -> 4, weight: 116\n11 -> 5, weight: 85\n11 -> 6, weight: 24\n11 -> 7, weight: 93\n11 -> 8, weight: 252\n11 -> 9, weight: 175\n\nFind the top 1 shortest path from node 0 to node 11.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "error": null
+}

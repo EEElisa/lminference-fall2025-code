@@ -1,0 +1,36 @@
+{
+  "batch_id": 74,
+  "batch_size": 2,
+  "scheduled_arrival_time": 870.1442429933494,
+  "actual_send_time": 870.1470816135406,
+  "request_duration": 72.13908171653748,
+  "completion_time": 942.2861998081207,
+  "status_code": 200,
+  "prompt_idxs": [
+    69,
+    138
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 2, 3, 5]], weights=[305])",
+        "prompt": "You are given a directed graph with 6 nodes (numbered 0 to 5) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 148\n0 -> 2, weight: 166\n1 -> 2, weight: 180\n1 -> 3, weight: 177\n2 -> 3, weight: 103\n2 -> 4, weight: 90\n3 -> 4, weight: 1\n3 -> 5, weight: 36\n4 -> 5, weight: 149\n4 -> 0, weight: 99\n5 -> 0, weight: 181\n5 -> 1, weight: 57\n\nFind the top 1 shortest path from node 0 to node 5.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "user\nInstruction: You are given an algorithm or a search query about coding. Look for a code snippet related to the search query.\nQuestion: Python loop\nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nfor i in range(5):\n    print(i)",
+        "prompt": "Instruction: You are given an algorithm or a search query about coding. Look for a code snippet related to the search query.\nQuestion: Python loop\nGeneration:",
+        "index": 1,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 53,
+      "total_tokens": 53
+    }
+  },
+  "error": null
+}

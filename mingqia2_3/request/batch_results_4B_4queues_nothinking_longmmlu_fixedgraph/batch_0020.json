@@ -1,0 +1,64 @@
+{
+  "batch_id": 20,
+  "batch_size": 6,
+  "scheduled_arrival_time": 204.12709400652793,
+  "actual_send_time": 204.13782811164856,
+  "request_duration": 100.55746936798096,
+  "completion_time": 304.69532346725464,
+  "status_code": 200,
+  "prompt_idxs": [
+    85,
+    16,
+    281,
+    184,
+    166,
+    117
+  ],
+  "response": {
+    "choices": [
+      {
+        "text": "submit_paths(paths=[[0, 5, 8, 13]], weights=[131])",
+        "prompt": "You are given a directed graph with 14 nodes (numbered 0 to 13) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 141\n0 -> 2, weight: 94\n0 -> 3, weight: 186\n0 -> 4, weight: 69\n0 -> 5, weight: 37\n0 -> 6, weight: 70\n1 -> 2, weight: 69\n1 -> 3, weight: 142\n1 -> 4, weight: 188\n1 -> 5, weight: 16\n1 -> 6, weight: 157\n1 -> 7, weight: 28\n2 -> 3, weight: 147\n2 -> 4, weight: 19\n2 -> 5, weight: 237\n2 -> 6, weight: 69\n2 -> 7, weight: 19\n2 -> 8, weight: 22\n3 -> 4, weight: 252\n3 -> 5, weight: 129\n3 -> 6, weight: 84\n3 -> 7, weight: 191\n3 -> 8, weight: 157\n3 -> 9, weight: 1\n4 -> 5, weight: 33\n4 -> 6, weight: 210\n4 -> 7, weight: 3\n4 -> 8, weight: 43\n4 -> 9, weight: 128\n4 -> 10, weight: 224\n5 -> 6, weight: 43\n5 -> 7, weight: 209\n5 -> 8, weight: 43\n5 -> 9, weight: 63\n5 -> 10, weight: 188\n5 -> 11, weight: 156\n6 -> 7, weight: 238\n6 -> 8, weight: 25\n6 -> 9, weight: 27\n6 -> 10, weight: 1\n6 -> 11, weight: 158\n6 -> 12, weight: 154\n7 -> 8, weight: 61\n7 -> 9, weight: 189\n7 -> 10, weight: 13\n7 -> 11, weight: 89\n7 -> 12, weight: 217\n7 -> 13, weight: 85\n8 -> 9, weight: 46\n8 -> 10, weight: 232\n8 -> 11, weight: 162\n8 -> 12, weight: 247\n8 -> 13, weight: 51\n8 -> 0, weight: 237\n9 -> 10, weight: 251\n9 -> 11, weight: 28\n9 -> 12, weight: 252\n9 -> 13, weight: 52\n9 -> 0, weight: 174\n9 -> 1, weight: 91\n10 -> 11, weight: 111\n10 -> 12, weight: 83\n10 -> 13, weight: 129\n10 -> 0, weight: 160\n10 -> 1, weight: 243\n10 -> 2, weight: 106\n11 -> 12, weight: 20\n11 -> 13, weight: 221\n11 -> 0, weight: 205\n11 -> 1, weight: 150\n11 -> 2, weight: 227\n11 -> 3, weight: 138\n12 -> 13, weight: 156\n12 -> 0, weight: 8\n12 -> 1, weight: 44\n12 -> 2, weight: 46\n12 -> 3, weight: 60\n12 -> 4, weight: 1\n13 -> 0, weight: 33\n13 -> 1, weight: 12\n13 -> 2, weight: 257\n13 -> 3, weight: 124\n13 -> 4, weight: 171\n13 -> 5, weight: 1\n\nFind the top 1 shortest path from node 0 to node 13.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 0,
+        "finish_reason": "length"
+      },
+      {
+        "text": "submit_paths(paths=[[0, 1, 5, 10]], weights=[125])",
+        "prompt": "You are given a directed graph with 11 nodes (numbered 0 to 10) and the following edges:\n\nEdges (source -> target, weight):\n0 -> 1, weight: 1\n0 -> 2, weight: 675\n0 -> 3, weight: 519\n0 -> 4, weight: 478\n0 -> 5, weight: 244\n0 -> 6, weight: 448\n1 -> 2, weight: 352\n1 -> 3, weight: 145\n1 -> 4, weight: 459\n1 -> 5, weight: 62\n1 -> 6, weight: 64\n1 -> 7, weight: 375\n2 -> 3, weight: 192\n2 -> 4, weight: 506\n2 -> 5, weight: 491\n2 -> 6, weight: 468\n2 -> 7, weight: 40\n2 -> 8, weight: 281\n3 -> 4, weight: 498\n3 -> 5, weight: 198\n3 -> 6, weight: 571\n3 -> 7, weight: 59\n3 -> 8, weight: 677\n3 -> 9, weight: 483\n4 -> 5, weight: 509\n4 -> 6, weight: 222\n4 -> 7, weight: 672\n4 -> 8, weight: 212\n4 -> 9, weight: 430\n4 -> 10, weight: 615\n5 -> 6, weight: 563\n5 -> 7, weight: 261\n5 -> 8, weight: 93\n5 -> 9, weight: 286\n5 -> 10, weight: 62\n5 -> 0, weight: 106\n6 -> 7, weight: 623\n6 -> 8, weight: 308\n6 -> 9, weight: 29\n6 -> 10, weight: 107\n6 -> 0, weight: 41\n6 -> 1, weight: 218\n7 -> 8, weight: 394\n7 -> 9, weight: 497\n7 -> 10, weight: 155\n7 -> 0, weight: 453\n7 -> 1, weight: 362\n7 -> 2, weight: 251\n8 -> 9, weight: 366\n8 -> 10, weight: 391\n8 -> 0, weight: 287\n8 -> 1, weight: 699\n8 -> 2, weight: 358\n8 -> 3, weight: 287\n9 -> 10, weight: 352\n9 -> 0, weight: 32\n9 -> 1, weight: 453\n9 -> 2, weight: 486\n9 -> 3, weight: 456\n9 -> 4, weight: 497\n10 -> 0, weight: 414\n10 -> 1, weight: 667\n10 -> 2, weight: 183\n10 -> 3, weight: 112\n10 -> 4, weight: 562\n10 -> 5, weight: 478\n\nFind the top 1 shortest path from node 0 to node 10.\n\nReturn your answer by calling the submit_paths function with:\n- paths: A list of paths, where each path is a list of node indices\n- weights: A list of corresponding path weights\n\nFor example, if the shortest path is [0, 2, 4] with weight 10, call:\nsubmit_paths(paths=[[0, 2, 4]], weights=[10])\n",
+        "index": 1,
+        "finish_reason": "length"
+      },
+      {
+        "text": "The answer is A",
+        "prompt": "The following is a multiple choice question (with answers) about  college medicine.  Output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: What type of covalent bonds link the amino acids in a protein?\n Options:\nA. Peptide bonds\nB. Hydrogen bonds\nC. Ionic bonds\nD. Glycosidic bonds\nAnswer:",
+        "index": 2,
+        "finish_reason": "length"
+      },
+      {
+        "text": " to Z.\nQuestion: \nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nA long time ago in a galaxy far far away, a dark lord sought to conquer all, but a Jedi knight stood his ground, using a lightsaber to protect the peace, while a rebel group plotted to destroy the evil empire, and a young hero found a hidden power, leading to a battle that changed the fate of the galaxy.",
+        "prompt": "Instruction: Generate a sentence that describes the plot of Star Wars, where each word begins with the end letter of the previous word, and the set of beginning letters of all words in the sentence covers every letter in the alphabet from A to Z.\nQuestion: \nGeneration:",
+        "index": 3,
+        "finish_reason": "length"
+      },
+      {
+        "text": "https://dev.mysql.com/doc/refman/8.0/en/find-duplicate-values.html  \nhttps://www.postgresql.org/docs/current/queries.html#QUERIES-DISTINCT  \nhttps://www.sqlite.org/lang_select.html#distinct  \nhttps://www.sqlservercentral.com/articles/sql-server-2016-find-duplicate-rows-in-a-table  \nhttps://www.techonthenet.com/sql_server/duplicates.php",
+        "prompt": "Instruction: When you're stuck on a coding problem, the best place to look for help is in the documentation. Read the docs carefully and see if there's a section that covers your specific issue. Often, the answer will be right there in front of you. If not, try searching for key terms related to your problem. Come up with the useful links about the given search term.\nQuestion: sql find duplicate values\nGeneration:",
+        "index": 4,
+        "finish_reason": "length"
+      },
+      {
+        "text": " last two lines should rhyme.\nQuestion: \nGeneration:\nProvide a direct, concise answer. Do not show your reasoning or thought process.\nassistant\n<think>\n\n</think>\n\nFair life, thou bright and golden sphere,  \nI love thee more than fleeting cheer.  \nThy breath doth stir the soul\u2019s deep well,  \nAnd kindle hope in every cell.  \nThy joys, though brief, are sweet as spring,  \nAnd sorrow\u2019s shadow never cling.  \nI praise thy grace, thy boundless worth,  \nIn every moment, I am birth.  \nThy beauty shines, both bold and true,  \nIn every breath, I find me new.  \nO life, thou gift of heaven\u2019s hand,  \nI love thee more than heart can stand.",
+        "prompt": "Instruction: Write a fourteen-line poem in the style of William Shakespeare expressing love for life. The rhyme scheme should be ababcdcdefefgg, meaning the first twelve lines should alternate rhyme and the last two lines should rhyme.\nQuestion: \nGeneration:",
+        "index": 5,
+        "finish_reason": "length"
+      }
+    ],
+    "model": "mingqia2-system-3",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 205,
+      "total_tokens": 205
+    }
+  },
+  "error": null
+}
